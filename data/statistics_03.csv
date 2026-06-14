@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+statistics,range,medium,"What is the range of 68, 55, 8, 42, 67?",$68-8=60$.,Range $=\max-\min$.,,,3,15,67,55,70,60
+statistics,z-score,medium,A value equal to the mean has what z-score?,$z=\frac{x-\mu}{\sigma}=0$.,$z=\dfrac{x-\mu}{\sigma}$.,,,1,15,1,0,the mean,-1
+statistics,probability,medium,$P(A)=0.5$ and $P(B)=0.5$ are independent. $P(A\text{ and }B)$?,$0.5\times0.5=0.25$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.35,0.75,0.25,1
+statistics,probability,medium,Probability of NOT rolling a 6 on a fair die?,$1-\frac16=\frac56$.,$P(\text{not }A)=1-P(A)$.,,,2,15,$1$,$\frac{5}{12}$,$\frac{5}{6}$,$\frac{1}{6}$
+statistics,percent,medium,A group of 200 has 32 absent. What percent is absent?,$32/200=16\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,2,15,21%,32%,16%,11%
+statistics,combinatorics,medium,How many ways to choose 2 from 5 (order does not matter)?,"$C(5,2)=10$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,0,15,10,15,11,9
+statistics,probability,medium,$P(A)=0.4$ and $P(B)=0.5$ are independent. $P(A\text{ and }B)$?,$0.4\times0.5=0.2$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,1,15,0.9,0.2,0.3,0.7
+statistics,combinatorics,medium,How many ways to choose 4 from 5 (order does not matter)?,"$C(5,4)=5$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,1,15,4,5,20,6
+statistics,mean,medium,"What is the mean of 5, 2, 12, 13?",$(5+2+12+13)\div4=8$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,8,12,15,7
+statistics,range,medium,"What is the range of 27, 49, 22, 15, 33?",$49-15=34$.,Range $=\max-\min$.,,,2,15,41,39,34,33
+statistics,range,medium,"What is the range of 30, 56, 30, 21, 73?",$73-21=52$.,Range $=\max-\min$.,,,2,15,62,50,52,49
+statistics,combinatorics,medium,How many ways to choose 3 from 7 (order does not matter)?,"$C(7,3)=35$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,0,15,35,34,21,36
+statistics,probability,medium,Probability a card drawn from 52 is a heart?,$13/52=\frac14$.,13 hearts out of 52 cards.,,,2,15,$\frac{2}{5}$,$\frac{1}{8}$,$\frac{1}{4}$,$\frac{1}{5}$
+statistics,combinatorics,medium,How many ways to choose 3 from 6 (order does not matter)?,"$C(6,3)=20$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,3,15,19,21,18,20
+statistics,probability,medium,$P(A)=0.2$ and $P(B)=0.3$ are independent. $P(A\text{ and }B)$?,$0.2\times0.3=0.06$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,0,15,0.06,0.44,0.5,0.16
+statistics,percent,medium,A group of 25 has 4 absent. What percent is absent?,$4/25=16\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,21%,11%,32%,16%
+statistics,probability,medium,A fair coin is flipped twice. Probability of two heads?,$\frac12\times\frac12=\frac14$.,Multiply independent probabilities.,,,2,15,$\frac{1}{5}$,$\frac{1}{2}$,$\frac{1}{4}$,$\frac{2}{5}$
+statistics,combinatorics,medium,How many ways to choose 6 from 7 (order does not matter)?,"$C(7,6)=7$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,2,15,8,6,7,42
+statistics,mean,medium,"What is the mean of 22, 3, 18, 2, 20?",$(22+3+18+2+20)\div5=13$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,23,13,15,17
+statistics,mean,medium,"What is the mean of 27, 21, 19, 21?",$(27+21+19+21)\div4=22$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,25,21,22,19
+statistics,percent,medium,A group of 20 has 1 absent. What percent is absent?,$1/20=5\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,1,15,15%,5%,0%,10%
+statistics,mean,medium,"What is the mean of 10, 5, 14, 1, 5?",$(10+5+14+1+5)\div5=7$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,17,14,2,7
+statistics,combinatorics,medium,How many ways to choose 3 from 5 (order does not matter)?,"$C(5,3)=10$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,3,15,15,11,9,10
+statistics,range,medium,"What is the range of 16, 29, 43, 28, 28?",$43-16=27$.,Range $=\max-\min$.,,,1,15,28,27,24,29
+statistics,probability,medium,$P(A)=0.5$ and $P(B)=0.6$ are independent. $P(A\text{ and }B)$?,$0.5\times0.6=0.3$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,1,15,0.4,0.3,1.1,0.8
+statistics,percent,medium,A group of 25 has 1 absent. What percent is absent?,$1/25=4\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,0,15,4%,9%,-1%,8%
+statistics,range,medium,"What is the range of 21, 58, 26, 38, 79?",$79-21=58$.,Range $=\max-\min$.,,,3,15,61,60,56,58
+statistics,mean,medium,"What is the mean of 9, 21, 14, 31, 40?",$(9+21+14+31+40)\div5=23$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,26,23,28,20
+statistics,percent,medium,A group of 50 has 7 absent. What percent is absent?,$7/50=14\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,9%,28%,19%,14%
+statistics,mean,medium,"What is the mean of 3, 9, 14, 30?",$(3+9+14+30)\div4=14$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,24,17,14,16
+statistics,mean,medium,"What is the mean of 10, 14, 25, 27, 14?",$(10+14+25+27+14)\div5=18$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,19,18,23,17
+statistics,range,medium,"What is the range of 36, 36, 14, 12, 5?",$36-5=31$.,Range $=\max-\min$.,,,1,15,30,31,28,35
+statistics,combinatorics,medium,How many ways to choose 2 from 7 (order does not matter)?,"$C(7,2)=21$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,1,15,14,21,22,20
+statistics,probability,medium,$P(A)=0.5$ and $P(B)=0.3$ are independent. $P(A\text{ and }B)$?,$0.5\times0.3=0.15$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,3,15,0.65,0.25,0.8,0.15
+statistics,range,medium,"What is the range of 30, 73, 20, 12, 58?",$73-12=61$.,Range $=\max-\min$.,,,2,15,60,59,61,56
+statistics,range,medium,"What is the range of 12, 23, 17, 58, 45?",$58-12=46$.,Range $=\max-\min$.,,,0,15,46,48,56,51
+statistics,combinatorics,medium,How many ways to choose 2 from 6 (order does not matter)?,"$C(6,2)=15$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,1,15,14,15,12,16
+statistics,mean,medium,"What is the mean of 28, 2, 11, 17, 2?",$(28+2+11+17+2)\div5=12$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,12,11,22,9
+statistics,probability,medium,$P(A)=0.3$ and $P(B)=0.6$ are independent. $P(A\text{ and }B)$?,$0.3\times0.6=0.18$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.72,0.9,0.18,0.28
+statistics,probability,medium,$P(A)=0.3$ and $P(B)=0.2$ are independent. $P(A\text{ and }B)$?,$0.3\times0.2=0.06$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.44,0.16,0.06,0.5
+statistics,range,medium,"What is the range of 38, 6, 35, 38, 42?",$42-6=36$.,Range $=\max-\min$.,,,2,15,31,35,36,39
+statistics,probability,medium,$P(A)=0.6$ and $P(B)=0.3$ are independent. $P(A\text{ and }B)$?,$0.6\times0.3=0.18$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,0,15,0.18,0.9,0.72,0.28
+statistics,range,medium,"What is the range of 35, 31, 76, 65, 14?",$76-14=62$.,Range $=\max-\min$.,,,2,15,63,57,62,59
+statistics,combinatorics,medium,How many ways to choose 2 from 4 (order does not matter)?,"$C(4,2)=6$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,3,15,7,8,5,6
+statistics,probability,medium,$P(A)=0.5$ and $P(B)=0.2$ are independent. $P(A\text{ and }B)$?,$0.5\times0.2=0.1$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.2,0.6,0.1,0.7
+statistics,mean,medium,"What is the mean of 16, 28, 22, 13, 26?",$(16+28+22+13+26)\div5=21$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,22,21,18,25
+statistics,mean,medium,"What is the mean of 21, 1, 9, 2, 7?",$(21+1+9+2+7)\div5=8$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,10,9,8,18
+statistics,range,medium,"What is the range of 62, 6, 52, 38, 76?",$76-6=70$.,Range $=\max-\min$.,,,0,15,70,75,65,67
+statistics,probability,medium,$P(A)=0.4$ and $P(B)=0.4$ are independent. $P(A\text{ and }B)$?,$0.4\times0.4=0.16$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,1,15,0.8,0.16,0.26,0.64
+statistics,range,medium,"What is the range of 53, 6, 17, 10, 19?",$53-6=47$.,Range $=\max-\min$.,,,2,15,44,46,47,52
+statistics,probability,medium,$P(A)=0.3$ and $P(B)=0.3$ are independent. $P(A\text{ and }B)$?,$0.3\times0.3=0.09$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,3,15,0.51,0.6,0.19,0.09
+statistics,range,medium,"What is the range of 55, 44, 33, 32, 6?",$55-6=49$.,Range $=\max-\min$.,,,0,15,49,59,52,50
+statistics,mean,medium,"What is the mean of 14, 8, 4, 14?",$(14+8+4+14)\div4=10$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,11,10,9,12
+statistics,combinatorics,medium,How many ways to choose 3 from 4 (order does not matter)?,"$C(4,3)=4$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,0,15,4,3,5,12
+statistics,percent,medium,A group of 20 has 4 absent. What percent is absent?,$4/20=20\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,1,15,25%,20%,40%,15%
+statistics,range,medium,"What is the range of 50, 36, 80, 70, 36?",$80-36=44$.,Range $=\max-\min$.,,,2,15,49,45,44,48
+statistics,mean,medium,"What is the mean of 12, 6, 15, 6, 11?",$(12+6+15+6+11)\div5=10$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,9,14,10,11
+statistics,combinatorics,medium,How many ways to choose 5 from 7 (order does not matter)?,"$C(7,5)=21$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,0,15,21,35,22,20
+statistics,percent,medium,A group of 40 has 8 absent. What percent is absent?,$8/40=20\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,2,15,25%,40%,20%,15%
+statistics,mean,medium,"What is the mean of 17, 29, 6, 12?",$(17+29+6+12)\div4=16$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,16,11,21,19
+statistics,mean,medium,"What is the mean of 18, 11, 22, 25, 34?",$(18+11+22+25+34)\div5=22$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,22,32,24,19
+statistics,percent,medium,A group of 50 has 6 absent. What percent is absent?,$6/50=12\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,24%,7%,17%,12%
+statistics,probability,medium,$P(A)=0.5$ and $P(B)=0.4$ are independent. $P(A\text{ and }B)$?,$0.5\times0.4=0.2$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,1,15,0.9,0.2,0.3,0.7
+statistics,range,medium,"What is the range of 77, 43, 5, 55, 27?",$77-5=72$.,Range $=\max-\min$.,,,3,15,75,82,70,72
+statistics,range,medium,"What is the range of 33, 73, 77, 11, 28?",$77-11=66$.,Range $=\max-\min$.,,,0,15,66,70,69,63
+statistics,probability,medium,$P(A)=0.3$ and $P(B)=0.4$ are independent. $P(A\text{ and }B)$?,$0.3\times0.4=0.12$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.58,0.7,0.12,0.22
+statistics,range,medium,"What is the range of 48, 33, 55, 23, 47?",$55-23=32$.,Range $=\max-\min$.,,,0,15,32,37,39,35
+statistics,probability,medium,$P(A)=0.4$ and $P(B)=0.6$ are independent. $P(A\text{ and }B)$?,$0.4\times0.6=0.24$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.76,1,0.24,0.34
+statistics,mean,medium,"What is the mean of 14, 8, 1, 21, 6?",$(14+8+1+21+6)\div5=10$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,12,7,10,17
+statistics,range,medium,"What is the range of 58, 20, 75, 31, 70?",$75-20=55$.,Range $=\max-\min$.,,,1,15,56,55,58,52
+statistics,range,medium,"What is the range of 70, 49, 60, 64, 14?",$70-14=56$.,Range $=\max-\min$.,,,2,15,61,55,56,60
+statistics,probability,medium,$P(A)=0.4$ and $P(B)=0.3$ are independent. $P(A\text{ and }B)$?,$0.4\times0.3=0.12$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.7,0.58,0.12,0.22
+statistics,mean,medium,"What is the mean of 20, 11, 19, 25, 35?",$(20+11+19+25+35)\div5=22$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,22,32,26,19
+statistics,mean,medium,"What is the mean of 5, 24, 15, 9, 7?",$(5+24+15+9+7)\div5=12$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,13,14,12,10
+statistics,mean,medium,"What is the mean of 21, 19, 14, 18?",$(21+19+14+18)\div4=18$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,18,23,16,20
+statistics,percent,medium,A group of 20 has 2 absent. What percent is absent?,$2/20=10\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,20%,15%,5%,10%
+statistics,mean,medium,"What is the mean of 9, 11, 5, 11?",$(9+11+5+11)\div4=9$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,11,19,9,13
+statistics,mean,medium,"What is the mean of 13, 24, 12, 11?",$(13+24+12+11)\div4=15$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,17,22,15,19
+statistics,probability,medium,$P(A)=0.6$ and $P(B)=0.5$ are independent. $P(A\text{ and }B)$?,$0.6\times0.5=0.3$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,2,15,0.4,1.1,0.3,0.8
+statistics,mean,medium,"What is the mean of 13, 11, 22, 18?",$(13+11+22+18)\div4=16$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,23,15,17,16
+statistics,percent,medium,A group of 80 has 8 absent. What percent is absent?,$8/80=10\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,15%,5%,20%,10%
+statistics,range,medium,"What is the range of 8, 20, 79, 52, 29?",$79-8=71$.,Range $=\max-\min$.,,,3,15,73,78,81,71
+statistics,mean,medium,"What is the mean of 1, 26, 6, 15?",$(1+26+6+15)\div4=12$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,10,12,9,22
+statistics,percent,medium,A group of 40 has 2 absent. What percent is absent?,$2/40=5\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,1,15,10%,5%,0%,15%
+statistics,probability,medium,$P(A)=0.3$ and $P(B)=0.5$ are independent. $P(A\text{ and }B)$?,$0.3\times0.5=0.15$.,Independent: $P(A\cap B)=P(A)P(B)$.,,,0,15,0.15,0.8,0.65,0.25
+statistics,combinatorics,medium,How many ways to choose 4 from 6 (order does not matter)?,"$C(6,4)=15$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,3,15,24,14,16,15
+statistics,percent,medium,A group of 50 has 3 absent. What percent is absent?,$3/50=6\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,2,15,12%,1%,6%,11%
+statistics,range,medium,"What is the range of 21, 22, 48, 68, 16?",$68-16=52$.,Range $=\max-\min$.,,,3,15,57,51,54,52
+statistics,range,medium,"What is the range of 75, 51, 39, 71, 53?",$75-39=36$.,Range $=\max-\min$.,,,1,15,35,36,43,34
+statistics,percent,medium,A group of 80 has 20 absent. What percent is absent?,$20/80=25\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,1,15,20%,25%,30%,50%
+statistics,range,medium,"What is the range of 74, 19, 78, 8, 43?",$78-8=70$.,Range $=\max-\min$.,,,0,15,70,71,74,69
+statistics,combinatorics,medium,How many ways to choose 4 from 7 (order does not matter)?,"$C(7,4)=35$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",,,0,15,35,34,28,36
+statistics,mean,medium,"What is the mean of 18, 10, 16, 16?",$(18+10+16+16)\div4=15$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,10,15,17,18
+statistics,range,medium,"What is the range of 24, 62, 78, 51, 36?",$78-24=54$.,Range $=\max-\min$.,,,2,15,59,51,54,57
+statistics,percent,medium,A group of 200 has 44 absent. What percent is absent?,$44/200=22\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,1,15,17%,22%,44%,27%
+statistics,range,medium,"What is the range of 16, 69, 24, 40, 27?",$69-16=53$.,Range $=\max-\min$.,,,2,15,54,57,53,50
+statistics,percent,medium,A group of 20 has 5 absent. What percent is absent?,$5/20=25\%$.,$\%=\dfrac{\text{part}}{\text{whole}}\times100$.,,,3,15,50%,30%,20%,25%
+statistics,mean,medium,"What is the mean of 8, 4, 3, 9?",$(8+4+3+9)\div4=6$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,6,16,3,7
+statistics,range,medium,"What is the range of 58, 29, 57, 66, 9?",$66-9=57$.,Range $=\max-\min$.,,,2,15,67,58,57,61
+statistics,mean,medium,"What is the mean of 26, 23, 2, 5?",$(26+23+2+5)\div4=14$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,14,12,11,24

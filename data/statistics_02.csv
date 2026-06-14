@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+statistics,mean,easy,"What is the mean of 27, 22, 19, 35, 22?",$(27+22+19+35+22)\div5=25$.,,,,0,10,25,24,27,30
+statistics,median,easy,"What is the median of 1, 7, 9, 15?",Average of 7 and 9 is 8.,,,,0,10,8,11,13,9
+statistics,probability,easy,"Rolling a fair die, probability of a 3?",One of six faces: $\frac16$.,,,,1,10,$\frac{1}{7}$,$\frac{1}{6}$,$\frac{2}{7}$,$\frac{1}{3}$
+statistics,probability,easy,Probability of drawing an ace from a 52-card deck?,$4/52=\frac{1}{13}$.,,,,0,10,$\frac{1}{13}$,$\frac{1}{7}$,$\frac{1}{15}$,$\frac{2}{13}$
+statistics,mean,easy,The mean of 4 numbers is 17. What is their total sum?,$17\times4=68$.,,,,1,10,70,68,75,78
+statistics,mean,easy,The mean of 5 numbers is 11. What is their total sum?,$11\times5=55$.,,,,1,10,57,55,52,54
+statistics,mean,easy,"What is the mean of 9, 4, 2?",$(9+4+2)\div3=5$.,,,,1,10,15,5,2,0
+statistics,mode,easy,"What is the mode of 3, 3, 3, 9, 8?",3 appears most often.,,,,3,10,9,7,8,3
+statistics,probability,easy,"Rolling a fair die, probability of a 1?",One of six faces: $\frac16$.,,,,3,10,$\frac{1}{8}$,$\frac{1}{3}$,$\frac{2}{7}$,$\frac{1}{6}$
+statistics,mean,easy,"What is the mean of 17, 8, 8?",$(17+8+8)\div3=11$.,,,,3,10,9,8,18,11
+statistics,mean,easy,"What is the mean of 25, 25, 30, 24, 21?",$(25+25+30+24+21)\div5=25$.,,,,0,10,25,35,27,20
+statistics,median,easy,"What is the median of 4, 7, 15, 17?",Average of 7 and 15 is 11.,,,,3,10,14,15,18,11
+statistics,median,easy,"What is the median of 2, 3, 7, 22?",Average of 3 and 7 is 5.,,,,2,10,2,4,5,3
+statistics,mean,easy,"What is the mean of 16, 9, 17?",$(16+9+17)\div3=14$.,,,,0,10,14,18,19,11
+statistics,mode,easy,"What is the mode of 8, 4, 8, 9, 8?",8 appears most often.,,,,0,10,8,3,4,9
+statistics,median,easy,"What is the median of 4, 5, 10, 18?",Average of 5 and 10 is 7.5.,,,,3,10,11,17,4,7.5
+statistics,mean,easy,The mean of 5 numbers is 10. What is their total sum?,$10\times5=50$.,,,,0,10,50,51,57,52
+statistics,median,easy,"What is the median of 6, 11, 19, 21?",Average of 11 and 19 is 15.,,,,0,10,15,20,19,13
+statistics,percent,easy,What is $\frac{3}{5}$ as a percent?,$\frac{3}{5}=60\%$.,,,,0,10,60%,70%,55%,65%
+statistics,median,easy,"What is the median of 2, 7, 16, 21?",Average of 7 and 16 is 11.5.,,,,2,10,18,10,11.5,15
+statistics,mean,easy,The mean of 6 numbers is 18. What is their total sum?,$18\times6=108$.,,,,2,10,118,106,108,110
+statistics,mean,easy,The mean of 5 numbers is 7. What is their total sum?,$7\times5=35$.,,,,1,10,42,35,37,39
+statistics,mean,easy,"What is the mean of 21, 23, 31, 14, 26?",$(21+23+31+14+26)\div5=23$.,,,,2,10,22,28,23,20
+statistics,mean,easy,"What is the mean of 27, 25, 26, 18?",$(27+25+26+18)\div4=24$.,,,,3,10,31,27,26,24
+statistics,median,easy,"What is the median of 9, 11, 13, 16?",Average of 11 and 13 is 12.,,,,2,10,19,22,12,10
+statistics,mode,easy,"What is the mode of 9, 1, 4, 1, 1?",1 appears most often.,,,,2,10,9,4,1,5
+statistics,median,easy,"What is the median of 9, 15, 17, 26?",Average of 15 and 17 is 16.,,,,3,10,23,20,26,16
+statistics,mean,easy,The mean of 5 numbers is 16. What is their total sum?,$16\times5=80$.,,,,0,10,80,83,84,81
+statistics,mean,easy,The mean of 6 numbers is 14. What is their total sum?,$14\times6=84$.,,,,2,10,82,88,84,83
+statistics,mean,easy,The mean of 6 numbers is 7. What is their total sum?,$7\times6=42$.,,,,2,10,43,46,42,37
+statistics,median,easy,"What is the median of 6, 12, 19, 23?",Average of 12 and 19 is 15.5.,,,,1,10,25,15.5,20,17
+statistics,median,easy,"What is the median of 8, 20, 26, 28?",Average of 20 and 26 is 23.,,,,3,10,30,21,20,23
+statistics,mean,easy,"What is the mean of 32, 14, 21, 11, 27?",$(32+14+21+11+27)\div5=21$.,,,,2,10,22,24,21,19
+statistics,median,easy,"What is the median of 1, 7, 16, 24?",Average of 7 and 16 is 11.5.,,,,2,10,12,6,11.5,15
+statistics,percent,easy,What is $\frac{1}{4}$ as a percent?,$\frac{1}{4}=25\%$.,,,,3,10,20%,30%,35%,25%
+statistics,probability,easy,"Rolling a fair die, probability of a 4?",One of six faces: $\frac16$.,,,,2,10,$\frac{2}{7}$,$\frac{1}{8}$,$\frac{1}{6}$,$\frac{1}{3}$
+statistics,mode,easy,"What is the mode of 7, 7, 5, 7, 7?",7 appears most often.,,,,3,10,2,5,1,7
+statistics,mean,easy,"What is the mean of 30, 25, 18, 20, 17?",$(30+25+18+20+17)\div5=22$.,,,,3,10,19,20,29,22
+statistics,mean,easy,"What is the mean of 9, 25, 2, 12?",$(9+25+2+12)\div4=12$.,,,,2,10,19,13,12,14
+statistics,mean,easy,The mean of 3 numbers is 8. What is their total sum?,$8\times3=24$.,,,,3,10,26,21,34,24
+statistics,mean,easy,"What is the mean of 17, 29, 17?",$(17+29+17)\div3=21$.,,,,1,10,25,21,22,28
+statistics,mean,easy,The mean of 4 numbers is 12. What is their total sum?,$12\times4=48$.,,,,0,10,48,47,51,50
+statistics,mode,easy,"What is the mode of 2, 2, 3, 7, 2?",2 appears most often.,,,,1,10,6,2,7,3
+statistics,median,easy,"What is the median of 4, 7, 9, 10?",Average of 7 and 9 is 8.,,,,1,10,5,8,9,6
+statistics,percent,easy,What is $\frac{2}{5}$ as a percent?,$\frac{2}{5}=40\%$.,,,,3,10,45%,35%,50%,40%
+statistics,mean,easy,The mean of 6 numbers is 15. What is their total sum?,$15\times6=90$.,,,,1,10,89,90,87,92
+statistics,median,easy,"What is the median of 11, 19, 22, 26?",Average of 19 and 22 is 20.5.,,,,0,10,20.5,30,18,21
+statistics,mean,easy,"What is the mean of 26, 13, 8, 17?",$(26+13+8+17)\div4=16$.,,,,1,10,13,16,21,17
+statistics,median,easy,"What is the median of 1, 2, 15, 16?",Average of 2 and 15 is 8.5.,,,,3,10,12,7,11,8.5
+statistics,probability,easy,"Rolling a fair die, probability of a 6?",One of six faces: $\frac16$.,,,,1,10,$\frac{1}{8}$,$\frac{1}{6}$,$\frac{2}{7}$,$\frac{1}{12}$
+statistics,median,easy,"What is the median of 1, 10, 22, 25?",Average of 10 and 22 is 16.,,,,2,10,23,18,16,13
+statistics,median,easy,"What is the median of 1, 7, 10, 16?",Average of 7 and 10 is 8.5.,,,,2,10,5,11,8.5,12
+statistics,mode,easy,"What is the mode of 1, 1, 4, 1, 9?",1 appears most often.,,,,2,10,5,9,1,4
+statistics,mean,easy,"What is the mean of 3, 9, 10, 7, 16?",$(3+9+10+7+16)\div5=9$.,,,,0,10,9,10,19,7
+statistics,percent,easy,What is $\frac{1}{5}$ as a percent?,$\frac{1}{5}=20\%$.,,,,0,10,20%,15%,25%,30%
+statistics,percent,easy,What is $\frac{3}{4}$ as a percent?,$\frac{3}{4}=75\%$.,,,,1,10,80%,75%,85%,70%
+statistics,median,easy,"What is the median of 4, 7, 8, 28?",Average of 7 and 8 is 7.5.,,,,2,10,4,9,7.5,6
+statistics,mode,easy,"What is the mode of 7, 7, 6, 7, 7?",7 appears most often.,,,,1,10,1,7,6,2
+statistics,mean,easy,"What is the mean of 4, 14, 14, 20?",$(4+14+14+20)\div4=13$.,,,,2,10,23,15,13,20
+statistics,mean,easy,The mean of 3 numbers is 20. What is their total sum?,$20\times3=60$.,,,,1,10,64,60,58,57
+statistics,median,easy,"What is the median of 1, 6, 15, 18?",Average of 6 and 15 is 10.5.,,,,0,10,10.5,5,12,8
+statistics,median,easy,"What is the median of 18, 20, 23, 25?",Average of 20 and 23 is 21.5.,,,,0,10,21.5,23,19,16
+statistics,median,easy,"What is the median of 11, 12, 15, 16?",Average of 12 and 15 is 13.5.,,,,3,10,17,11,12,13.5
+statistics,mean,easy,"What is the mean of 6, 1, 14?",$(6+1+14)\div3=7$.,,,,2,10,5,8,7,17
+statistics,median,easy,"What is the median of 2, 8, 11, 21?",Average of 8 and 11 is 9.5.,,,,3,10,8,11,6,9.5
+statistics,median,easy,"What is the median of 6, 10, 15, 20?",Average of 10 and 15 is 12.5.,,,,0,10,12.5,7,22,11
+statistics,mean,easy,"What is the mean of 21, 30, 14, 16, 24?",$(21+30+14+16+24)\div5=21$.,,,,0,10,21,25,24,20
+statistics,median,easy,"What is the median of 4, 6, 9, 12?",Average of 6 and 9 is 7.5.,,,,2,10,4,2,7.5,14
+statistics,mean,easy,"What is the mean of 10, 20, 24, 6?",$(10+20+24+6)\div4=15$.,,,,0,10,15,10,18,13
+statistics,median,easy,"What is the median of 1, 16, 18, 31?",Average of 16 and 18 is 17.,,,,0,10,17,16,20,27
+statistics,mean,easy,The mean of 6 numbers is 6. What is their total sum?,$6\times6=36$.,,,,3,10,46,33,37,36
+statistics,median,easy,"What is the median of 1, 4, 25, 28?",Average of 4 and 25 is 14.5.,,,,0,10,14.5,16,21,11
+statistics,mean,easy,The mean of 3 numbers is 19. What is their total sum?,$19\times3=57$.,,,,0,10,57,56,55,54
+statistics,mean,easy,"What is the mean of 13, 12, 1, 17, 2?",$(13+12+1+17+2)\div5=9$.,,,,1,10,10,9,12,14
+statistics,mode,easy,"What is the mode of 5, 3, 5, 5, 1?",5 appears most often.,,,,0,10,5,9,3,1
+statistics,mean,easy,"What is the mean of 24, 30, 9?",$(24+30+9)\div3=21$.,,,,2,10,22,16,21,24
+statistics,mean,easy,The mean of 3 numbers is 13. What is their total sum?,$13\times3=39$.,,,,2,10,38,44,39,40
+statistics,mean,easy,"What is the mean of 22, 28, 13, 29?",$(22+28+13+29)\div4=23$.,,,,2,10,33,27,23,18
+statistics,mode,easy,"What is the mode of 6, 6, 2, 6, 2?",6 appears most often.,,,,2,10,2,9,6,1
+statistics,mode,easy,"What is the mode of 9, 2, 1, 9, 9?",9 appears most often.,,,,3,10,4,1,2,9
+statistics,probability,easy,"Rolling a fair die, probability of a 5?",One of six faces: $\frac16$.,,,,0,10,$\frac{1}{6}$,$\frac{1}{12}$,$\frac{2}{7}$,$\frac{1}{8}$
+statistics,mean,easy,"What is the mean of 9, 25, 32?",$(9+25+32)\div3=22$.,,,,0,10,22,25,23,21
+statistics,mean,easy,The mean of 6 numbers is 17. What is their total sum?,$17\times6=102$.,,,,1,10,100,102,105,101
+statistics,median,easy,"What is the median of 2, 13, 15, 23?",Average of 13 and 15 is 14.,,,,2,10,9,19,14,18
+statistics,mode,easy,"What is the mode of 1, 6, 8, 8, 8?",8 appears most often.,,,,0,10,8,1,3,6
+statistics,median,easy,"What is the median of 14, 17, 25, 30?",Average of 17 and 25 is 21.,,,,1,10,16,21,18,20
+statistics,median,easy,"What is the median of 18, 23, 28, 35?",Average of 23 and 28 is 25.5.,,,,2,10,28,32,25.5,22
+statistics,mean,easy,"What is the mean of 31, 21, 24, 16?",$(31+21+24+16)\div4=23$.,,,,0,10,23,30,21,18
+statistics,mean,easy,The mean of 3 numbers is 15. What is their total sum?,$15\times3=45$.,,,,3,10,50,43,48,45
+statistics,mean,easy,The mean of 4 numbers is 20. What is their total sum?,$20\times4=80$.,,,,3,10,78,81,79,80
+statistics,median,easy,"What is the median of 5, 8, 15, 16?",Average of 8 and 15 is 11.5.,,,,0,10,11.5,13,12,8
+statistics,mean,easy,The mean of 6 numbers is 16. What is their total sum?,$16\times6=96$.,,,,1,10,100,96,94,106
+statistics,probability,easy,"Rolling a fair die, probability of a 2?",One of six faces: $\frac16$.,,,,2,10,$\frac{1}{12}$,$\frac{1}{3}$,$\frac{1}{6}$,$\frac{2}{7}$
+statistics,mean,easy,The mean of 5 numbers is 6. What is their total sum?,$6\times5=30$.,,,,0,10,30,37,31,32
+statistics,mean,easy,"What is the mean of 24, 9, 3, 12?",$(24+9+3+12)\div4=12$.,,,,1,10,16,12,22,17
+statistics,median,easy,"What is the median of 2, 7, 11, 13?",Average of 7 and 11 is 9.,,,,2,10,8,10,9,16
+statistics,percent,easy,What is $\frac{1}{2}$ as a percent?,$\frac{1}{2}=50\%$.,,,,2,10,55%,45%,50%,60%
+statistics,mean,easy,"What is the mean of 12, 4, 14?",$(12+4+14)\div3=10$.,,,,3,10,11,14,13,10
+statistics,mean,easy,The mean of 3 numbers is 5. What is their total sum?,$5\times3=15$.,,,,2,10,19,14,15,20
+statistics,mean,easy,"What is the mean of 9, 26, 19, 8, 18?",$(9+26+19+8+18)\div5=16$.,,,,2,10,13,14,16,26

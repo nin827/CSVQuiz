@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+math,geometry,hard,"Slope of the line through $(-3,1)$ and $(-1,5)$?",$\frac{5-1}{-1--3}=2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,3,20,5,1,12,2
+math,algebra,hard,Discriminant of $1x^2 + 5x + 3$?,$b^2-4ac=25-12=13$.,Discriminant $=b^2-4ac$.,true,,1,20,10,13,11,8
+math,algebra,hard,Solve $x^2 - 8x + 12 = 0$.,$(x-6)(x-2)=0$.,Factor into $(x-p)(x-q)=0$.,true,,3,20,$x=6$ or $x=4$,$x=-6$ or $x=-2$,$x=7$ or $x=2$,$x=6$ or $x=2$
+math,combinatorics,hard,What is $5!$?,$5!=120$.,$n! = n\times(n-1)\times\cdots\times1$.,true,,0,20,120,115,125,24
+math,functions,hard,"If $f(x)=3x^2 - 2$, find $f(2)$?",$3\times4 - 2 = 10$.,Substitute $x=2$.,true,,3,20,20,0,5,10
+math,functions,hard,"If $f(x)=2x^2 - 5$, find $f(5)$?",$2\times25 - 5 = 45$.,Substitute $x=5$.,true,,0,20,45,50,47,46
+math,logarithms,hard,What is $\log_{10} 1000$?,$10^3=1000$.,$\log_b x = y \iff b^y = x$.,true,,2,20,2,4,3,1
+math,combinatorics,hard,What is $4!$?,$4!=24$.,$n! = n\times(n-1)\times\cdots\times1$.,true,,1,20,28,24,6,20
+math,combinatorics,hard,What is $7!$?,$7!=5040$.,$n! = n\times(n-1)\times\cdots\times1$.,true,,2,20,720,5033,5040,5047
+math,combinatorics,hard,"What is $C(7,2)$?","$C(7,2)=21$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,0,20,21,14,20,22
+math,sequences,hard,The 10th term of an arithmetic sequence with first term 5 and common difference 6?,$a_{10}=5+9\times6=59$.,$a_n = a_1 + (n-1)d$.,true,,2,20,62,66,59,49
+math,combinatorics,hard,What is $6!$?,$6!=720$.,$n! = n\times(n-1)\times\cdots\times1$.,true,,3,20,714,120,726,720
+math,functions,hard,"If $f(x)=2x^2 - 4$, find $f(4)$?",$2\times16 - 4 = 28$.,Substitute $x=4$.,true,,3,20,18,29,23,28
+math,functions,hard,"If $f(x)=3x^2 - 1$, find $f(5)$?",$3\times25 - 1 = 74$.,Substitute $x=5$.,true,,2,20,64,77,74,73
+math,functions,hard,"If $f(x)=3x^2 - 4$, find $f(2)$?",$3\times4 - 4 = 8$.,Substitute $x=2$.,true,,2,20,13,18,8,7
+math,functions,hard,"If $f(x)=4x^2 - 3$, find $f(2)$?",$4\times4 - 3 = 13$.,Substitute $x=2$.,true,,2,20,10,17,13,16
+math,sequences,hard,The 13th term of an arithmetic sequence with first term 6 and common difference 5?,$a_{13}=6+12\times5=66$.,$a_n = a_1 + (n-1)d$.,true,,0,20,66,64,61,71
+math,algebra,hard,Discriminant of $2x^2 + 7x + 2$?,$b^2-4ac=49-16=33$.,Discriminant $=b^2-4ac$.,true,,1,20,34,33,43,31
+math,geometry,hard,"Slope of the line through $(4,3)$ and $(6,9)$?",$\frac{9-3}{6-4}=3$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,1,20,10,3,2,0
+math,algebra,hard,Discriminant of $1x^2 + 6x + 2$?,$b^2-4ac=36-8=28$.,Discriminant $=b^2-4ac$.,true,,0,20,28,31,38,35
+math,algebra,hard,Solve $x^2 - 14x + 49 = 0$.,$(x-7)(x-7)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=-7$ or $x=-7$,$x=8$ or $x=7$,$x=7$ (double root),$x=7$ or $x=9$
+math,algebra,hard,Solve $x^2 - 4x + 3 = 0$.,$(x-1)(x-3)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=-1$ or $x=-3$,$x=2$ or $x=3$,$x=1$ or $x=3$,$x=1$ or $x=5$
+math,algebra,hard,Discriminant of $2x^2 + 5x + 1$?,$b^2-4ac=25-8=17$.,Discriminant $=b^2-4ac$.,true,,3,20,24,19,16,17
+math,combinatorics,hard,"What is $C(5,2)$?","$C(5,2)=10$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,0,20,10,11,9,15
+math,algebra,hard,Discriminant of $1x^2 + 7x + 3$?,$b^2-4ac=49-12=37$.,Discriminant $=b^2-4ac$.,true,,1,20,42,37,35,36
+math,combinatorics,hard,"What is $C(6,5)$?","$C(6,5)=6$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,0,20,6,7,5,30
+math,geometry,hard,"Slope of the line through $(-3,-4)$ and $(-1,-6)$?",$\frac{-6--4}{-1--3}=-1$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,1,2,-1,-2
+math,combinatorics,hard,"What is $C(5,3)$?","$C(5,3)=10$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,9,11,10,15
+math,functions,hard,"If $f(x)=2x^2 - 3$, find $f(3)$?",$2\times9 - 3 = 15$.,Substitute $x=3$.,true,,2,20,13,18,15,20
+math,algebra,hard,Discriminant of $3x^2 + 2x + 4$?,$b^2-4ac=4-48=-44$.,Discriminant $=b^2-4ac$.,true,,0,20,-44,-41,-46,-45
+math,algebra,hard,Solve $x^2 - 8x + 15 = 0$.,$(x-5)(x-3)=0$.,Factor into $(x-p)(x-q)=0$.,true,,1,20,$x=6$ or $x=3$,$x=5$ or $x=3$,$x=5$ or $x=5$,$x=-5$ or $x=-3$
+math,algebra,hard,Solve $x^2 - 11x + 28 = 0$.,$(x-4)(x-7)=0$.,Factor into $(x-p)(x-q)=0$.,true,,1,20,$x=5$ or $x=7$,$x=4$ or $x=7$,$x=-4$ or $x=-7$,$x=4$ or $x=9$
+math,geometry,hard,"Slope of the line through $(4,1)$ and $(5,-3)$?",$\frac{-3-1}{5-4}=-4$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,-5,-6,-4,-9
+math,geometry,hard,"Slope of the line through $(1,4)$ and $(4,10)$?",$\frac{10-4}{4-1}=2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,0,20,2,5,3,9
+math,combinatorics,hard,"What is $C(8,5)$?","$C(8,5)=56$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,55,56,57,40
+math,algebra,hard,Solve $x^2 - 3x + 2 = 0$.,$(x-2)(x-1)=0$.,Factor into $(x-p)(x-q)=0$.,true,,0,20,$x=2$ or $x=1$,$x=-2$ or $x=-1$,$x=3$ or $x=1$,$x=2$ or $x=3$
+math,algebra,hard,Solve $x^2 - 7x + 10 = 0$.,$(x-5)(x-2)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=6$ or $x=2$,$x=-5$ or $x=-2$,$x=5$ or $x=2$,$x=5$ or $x=4$
+math,functions,hard,"If $f(x)=2x^2 - 5$, find $f(2)$?",$2\times4 - 5 = 3$.,Substitute $x=2$.,true,,2,20,2,13,3,7
+math,functions,hard,"If $f(x)=3x^2 - 6$, find $f(2)$?",$3\times4 - 6 = 6$.,Substitute $x=2$.,true,,1,20,8,6,9,3
+math,logarithms,hard,What is $\log_{3} 27$?,$3^3=27$.,$\log_b x = y \iff b^y = x$.,true,,0,20,3,1,5,10
+math,geometry,hard,"Slope of the line through $(3,-5)$ and $(6,4)$?",$\frac{4--5}{6-3}=3$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,0,20,3,10,4,-7
+math,functions,hard,"If $f(x)=4x^2 - 2$, find $f(3)$?",$4\times9 - 2 = 34$.,Substitute $x=3$.,true,,2,20,44,36,34,33
+math,functions,hard,"If $f(x)=2x^2 - 6$, find $f(3)$?",$2\times9 - 6 = 12$.,Substitute $x=3$.,true,,2,20,7,2,12,11
+math,geometry,hard,"Slope of the line through $(4,0)$ and $(7,12)$?",$\frac{12-0}{7-4}=4$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,11,9,4,7
+math,functions,hard,"If $f(x)=2x^2 - 1$, find $f(3)$?",$2\times9 - 1 = 17$.,Substitute $x=3$.,true,,1,20,19,17,14,27
+math,sequences,hard,The 15th term of an arithmetic sequence with first term 2 and common difference 5?,$a_{15}=2+14\times5=72$.,$a_n = a_1 + (n-1)d$.,true,,0,20,72,76,79,77
+math,sequences,hard,The 11th term of an arithmetic sequence with first term 6 and common difference 6?,$a_{11}=6+10\times6=66$.,$a_n = a_1 + (n-1)d$.,true,,3,20,71,73,61,66
+math,logarithms,hard,What is $\log_{10} 100$?,$10^2=100$.,$\log_b x = y \iff b^y = x$.,true,,2,20,4,12,2,3
+math,sequences,hard,The 12th term of an arithmetic sequence with first term 2 and common difference 4?,$a_{12}=2+11\times4=46$.,$a_n = a_1 + (n-1)d$.,true,,3,20,45,48,51,46
+math,geometry,hard,"Slope of the line through $(-2,-3)$ and $(0,-9)$?",$\frac{-9--3}{0--2}=-3$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,3,20,-2,1,-4,-3
+math,geometry,hard,"Slope of the line through $(2,4)$ and $(7,9)$?",$\frac{9-4}{7-2}=1$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,3,20,4,0,6,1
+math,logarithms,hard,What is $\log_{10} 10000$?,$10^4=10000$.,$\log_b x = y \iff b^y = x$.,true,,2,20,9,8,4,11
+math,combinatorics,hard,"What is $C(7,3)$?","$C(7,3)=35$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,3,20,36,21,34,35
+math,sequences,hard,The 8th term of an arithmetic sequence with first term 9 and common difference 3?,$a_{8}=9+7\times3=30$.,$a_n = a_1 + (n-1)d$.,true,,3,20,33,28,27,30
+math,sequences,hard,The 8th term of an arithmetic sequence with first term 7 and common difference 6?,$a_{8}=7+7\times6=49$.,$a_n = a_1 + (n-1)d$.,true,,0,20,49,59,54,47
+math,functions,hard,"If $f(x)=4x^2 - 3$, find $f(3)$?",$4\times9 - 3 = 33$.,Substitute $x=3$.,true,,2,20,23,35,33,28
+math,algebra,hard,Solve $x^2 - 8x + 7 = 0$.,$(x-7)(x-1)=0$.,Factor into $(x-p)(x-q)=0$.,true,,1,20,$x=7$ or $x=3$,$x=7$ or $x=1$,$x=8$ or $x=1$,$x=-7$ or $x=-1$
+math,algebra,hard,Discriminant of $1x^2 + 1x + 4$?,$b^2-4ac=1-16=-15$.,Discriminant $=b^2-4ac$.,true,,0,20,-15,-14,-17,-5
+math,logarithms,hard,What is $\log_{10} 100000$?,$10^5=100000$.,$\log_b x = y \iff b^y = x$.,true,,0,20,5,10,9,12
+math,algebra,hard,Discriminant of $1x^2 + 3x + 5$?,$b^2-4ac=9-20=-11$.,Discriminant $=b^2-4ac$.,true,,0,20,-11,-8,-16,-14
+math,sequences,hard,The 8th term of an arithmetic sequence with first term 3 and common difference 4?,$a_{8}=3+7\times4=31$.,$a_n = a_1 + (n-1)d$.,true,,2,20,41,33,31,29
+math,functions,hard,"If $f(x)=3x^2 - 1$, find $f(3)$?",$3\times9 - 1 = 26$.,Substitute $x=3$.,true,,3,20,30,21,23,26
+math,combinatorics,hard,"What is $C(7,4)$?","$C(7,4)=35$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,0,20,35,28,36,34
+math,algebra,hard,Solve $x^2 - 7x + 12 = 0$.,$(x-4)(x-3)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=-4$ or $x=-3$,$x=4$ or $x=5$,$x=4$ or $x=3$,$x=5$ or $x=3$
+math,geometry,hard,"Slope of the line through $(4,-2)$ and $(6,-6)$?",$\frac{-6--2}{6-4}=-2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,1,-1,-2,3
+math,geometry,hard,"Slope of the line through $(-1,1)$ and $(0,3)$?",$\frac{3-1}{0--1}=2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,-8,-1,2,9
+math,sequences,hard,The 8th term of an arithmetic sequence with first term 2 and common difference 6?,$a_{8}=2+7\times6=44$.,$a_n = a_1 + (n-1)d$.,true,,0,20,44,46,54,43
+math,algebra,hard,Discriminant of $1x^2 + 1x + 5$?,$b^2-4ac=1-20=-19$.,Discriminant $=b^2-4ac$.,true,,2,20,-12,-17,-19,-14
+math,algebra,hard,Discriminant of $3x^2 + 4x + 3$?,$b^2-4ac=16-36=-20$.,Discriminant $=b^2-4ac$.,true,,1,20,-16,-20,-19,-23
+math,functions,hard,"If $f(x)=4x^2 - 5$, find $f(3)$?",$4\times9 - 5 = 31$.,Substitute $x=3$.,true,,3,20,21,32,28,31
+math,sequences,hard,The 9th term of an arithmetic sequence with first term 8 and common difference 6?,$a_{9}=8+8\times6=56$.,$a_n = a_1 + (n-1)d$.,true,,1,20,51,56,46,57
+math,algebra,hard,Solve $x^2 - 4x + 4 = 0$.,$(x-2)(x-2)=0$.,Factor into $(x-p)(x-q)=0$.,true,,3,20,$x=3$ or $x=2$,$x=2$ or $x=4$,$x=-2$ or $x=-2$,$x=2$ (double root)
+math,algebra,hard,Discriminant of $3x^2 + 4x + 4$?,$b^2-4ac=16-48=-32$.,Discriminant $=b^2-4ac$.,true,,1,20,-33,-32,-35,-27
+math,functions,hard,"If $f(x)=3x^2 - 3$, find $f(5)$?",$3\times25 - 3 = 72$.,Substitute $x=5$.,true,,0,20,72,67,62,77
+math,logarithms,hard,What is $\log_{2} 32$?,$2^5=32$.,$\log_b x = y \iff b^y = x$.,true,,1,20,9,5,6,0
+math,sequences,hard,The 7th term of an arithmetic sequence with first term 5 and common difference 6?,$a_{7}=5+6\times6=41$.,$a_n = a_1 + (n-1)d$.,true,,3,20,44,48,38,41
+math,geometry,hard,"Slope of the line through $(-2,5)$ and $(3,20)$?",$\frac{20-5}{3--2}=3$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,1,20,0,3,2,6
+math,combinatorics,hard,"What is $C(8,4)$?","$C(8,4)=70$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,71,69,70,32
+math,algebra,hard,Solve $x^2 - 9x + 20 = 0$.,$(x-5)(x-4)=0$.,Factor into $(x-p)(x-q)=0$.,true,,0,20,$x=5$ or $x=4$,$x=-5$ or $x=-4$,$x=5$ or $x=6$,$x=6$ or $x=4$
+math,logarithms,hard,What is $\log_{3} 243$?,$3^5=243$.,$\log_b x = y \iff b^y = x$.,true,,1,20,7,5,3,15
+math,algebra,hard,Discriminant of $3x^2 + 6x + 1$?,$b^2-4ac=36-12=24$.,Discriminant $=b^2-4ac$.,true,,3,20,22,19,31,24
+math,algebra,hard,Solve $x^2 - 9x + 14 = 0$.,$(x-2)(x-7)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=3$ or $x=7$,$x=2$ or $x=9$,$x=2$ or $x=7$,$x=-2$ or $x=-7$
+math,sequences,hard,The 10th term of an arithmetic sequence with first term 4 and common difference 3?,$a_{10}=4+9\times3=31$.,$a_n = a_1 + (n-1)d$.,true,,3,20,26,34,35,31
+math,sequences,hard,The 7th term of an arithmetic sequence with first term 5 and common difference 3?,$a_{7}=5+6\times3=23$.,$a_n = a_1 + (n-1)d$.,true,,2,20,13,21,23,24
+math,algebra,hard,Discriminant of $1x^2 + 7x + 2$?,$b^2-4ac=49-8=41$.,Discriminant $=b^2-4ac$.,true,,0,20,41,51,40,45
+math,combinatorics,hard,"What is $C(4,2)$?","$C(4,2)=6$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,5,7,6,8
+math,sequences,hard,The 11th term of an arithmetic sequence with first term 9 and common difference 2?,$a_{11}=9+10\times2=29$.,$a_n = a_1 + (n-1)d$.,true,,2,20,31,33,29,36
+math,functions,hard,"If $f(x)=2x^2 - 2$, find $f(3)$?",$2\times9 - 2 = 16$.,Substitute $x=3$.,true,,1,20,17,16,6,13
+math,algebra,hard,Solve $x^2 - 12x + 35 = 0$.,$(x-7)(x-5)=0$.,Factor into $(x-p)(x-q)=0$.,true,,2,20,$x=8$ or $x=5$,$x=7$ or $x=7$,$x=7$ or $x=5$,$x=-7$ or $x=-5$
+math,algebra,hard,Discriminant of $2x^2 + 6x + 2$?,$b^2-4ac=36-16=20$.,Discriminant $=b^2-4ac$.,true,,3,20,10,30,22,20
+math,geometry,hard,"Slope of the line through $(4,2)$ and $(6,-2)$?",$\frac{-2-2}{6-4}=-2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,0,20,-2,8,-12,-7
+math,functions,hard,"If $f(x)=4x^2 - 6$, find $f(5)$?",$4\times25 - 6 = 94$.,Substitute $x=5$.,true,,2,20,84,98,94,89
+math,sequences,hard,The 15th term of an arithmetic sequence with first term 3 and common difference 6?,$a_{15}=3+14\times6=87$.,$a_n = a_1 + (n-1)d$.,true,,2,20,84,86,87,85
+math,geometry,hard,"Slope of the line through $(4,5)$ and $(6,9)$?",$\frac{9-5}{6-4}=2$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,3,20,1,0,5,2
+math,geometry,hard,"Slope of the line through $(2,-3)$ and $(6,-19)$?",$\frac{-19--3}{6-2}=-4$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,3,20,-14,0,6,-4
+math,combinatorics,hard,"What is $C(5,4)$?","$C(5,4)=5$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,0,20,5,6,20,4
+math,functions,hard,"If $f(x)=2x^2 - 6$, find $f(4)$?",$2\times16 - 6 = 26$.,Substitute $x=4$.,true,,0,20,26,24,28,31
+math,algebra,hard,Solve $x^2 - 2x + 1 = 0$.,$(x-1)(x-1)=0$.,Factor into $(x-p)(x-q)=0$.,true,,0,20,$x=1$ (double root),$x=2$ or $x=1$,$x=1$ or $x=3$,$x=-1$ or $x=-1$
+math,logarithms,hard,What is $\log_{2} 16$?,$2^4=16$.,$\log_b x = y \iff b^y = x$.,true,,2,20,1,14,4,5
+math,geometry,hard,"Slope of the line through $(-1,5)$ and $(0,10)$?",$\frac{10-5}{0--1}=5$.,Slope $=\dfrac{y_2-y_1}{x_2-x_1}$.,true,,2,20,3,9,5,0

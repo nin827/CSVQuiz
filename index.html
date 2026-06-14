@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Quiz</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+</head>
+<body>
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">CSV-powered practice quiz application</h2>
+
+<!-- HOME -->
+<section id="s-upload" class="active">
+  <h1 data-i18n="app_title">Practice quiz</h1>
+  <p class="sub" data-i18n="upload_sub">Load a CSV to get started. Questions are shuffled every session.</p>
+
+  <div class="home-options">
+    <button class="home-btn" id="btnUseBuiltin" disabled>
+      <i class="ti ti-books" aria-hidden="true"></i>
+      <span class="home-title" data-i18n="home_builtin_title">Use premade quiz</span>
+      <span class="home-desc" id="builtinDesc" data-i18n="home_builtin_desc">Pick from ready-made question sets</span>
+    </button>
+    <button class="home-btn" id="btnUseCustom">
+      <i class="ti ti-file-upload" aria-hidden="true"></i>
+      <span class="home-title" data-i18n="home_custom_title">Load your own CSV</span>
+      <span class="home-desc" data-i18n="home_custom_desc">Upload a CSV of your own questions</span>
+    </button>
+  </div>
+  <button id="btnDebug" class="debug-link" style="display:none" data-i18n="debug_button">debug</button>
+</section>
+
+<!-- DEBUG / VERIFY (local only) -->
+<section id="s-debug">
+  <div class="row" style="margin-bottom:.25rem">
+    <h1 data-i18n="debug_title">Verify questions</h1>
+    <button class="btn" id="btnDebugExit" data-i18n="debug_exit" style="font-size:13px;padding:.35rem .8rem">Exit</button>
+  </div>
+  <p class="sub" id="debugRemaining"></p>
+  <div class="meta" id="dbgMeta"></div>
+  <div class="card">
+    <div class="question" id="dbgText"></div>
+    <div class="hint-box" id="dbgHint" style="display:none"></div>
+    <div class="choices" id="dbgChoices"></div>
+    <div class="feedback correct" id="dbgExpl" style="display:block"></div>
+    <div class="row">
+      <button class="btn" id="btnDbgSkip" data-i18n="debug_skip">Skip</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn danger" id="btnDbgVoid" data-i18n="debug_void">Void &amp; next</button>
+        <button class="btn primary" id="btnDbgVerify" data-i18n="debug_verify">Verify &amp; next</button>
+      </div>
+    </div>
+    <div id="dbgError" style="display:none;color:#993C1D;font-size:13px;margin-top:.5rem"></div>
+  </div>
+</section>
+
+<!-- CUSTOM UPLOAD -->
+<section id="s-custom">
+  <h1 data-i18n="home_custom_title">Load your own CSV</h1>
+  <p class="sub" data-i18n="upload_sub">Load a CSV to get started. Questions are shuffled every session.</p>
+
+  <div class="upload-area" id="dropZone">
+    <i class="ti ti-file-spreadsheet" aria-hidden="true"></i>
+    <p data-i18n="drop_hint">Drop your CSV here or click to browse</p>
+    <small data-i18n="columns_hint">Columns: domain, subdomain, difficulty, description, explanation, correct, point, choice0 ... choice9</small>
+    <input type="file" id="fileInput" accept=".csv">
+  </div>
+  <div style="text-align:center;margin-top:.5rem">
+    <button class="sample-btn" id="loadSample" data-i18n="load_sample">Load sample CSV to try it out</button>
+  </div>
+  <div id="parseError" style="margin-top:1rem;color:#993C1D;font-size:14px;display:none"></div>
+  <div class="row" style="margin-top:1rem">
+    <button class="btn" id="btnCustomBack" data-i18n="back">Back</button>
+    <button class="btn" id="btnShowHelp" data-i18n="help_link">How should my CSV look?</button>
+  </div>
+</section>
+
+<!-- HELP / CSV FORMAT -->
+<section id="s-help">
+  <h1 data-i18n="help_title">How to format your CSV</h1>
+  <p class="sub" data-i18n="help_intro">Each row is one question. Only domain, description, correct and choice0 are required.</p>
+  <div class="card">
+    <table class="help-table">
+      <thead><tr><th data-i18n="help_col_header">Column</th><th data-i18n="help_meaning_header">Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><code>domain</code></td><td data-i18n="help_domain">Top-level category (used for filtering and the score breakdown)</td></tr>
+        <tr><td><code>subdomain</code></td><td data-i18n="help_subdomain">Optional finer category, shown as a badge</td></tr>
+        <tr><td><code>difficulty</code></td><td data-i18n="help_difficulty">beginner / easy / medium / hard / expert</td></tr>
+        <tr><td><code>description</code></td><td data-i18n="help_description">The question text</td></tr>
+        <tr><td><code>explanation</code></td><td data-i18n="help_explanation">Shown in feedback after answering</td></tr>
+        <tr><td><code>hint</code></td><td data-i18n="help_hint">Optional hint or formula reminder; a 'Show hint' button appears</td></tr>
+        <tr><td><code>calculator</code></td><td data-i18n="help_calculator">Set to 'true' to show a calculator on the question (+ - * / ^ ( ), log, ln, e, pi)</td></tr>
+        <tr><td><code>correct</code></td><td data-i18n="help_correct">Index(es) of the correct choice(s), e.g. 0 or 013 for multi-answer</td></tr>
+        <tr><td><code>point</code></td><td data-i18n="help_point">Points for a fully-correct answer (default 10)</td></tr>
+        <tr><td><code>choice0..9</code></td><td data-i18n="help_choices">Answer choices choice0 ... choice9 (at least two)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:.5rem" data-i18n="help_multi_note">A correct value with more than one digit (like 013) becomes a "select all that apply" question.</p>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="help_latex_note">Wrap math in dollar signs to typeset it, e.g. $\frac{1}{2}$ or $x^2$.</p>
+    <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.4rem" data-i18n="help_example_heading">Example</div>
+    <pre class="help-pre">domain,subdomain,difficulty,description,explanation,hint,correct,point,choice0,choice1,choice2,choice3
+math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,5,8,10</pre>
+  </div>
+  <div class="row">
+    <button class="btn" id="btnHelpBack" data-i18n="back">Back</button>
+    <div></div>
+  </div>
+</section>
+
+<!-- CONFIG -->
+<section id="s-config">
+  <h1 data-i18n="config_title">Configure quiz</h1>
+  <p class="sub" id="cfgSub"></p>
+
+  <div class="card" id="quizPickCard">
+    <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="catalog_heading">Choose a quiz</div>
+    <div class="catalog" id="catalog"></div>
+  </div>
+
+  <div class="mode-tabs">
+    <div class="mode-tab active" data-mode="standard" id="tab-standard" data-i18n="mode_standard">Standard</div>
+    <div class="mode-tab" data-mode="survival" id="tab-survival" data-i18n="mode_survival">Survival</div>
+  </div>
+
+  <div id="standard-opts">
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="standard_mode_label">Standard mode</div>
+      <div class="config-grid">
+        <div class="config-field">
+          <label data-i18n="num_questions">Number of questions</label>
+          <input type="number" id="cfgCount" min="1" value="10">
+        </div>
+        <div class="config-field">
+          <label data-i18n="time_limit_min">Time limit (minutes)</label>
+          <input type="number" id="cfgTime" min="1" value="10">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="survival-opts" style="display:none">
+    <div class="card">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="survival_mode_label">Survival mode — goes until questions run out or limit is hit</div>
+      <div class="radio-row">
+        <label><input type="radio" name="survType" value="lives" checked> <span data-i18n="surv_lives">Lives</span></label>
+        <label><input type="radio" name="survType" value="time"> <span data-i18n="surv_time">Time</span></label>
+      </div>
+      <div class="surv-opts">
+        <div class="config-field" id="survLivesField">
+          <label data-i18n="starting_lives">Starting lives</label>
+          <input type="number" id="cfgLives" min="1" value="5">
+        </div>
+        <div class="config-field" id="survTimeField" style="display:none">
+          <label data-i18n="time_limit_min">Time limit (minutes)</label>
+          <input type="number" id="cfgSurvTime" min="1" value="5">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="difficulty">Difficulty</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap" id="diffBtns">
+      <button class="btn active" data-diff="beginner" data-i18n="diff_beginner" style="font-size:13px;padding:.35rem .9rem;background:#E1F5EE;border-color:#0F6E56;color:#085041">Beginner</button>
+      <button class="btn active" data-diff="easy" data-i18n="diff_easy" style="font-size:13px;padding:.35rem .9rem;background:#EAF3DE;border-color:#3B6D11;color:#27500A">Easy</button>
+      <button class="btn" data-diff="medium" data-i18n="diff_medium" style="font-size:13px;padding:.35rem .9rem">Medium</button>
+      <button class="btn" data-diff="hard" data-i18n="diff_hard" style="font-size:13px;padding:.35rem .9rem">Hard</button>
+      <button class="btn" data-diff="expert" data-i18n="diff_expert" style="font-size:13px;padding:.35rem .9rem">Expert</button>
+    </div>
+  </div>
+
+  <div id="cfgWarning" style="font-size:13px;color:#993C1D;margin-bottom:.75rem;display:none"></div>
+  <div class="row">
+    <button class="btn" id="btnBackToUpload" data-i18n="load_different">← Load different file</button>
+    <button class="btn primary" id="btnStartQuiz" data-i18n="start_quiz">Start quiz</button>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="s-quiz">
+  <div class="hud" id="hud"></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="meta" id="qMeta"></div>
+  <div class="card">
+    <div class="row" style="margin-bottom:1rem">
+      <span class="qcount" id="qCount"></span>
+      <button class="btn" id="btnQuit" data-i18n="quit" style="font-size:13px;padding:.35rem .8rem">Quit</button>
+    </div>
+    <div class="question" id="qText"></div>
+    <div class="multi-hint" id="multiHint" data-i18n="multi_hint" style="display:none">Select all that apply</div>
+    <button class="hint-toggle" id="btnHint" style="display:none"><i class="ti ti-bulb" aria-hidden="true"></i> <span data-i18n="show_hint">Show hint</span></button>
+    <div class="hint-box" id="hintBox" style="display:none"></div>
+    <div class="choices" id="choices"></div>
+    <div class="calc-box" id="calcBox" style="display:none">
+      <div class="calc-label"><i class="ti ti-calculator" aria-hidden="true"></i> <span data-i18n="calc_label">Calculator</span></div>
+      <input class="calc-input" id="calcInput" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="calc_placeholder" placeholder="e.g. (2 + 3) * 4^2">
+      <div class="calc-result" id="calcResult"></div>
+      <div class="calc-help" data-i18n="calc_help">Supports + - * / ^ ( ) and log, ln, e, pi</div>
+    </div>
+    <div class="feedback" id="feedback"></div>
+    <div class="row">
+      <div></div>
+      <button class="btn primary" id="btnSubmit" data-i18n="check_answer" disabled>Check answer</button>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="s-summary">
+  <h1 id="summaryTitle">Quiz complete</h1>
+  <p class="sub" id="summaryDate"></p>
+  <div class="card">
+    <div class="summary-score" id="finalScore"></div>
+    <div class="summary-label" id="finalLabel"></div>
+    <div id="domainBreakdown"></div>
+  </div>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <button class="btn primary" id="btnPlayAgain" data-i18n="play_again">Play again (reshuffled)</button>
+    <button class="btn" id="btnReconfigure" data-i18n="change_settings">Change settings</button>
+    <button class="btn" id="btnNewFile" data-i18n="load_new_csv">Load new CSV</button>
+  </div>
+</section>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="vendor/katex/contrib/auto-render.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.1$. The expected number of successes?,$np=20\times0.1=2$.,Binomial mean $=np$.,true,,2,30,1.8,4,2,1
+statistics,correlation,expert,A correlation coefficient of $-1$ indicates?,A perfect negative (downward) linear relationship.,$r=-1$ is a perfect downward line.,true,,2,30,A weak relationship,Perfect positive relationship,Perfect negative linear relationship,No relationship
+statistics,normal,expert,"If $X\sim N(0,1)$, then $P(X<0)$ equals?","By symmetry about 0, it is 0.5.",Standard normal is symmetric about 0.,true,,3,30,0,1,0.68,0.5
+statistics,inference,expert,Degrees of freedom for a sample variance of 70 observations?,$n-1=69$.,Lose one df estimating the mean.,true,,1,30,74,69,76,73
+statistics,standard error,expert,A sample of size 36 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{36}}=3.33$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,6.67,0.56,20,3.33
+statistics,standard error,expert,A sample of size 9 has population sd 12. The standard error of the mean?,$SE=\frac{12}{\sqrt{9}}=4$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,8,4,1.33,12
+statistics,expected value,expert,For a fair die $E[X]=3.5$. $\text{Var}(X)$ is closest to?,$\frac{91}{6}-3.5^2\approx2.92$.,$\text{Var}=E[X^2]-(E[X])^2$.,true,,2,30,6,3.5,2.92,1.71
+statistics,inference,expert,Degrees of freedom for a sample variance of 49 observations?,$n-1=48$.,Lose one df estimating the mean.,true,,1,30,46,48,52,53
+statistics,inference,expert,Degrees of freedom for a sample variance of 20 observations?,$n-1=19$.,Lose one df estimating the mean.,true,,3,30,26,24,20,19
+statistics,hypothesis,expert,"If the p-value is less than $\alpha$, you should?",A small p-value leads you to reject $H_0$.,Small p-value rejects $H_0$.,true,,3,30,Fail to reject the null,Increase $\alpha$,Accept the null as true,Reject the null hypothesis
+statistics,inference,expert,Degrees of freedom for a sample variance of 28 observations?,$n-1=27$.,Lose one df estimating the mean.,true,,2,30,28,24,27,34
+statistics,poisson,expert,A Poisson distribution has rate $\lambda=7$. Its variance equals?,"For a Poisson, variance $=\lambda=7$.",Poisson: mean $=$ variance $=\lambda$.,true,,3,30,2.65,14,49,7
+statistics,inference,expert,Degrees of freedom for a sample variance of 61 observations?,$n-1=60$.,Lose one df estimating the mean.,true,,0,30,60,58,57,61
+statistics,confidence,expert,Increasing the sample size makes a confidence interval?,"More data reduces uncertainty, so it narrows.","More data, less uncertainty.",true,,3,30,Wider,Skewed,Unchanged,Narrower
+statistics,standard error,expert,A sample of size 49 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{49}}=2.14$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,0.31,4.29,15,2.14
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.4$. The expected number of successes?,$np=20\times0.4=8$.,Binomial mean $=np$.,true,,3,30,4,10,4.8,8
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.2$. The expected number of successes?,$np=20\times0.2=4$.,Binomial mean $=np$.,true,,2,30,3.2,2,4,6
+statistics,standard error,expert,A sample of size 100 has population sd 12. The standard error of the mean?,$SE=\frac{12}{\sqrt{100}}=1.2$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,12,2.4,0.12,1.2
+statistics,standard error,expert,A sample of size 64 has population sd 12. The standard error of the mean?,$SE=\frac{12}{\sqrt{64}}=1.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,0.19,1.5,12,3
+statistics,inference,expert,Degrees of freedom for a sample variance of 12 observations?,$n-1=11$.,Lose one df estimating the mean.,true,,2,30,9,15,11,18
+statistics,errors,expert,A Type II error is?,It is a false negative: not rejecting a false null.,Type II = false negative.,true,,3,30,A sampling bias,A correct rejection,Rejecting a true null,Failing to reject a false null
+statistics,standard error,expert,A sample of size 49 has population sd 8. The standard error of the mean?,$SE=\frac{8}{\sqrt{49}}=1.14$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,0.16,1.14,8,2.29
+statistics,standard error,expert,A sample of size 100 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{100}}=1.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,1.5,0.15,15,3
+statistics,errors,expert,A Type I error is?,It is a false positive: rejecting a true null.,Type I = false positive.,true,,1,30,A measurement error,Rejecting a true null hypothesis,Correctly rejecting the null,Failing to reject a false null
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.1$. Its variance $np(1-p)$ equals?,$100\times0.1\times0.9=9$.,Binomial variance $=np(1-p)$.,true,,3,30,90,10,1,9
+statistics,inference,expert,Degrees of freedom for a sample variance of 53 observations?,$n-1=52$.,Lose one df estimating the mean.,true,,3,30,53,54,51,52
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.5$. The expected number of successes?,$np=100\times0.5=50$.,Binomial mean $=np$.,true,,3,30,52,25,100,50
+statistics,binomial,expert,A binomial has $n=40$ and $p=0.2$. The expected number of successes?,$np=40\times0.2=8$.,Binomial mean $=np$.,true,,2,30,6.4,10,8,4
+statistics,binomial,expert,A binomial has $n=40$ and $p=0.1$. Its variance $np(1-p)$ equals?,$40\times0.1\times0.9=3.6$.,Binomial variance $=np(1-p)$.,true,,2,30,4.6,0.4,3.6,4
+statistics,standard error,expert,A sample of size 25 has population sd 8. The standard error of the mean?,$SE=\frac{8}{\sqrt{25}}=1.6$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,1.6,8,3.2,0.32
+statistics,inference,expert,Degrees of freedom for a sample variance of 19 observations?,$n-1=18$.,Lose one df estimating the mean.,true,,1,30,19,18,25,28
+statistics,standard error,expert,A sample of size 64 has population sd 30. The standard error of the mean?,$SE=\frac{30}{\sqrt{64}}=3.75$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,7.5,3.75,0.47,30
+statistics,binomial,expert,A binomial has $n=40$ and $p=0.25$. Its variance $np(1-p)$ equals?,$40\times0.25\times0.75=7.5$.,Binomial variance $=np(1-p)$.,true,,1,30,8.5,7.5,2.5,10
+statistics,poisson,expert,A Poisson distribution has rate $\lambda=5$. Its variance equals?,"For a Poisson, variance $=\lambda=5$.",Poisson: mean $=$ variance $=\lambda$.,true,,1,30,2.24,5,25,10
+statistics,binomial,expert,A binomial has $n=10$ and $p=0.1$. Its variance $np(1-p)$ equals?,$10\times0.1\times0.9=0.9$.,Binomial variance $=np(1-p)$.,true,,1,30,1.9,0.9,1,0.1
+statistics,inference,expert,Degrees of freedom for a sample variance of 22 observations?,$n-1=21$.,Lose one df estimating the mean.,true,,2,30,28,19,21,18
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.2$. Its variance $np(1-p)$ equals?,$20\times0.2\times0.8=3.2$.,Binomial variance $=np(1-p)$.,true,,2,30,4,0.8,3.2,4.2
+statistics,poisson,expert,A Poisson distribution has rate $\lambda=3$. Its variance equals?,"For a Poisson, variance $=\lambda=3$.",Poisson: mean $=$ variance $=\lambda$.,true,,3,30,6,1.73,9,3
+statistics,standard error,expert,A sample of size 100 has population sd 10. The standard error of the mean?,$SE=\frac{10}{\sqrt{100}}=1$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,0.1,1,10,2
+statistics,standard error,expert,A sample of size 100 has population sd 6. The standard error of the mean?,$SE=\frac{6}{\sqrt{100}}=0.6$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,1.2,0.06,6,0.6
+statistics,binomial,expert,A binomial has $n=40$ and $p=0.1$. The expected number of successes?,$np=40\times0.1=4$.,Binomial mean $=np$.,true,,0,30,4,3.6,2,6
+statistics,standard error,expert,A sample of size 25 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{25}}=4$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,8,4,20,0.8
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.2$. The expected number of successes?,$np=100\times0.2=20$.,Binomial mean $=np$.,true,,2,30,16,22,20,10
+statistics,poisson,expert,A Poisson distribution has rate $\lambda=2$. Its variance equals?,"For a Poisson, variance $=\lambda=2$.",Poisson: mean $=$ variance $=\lambda$.,true,,3,30,3,1.41,4,2
+statistics,binomial,expert,A binomial has $n=50$ and $p=0.2$. The expected number of successes?,$np=50\times0.2=10$.,Binomial mean $=np$.,true,,0,30,10,5,8,12
+statistics,inference,expert,Degrees of freedom for a sample variance of 54 observations?,$n-1=53$.,Lose one df estimating the mean.,true,,0,30,53,54,63,50
+statistics,binomial,expert,A binomial has $n=10$ and $p=0.25$. Its variance $np(1-p)$ equals?,$10\times0.25\times0.75=1.88$.,Binomial variance $=np(1-p)$.,true,,0,30,1.88,2.5,2.88,0.62
+statistics,standard error,expert,A sample of size 49 has population sd 6. The standard error of the mean?,$SE=\frac{6}{\sqrt{49}}=0.86$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,0.86,6,0.12,1.71
+statistics,inference,expert,Degrees of freedom for a sample variance of 80 observations?,$n-1=79$.,Lose one df estimating the mean.,true,,0,30,79,76,78,74
+statistics,binomial,expert,A binomial has $n=50$ and $p=0.1$. The expected number of successes?,$np=50\times0.1=5$.,Binomial mean $=np$.,true,,1,30,7,5,2.5,4.5
+statistics,binomial,expert,A binomial has $n=10$ and $p=0.2$. Its variance $np(1-p)$ equals?,$10\times0.2\times0.8=1.6$.,Binomial variance $=np(1-p)$.,true,,2,30,2.6,2,1.6,0.4
+statistics,inference,expert,Degrees of freedom for a sample variance of 29 observations?,$n-1=28$.,Lose one df estimating the mean.,true,,1,30,26,28,32,30
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.25$. Its variance $np(1-p)$ equals?,$20\times0.25\times0.75=3.75$.,Binomial variance $=np(1-p)$.,true,,2,30,1.25,5,3.75,4.75
+statistics,binomial,expert,A binomial has $n=50$ and $p=0.4$. The expected number of successes?,$np=50\times0.4=20$.,Binomial mean $=np$.,true,,0,30,20,22,12,10
+statistics,inference,expert,Degrees of freedom for a sample variance of 68 observations?,$n-1=67$.,Lose one df estimating the mean.,true,,0,30,67,66,65,70
+statistics,binomial,expert,A binomial has $n=50$ and $p=0.5$. The expected number of successes?,$np=50\times0.5=25$.,Binomial mean $=np$.,true,,0,30,25,12.5,27,50
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.1$. Its variance $np(1-p)$ equals?,$20\times0.1\times0.9=1.8$.,Binomial variance $=np(1-p)$.,true,,2,30,2.8,2,1.8,0.2
+statistics,standard error,expert,A sample of size 4 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{4}}=7.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,30,7.5,15,3.75
+statistics,standard error,expert,A sample of size 64 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{64}}=1.88$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,15,1.88,0.23,3.75
+statistics,inference,expert,Degrees of freedom for a sample variance of 72 observations?,$n-1=71$.,Lose one df estimating the mean.,true,,1,30,75,71,81,76
+statistics,standard error,expert,A sample of size 9 has population sd 30. The standard error of the mean?,$SE=\frac{30}{\sqrt{9}}=10$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,30,3.33,10,20
+statistics,binomial,expert,A binomial has $n=10$ and $p=0.2$. The expected number of successes?,$np=10\times0.2=2$.,Binomial mean $=np$.,true,,2,30,4,1,2,1.6
+statistics,inference,expert,Degrees of freedom for a sample variance of 25 observations?,$n-1=24$.,Lose one df estimating the mean.,true,,1,30,34,24,21,31
+statistics,standard error,expert,A sample of size 100 has population sd 30. The standard error of the mean?,$SE=\frac{30}{\sqrt{100}}=3$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,6,3,30,0.3
+statistics,standard error,expert,A sample of size 16 has population sd 10. The standard error of the mean?,$SE=\frac{10}{\sqrt{16}}=2.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,5,2.5,0.62,10
+statistics,binomial,expert,A binomial has $n=40$ and $p=0.4$. The expected number of successes?,$np=40\times0.4=16$.,Binomial mean $=np$.,true,,3,30,9.6,18,8,16
+statistics,standard error,expert,A sample of size 100 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{100}}=2$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,2,0.2,20,4
+statistics,standard error,expert,A sample of size 36 has population sd 8. The standard error of the mean?,$SE=\frac{8}{\sqrt{36}}=1.33$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,2.67,0.22,8,1.33
+statistics,inference,expert,Degrees of freedom for a sample variance of 41 observations?,$n-1=40$.,Lose one df estimating the mean.,true,,0,30,40,41,38,44
+statistics,standard error,expert,A sample of size 25 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{25}}=3$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,0.6,3,6,15
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.4$. The expected number of successes?,$np=100\times0.4=40$.,Binomial mean $=np$.,true,,2,30,24,20,40,42
+statistics,standard error,expert,A sample of size 4 has population sd 10. The standard error of the mean?,$SE=\frac{10}{\sqrt{4}}=5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,20,5,2.5,10
+statistics,standard error,expert,A sample of size 25 has population sd 10. The standard error of the mean?,$SE=\frac{10}{\sqrt{25}}=2$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,0.4,4,2,10
+statistics,inference,expert,Degrees of freedom for a sample variance of 66 observations?,$n-1=65$.,Lose one df estimating the mean.,true,,1,30,75,65,60,66
+statistics,inference,expert,Degrees of freedom for a sample variance of 35 observations?,$n-1=34$.,Lose one df estimating the mean.,true,,3,30,37,31,39,34
+statistics,inference,expert,Degrees of freedom for a sample variance of 74 observations?,$n-1=73$.,Lose one df estimating the mean.,true,,3,30,78,75,83,73
+statistics,binomial,expert,A binomial has $n=20$ and $p=0.5$. The expected number of successes?,$np=20\times0.5=10$.,Binomial mean $=np$.,true,,3,30,20,12,5,10
+statistics,standard error,expert,A sample of size 9 has population sd 6. The standard error of the mean?,$SE=\frac{6}{\sqrt{9}}=2$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,2,6,4,0.67
+statistics,inference,expert,Degrees of freedom for a sample variance of 23 observations?,$n-1=22$.,Lose one df estimating the mean.,true,,3,30,26,21,23,22
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.1$. The expected number of successes?,$np=100\times0.1=10$.,Binomial mean $=np$.,true,,0,30,10,12,5,9
+statistics,inference,expert,Degrees of freedom for a sample variance of 14 observations?,$n-1=13$.,Lose one df estimating the mean.,true,,0,30,13,17,11,18
+statistics,inference,expert,Degrees of freedom for a sample variance of 69 observations?,$n-1=68$.,Lose one df estimating the mean.,true,,2,30,69,70,68,72
+statistics,inference,expert,Degrees of freedom for a sample variance of 39 observations?,$n-1=38$.,Lose one df estimating the mean.,true,,1,30,41,38,42,43
+statistics,standard error,expert,A sample of size 4 has population sd 12. The standard error of the mean?,$SE=\frac{12}{\sqrt{4}}=6$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,12,3,6,24
+statistics,binomial,expert,A binomial has $n=100$ and $p=0.25$. Its variance $np(1-p)$ equals?,$100\times0.25\times0.75=18.75$.,Binomial variance $=np(1-p)$.,true,,0,30,18.75,19.75,25,6.25
+statistics,standard error,expert,A sample of size 64 has population sd 8. The standard error of the mean?,$SE=\frac{8}{\sqrt{64}}=1$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,0,30,1,2,0.12,8
+statistics,standard error,expert,A sample of size 4 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{4}}=10$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,40,10,5,20
+statistics,standard error,expert,A sample of size 49 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{49}}=2.86$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,20,2.86,5.71,0.41
+statistics,inference,expert,Degrees of freedom for a sample variance of 9 observations?,$n-1=8$.,Lose one df estimating the mean.,true,,2,30,13,11,8,7
+statistics,standard error,expert,A sample of size 64 has population sd 10. The standard error of the mean?,$SE=\frac{10}{\sqrt{64}}=1.25$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,0.16,2.5,1.25,10
+statistics,inference,expert,Degrees of freedom for a sample variance of 56 observations?,$n-1=55$.,Lose one df estimating the mean.,true,,2,30,50,62,55,53
+statistics,standard error,expert,A sample of size 64 has population sd 20. The standard error of the mean?,$SE=\frac{20}{\sqrt{64}}=2.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,5,0.31,2.5,20
+statistics,inference,expert,Degrees of freedom for a sample variance of 52 observations?,$n-1=51$.,Lose one df estimating the mean.,true,,0,30,51,48,56,52
+statistics,standard error,expert,A sample of size 16 has population sd 30. The standard error of the mean?,$SE=\frac{30}{\sqrt{16}}=7.5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,2,30,15,1.88,7.5,30
+statistics,inference,expert,Degrees of freedom for a sample variance of 43 observations?,$n-1=42$.,Lose one df estimating the mean.,true,,0,30,42,47,44,37
+statistics,binomial,expert,A binomial has $n=10$ and $p=0.1$. The expected number of successes?,$np=10\times0.1=1$.,Binomial mean $=np$.,true,,3,30,3,0.9,0.5,1
+statistics,standard error,expert,A sample of size 25 has population sd 30. The standard error of the mean?,$SE=\frac{30}{\sqrt{25}}=6$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,1,30,12,6,1.2,30
+statistics,standard error,expert,A sample of size 9 has population sd 15. The standard error of the mean?,$SE=\frac{15}{\sqrt{9}}=5$.,$SE=\dfrac{\sigma}{\sqrt n}$.,true,,3,30,15,10,1.67,5
+statistics,inference,expert,Degrees of freedom for a sample variance of 65 observations?,$n-1=64$.,Lose one df estimating the mean.,true,,3,30,69,59,65,64
+statistics,inference,expert,Degrees of freedom for a sample variance of 48 observations?,$n-1=47$.,Lose one df estimating the mean.,true,,1,30,51,47,45,57

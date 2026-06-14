@@ -1,0 +1,103 @@
+key,en
+app_title,Practice quiz
+upload_sub,Load a CSV to get started. Questions are shuffled every session.
+catalog_heading,Choose a quiz
+catalog_loading,Loading quizzes...
+divider_or,or
+drop_hint,Drop your CSV here or click to browse
+columns_hint,"Columns: domain, subdomain, difficulty, description, explanation, correct, point, choice0 ... choice9"
+load_sample,Load sample CSV to try it out
+error_prefix,"Error: "
+config_title,Configure quiz
+questions_loaded,{n} questions loaded
+mode_standard,Standard
+mode_survival,Survival
+standard_mode_label,Standard mode
+survival_mode_label,Survival mode - goes until questions run out or limit is hit
+num_questions,Number of questions
+time_limit_min,Time limit (minutes)
+surv_lives,Lives
+surv_time,Time
+starting_lives,Starting lives
+difficulty,Difficulty
+diff_beginner,Beginner
+diff_easy,Easy
+diff_medium,Medium
+diff_hard,Hard
+diff_expert,Expert
+domains,Domains
+select_all,Select all
+clear,Clear
+load_different,<- Load different file
+start_quiz,Start quiz
+no_match_filter,No questions match the selected filters.
+quit,Quit
+multi_hint,Select all that apply
+show_hint,Show hint
+calc_label,Calculator
+calc_placeholder,"e.g. (2 + 3) * 4^2"
+calc_help,"Supports + - * / ^ ( ) and log, ln, e, pi"
+calc_error,Invalid expression
+debug_button,debug
+debug_title,Verify questions
+debug_remaining,{n} unverified left
+debug_verify,Verify & next
+debug_void,Void & next
+debug_skip,Skip
+debug_exit,Exit
+debug_done,All questions reviewed!
+debug_save_error,Could not save - is dev_server.py running?
+debug_answer,Correct answer
+check_answer,Check answer
+question_n_of_total,Question {n} of {total}
+question_n,Question {n}
+next_question,Next question ->
+see_results,See results ->
+next_short,Next ->
+pts_suffix,pts
+no_limit,No limit
+survival_label,Survival
+fb_correct,Correct!
+fb_partial,Partially correct.
+fb_incorrect,Incorrect.
+summary_complete,Quiz complete
+summary_times_up,Time's up!
+summary_no_lives,No lives left!
+summary_quit,Quiz ended
+summary_line,{correct}/{answered} correct ({pct}%) - {label}
+label_excellent,Excellent work!
+label_good,Good job!
+label_keep,Keep practicing.
+label_review,More review needed.
+results_by_domain,Results by domain
+play_again,Play again (reshuffled)
+change_settings,Change settings
+load_new_csv,Load new CSV
+err_missing_column,"Missing required column: {col}"
+err_no_questions,No valid questions found.
+err_load_failed,Could not load that quiz.
+home_builtin_title,Use premade quiz
+home_builtin_desc,Pick from ready-made question sets
+home_builtin_unavailable,Run on a web server to use these
+home_custom_title,Load your own CSV
+home_custom_desc,Upload a CSV of your own questions
+catalog_sub,Pick one of the built-in question sets.
+back,Back
+help_link,How should my CSV look?
+help_title,How to format your CSV
+help_intro,"Each row is one question. Only domain, description, correct and choice0 are required."
+help_col_header,Column
+help_meaning_header,Meaning
+help_domain,Top-level category (used for filtering and the score breakdown)
+help_subdomain,Optional finer category shown as a badge
+help_difficulty,beginner / easy / medium / hard / expert
+help_description,The question text
+help_explanation,Shown in feedback after answering
+help_hint,Optional hint or formula reminder; a 'Show hint' button appears
+help_calculator,"Set to 'true' to show a calculator on the question (+ - * / ^ ( ), log, ln, e, pi)"
+help_latex_note,"Wrap math in dollar signs to typeset it, e.g. $\frac{1}{2}$ or $x^2$."
+help_correct,"Index(es) of the correct choice(s), e.g. 0 or 013 for multi-answer"
+help_point,Points for a fully-correct answer (default 10)
+help_choices,Answer choices choice0 ... choice9 (at least two)
+help_multi_note,A correct value with more than one digit (like 013) becomes a 'select all that apply' question.
+help_example_heading,Example

@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+math,arithmetic,beginner,What is double of 15?,$2\times15=30$.,,,TRUE,1,5,27,30,40,20
+math,arithmetic,beginner,What is $7 + 11$?,$7+11=18$.,,,TRUE,3,5,19,22,16,18
+math,arithmetic,beginner,What is half of 4?,Half of 4 is 2.,,,TRUE,2,5,4,9,2,3
+math,arithmetic,beginner,What is half of 14?,Half of 14 is 7.,,,TRUE,2,5,4,8,7,10
+math,arithmetic,beginner,What is double of 6?,$2\times6=12$.,,,TRUE,2,5,16,7,12,13
+math,arithmetic,beginner,What is $18 + 14$?,$18+14=32$.,,,TRUE,1,5,35,32,42,37
+math,arithmetic,beginner,What is double of 12?,$2\times12=24$.,,,TRUE,1,5,29,24,28,31
+math,multiplication,beginner,What is $8 \times 2$?,$8\times2=16$.,,,TRUE,1,5,21,16,18,23
+math,arithmetic,beginner,What is $28 - 24$?,$28-24=4$.,,,TRUE,3,5,2,14,1,4
+math,arithmetic,beginner,What is $25 + 1$?,$25+1=26$.,,,TRUE,2,5,31,30,26,21
+math,multiplication,beginner,What is $6 \times 9$?,$6\times9=54$.,,,TRUE,0,5,54,49,59,56
+math,arithmetic,beginner,What is half of 16?,Half of 16 is 8.,,,TRUE,3,5,13,11,3,8
+math,arithmetic,beginner,What is $2 - 1$?,$2-1=1$.,,,TRUE,2,5,8,3,1,4
+math,arithmetic,beginner,What is half of 12?,Half of 12 is 6.,,,TRUE,3,5,3,5,11,6
+math,arithmetic,beginner,What is $7 - 4$?,$7-4=3$.,,,TRUE,3,5,8,6,0,3
+math,arithmetic,beginner,What is $5 - 3$?,$5-3=2$.,,,TRUE,1,5,12,2,0,9
+math,arithmetic,beginner,What is double of 19?,$2\times19=38$.,,,TRUE,2,5,39,40,38,48
+math,arithmetic,beginner,What is half of 32?,Half of 32 is 16.,,,TRUE,3,5,26,17,18,16
+math,arithmetic,beginner,What is half of 28?,Half of 28 is 14.,,,TRUE,0,5,14,18,11,12
+math,arithmetic,beginner,What is $16 + 11$?,$16+11=27$.,,,TRUE,2,5,28,32,27,29
+math,multiplication,beginner,What is $7 \times 5$?,$7\times5=35$.,,,TRUE,0,5,35,25,45,39
+math,arithmetic,beginner,What is $28 - 27$?,$28-27=1$.,,,TRUE,1,5,5,1,0,4
+math,multiplication,beginner,What is $9 \times 4$?,$9\times4=36$.,,,,0,5,36,41,33,46
+math,arithmetic,beginner,What is $25 - 9$?,$25-9=16$.,,,,1,5,21,16,19,17
+math,arithmetic,beginner,What is double of 21?,$2\times21=42$.,,,,0,5,42,37,40,52
+math,arithmetic,beginner,What is half of 18?,Half of 18 is 9.,,,,3,5,19,16,10,9
+math,multiplication,beginner,What is $6 \times 6$?,$6\times6=36$.,,,,1,5,26,36,39,38
+math,arithmetic,beginner,What is $9 + 15$?,$9+15=24$.,,,,2,5,27,25,24,19
+math,arithmetic,beginner,What is $15 + 18$?,$15+18=33$.,,,,0,5,33,40,35,36
+math,arithmetic,beginner,What is $23 + 25$?,$23+25=48$.,,,,2,5,53,45,48,43
+math,arithmetic,beginner,What is half of 22?,Half of 22 is 11.,,,,2,5,21,16,11,15
+math,arithmetic,beginner,What is $25 - 17$?,$25-17=8$.,,,,2,5,15,7,8,5
+math,arithmetic,beginner,What is half of 2?,Half of 2 is 1.,,,,3,5,6,0,8,1
+math,arithmetic,beginner,What is $25 + 16$?,$25+16=41$.,,,,2,5,51,46,41,36
+math,arithmetic,beginner,What is $10 - 4$?,$10-4=6$.,,,,3,5,7,3,4,6
+math,arithmetic,beginner,What is double of 22?,$2\times22=44$.,,,,3,5,48,34,42,44
+math,arithmetic,beginner,What is double of 25?,$2\times25=50$.,,,,3,5,55,53,48,50
+math,multiplication,beginner,What is $6 \times 8$?,$6\times8=48$.,,,,2,5,58,52,48,38
+math,arithmetic,beginner,What is double of 8?,$2\times8=16$.,,,,0,5,16,15,18,17
+math,arithmetic,beginner,What is $13 + 14$?,$13+14=27$.,,,,0,5,27,29,24,17
+math,arithmetic,beginner,What is half of 36?,Half of 36 is 18.,,,,1,5,17,18,20,15
+math,arithmetic,beginner,What is $23 - 18$?,$23-18=5$.,,,,0,5,5,15,6,3
+math,arithmetic,beginner,What is $11 + 13$?,$11+13=24$.,,,,0,5,24,34,19,26
+math,multiplication,beginner,What is $3 \times 4$?,$3\times4=12$.,,,,3,5,13,19,11,12
+math,arithmetic,beginner,What is half of 10?,Half of 10 is 5.,,,,2,5,6,4,5,2
+math,multiplication,beginner,What is $9 \times 7$?,$9\times7=63$.,,,,2,5,68,67,63,53
+math,multiplication,beginner,What is $5 \times 4$?,$5\times4=20$.,,,,3,5,18,22,15,20
+math,multiplication,beginner,What is $3 \times 9$?,$3\times9=27$.,,,,3,5,34,24,30,27
+math,arithmetic,beginner,What is $4 - 2$?,$4-2=2$.,,,,3,5,6,9,1,2
+math,arithmetic,beginner,What is half of 24?,Half of 24 is 12.,,,,2,5,2,22,12,10
+math,arithmetic,beginner,What is double of 10?,$2\times10=20$.,,,,1,5,18,20,25,21
+math,multiplication,beginner,What is $5 \times 2$?,$5\times2=10$.,,,,0,5,10,15,8,7
+math,arithmetic,beginner,What is $9 + 3$?,$9+3=12$.,,,,1,5,16,12,7,22
+math,arithmetic,beginner,What is half of 8?,Half of 8 is 4.,,,,1,5,9,4,2,3
+math,arithmetic,beginner,What is double of 7?,$2\times7=14$.,,,,1,5,13,14,4,9
+math,arithmetic,beginner,What is $23 - 9$?,$23-9=14$.,,,,0,5,14,21,16,15
+math,multiplication,beginner,What is $3 \times 2$?,$3\times2=6$.,,,,0,5,6,1,16,8
+math,arithmetic,beginner,What is $7 + 10$?,$7+10=17$.,,,,0,5,17,21,12,15
+math,multiplication,beginner,What is $6 \times 2$?,$6\times2=12$.,,,,3,5,22,10,16,12
+math,arithmetic,beginner,What is $11 + 10$?,$11+10=21$.,,,,2,5,26,25,21,19
+math,multiplication,beginner,What is $2 \times 9$?,$2\times9=18$.,,,,3,5,25,20,8,18
+math,arithmetic,beginner,What is $25 + 10$?,$25+10=35$.,,,,1,5,40,35,30,45
+math,multiplication,beginner,What is $4 \times 2$?,$4\times2=8$.,,,,2,5,18,9,8,12
+math,arithmetic,beginner,What is $25 - 22$?,$25-22=3$.,,,,0,5,3,4,0,10
+math,arithmetic,beginner,What is $16 + 20$?,$16+20=36$.,,,,1,5,39,36,40,31
+math,arithmetic,beginner,What is $14 - 2$?,$14-2=12$.,,,,1,5,15,12,7,17
+math,arithmetic,beginner,What is $11 - 9$?,$11-9=2$.,,,,0,5,2,4,5,0
+math,arithmetic,beginner,What is $7 - 6$?,$7-6=1$.,,,,2,5,3,4,1,11
+math,arithmetic,beginner,What is half of 20?,Half of 20 is 10.,,,,3,5,0,11,8,10
+math,multiplication,beginner,What is $4 \times 5$?,$4\times5=20$.,,,,0,5,20,27,22,30
+math,arithmetic,beginner,What is double of 18?,$2\times18=36$.,,,,3,5,40,33,31,36
+math,multiplication,beginner,What is $8 \times 7$?,$8\times7=56$.,,,,2,5,66,58,56,61
+math,arithmetic,beginner,What is $26 - 25$?,$26-25=1$.,,,,0,5,1,0,3,8
+math,arithmetic,beginner,What is $8 - 6$?,$8-6=2$.,,,,2,5,12,4,2,3
+math,arithmetic,beginner,What is $2 + 23$?,$2+23=25$.,,,,0,5,25,23,22,20
+math,arithmetic,beginner,What is half of 34?,Half of 34 is 17.,,,,2,5,16,21,17,20
+math,arithmetic,beginner,What is $17 + 3$?,$17+3=20$.,,,,2,5,23,15,20,21
+math,arithmetic,beginner,What is $25 - 24$?,$25-24=1$.,,,,3,5,6,2,8,1
+math,arithmetic,beginner,What is $26 - 24$?,$26-24=2$.,,,,2,5,1,5,2,0
+math,arithmetic,beginner,What is double of 4?,$2\times4=8$.,,,,3,5,12,3,18,8
+math,arithmetic,beginner,What is double of 20?,$2\times20=40$.,,,,2,5,35,37,40,43
+math,multiplication,beginner,What is $7 \times 4$?,$7\times4=28$.,,,,1,5,38,28,18,26
+math,arithmetic,beginner,What is $10 + 21$?,$10+21=31$.,,,,1,5,21,31,28,26
+math,multiplication,beginner,What is $2 \times 6$?,$2\times6=12$.,,,,3,5,10,2,16,12
+math,multiplication,beginner,What is $6 \times 3$?,$6\times3=18$.,,,,0,5,18,23,19,16
+math,arithmetic,beginner,What is $17 - 6$?,$17-6=11$.,,,,3,5,16,10,12,11
+math,multiplication,beginner,What is $4 \times 7$?,$4\times7=28$.,,,,3,5,29,35,32,28
+math,arithmetic,beginner,What is $13 - 5$?,$13-5=8$.,,,,0,5,8,18,11,3
+math,arithmetic,beginner,What is double of 5?,$2\times5=10$.,,,,3,5,5,9,20,10
+math,arithmetic,beginner,What is $30 - 20$?,$30-20=10$.,,,,2,5,11,14,10,17
+math,multiplication,beginner,What is $2 \times 8$?,$2\times8=16$.,,,,1,5,23,16,21,15
+math,arithmetic,beginner,What is $12 + 22$?,$12+22=34$.,,,,2,5,39,24,34,33
+math,arithmetic,beginner,What is half of 26?,Half of 26 is 13.,,,,0,5,13,8,11,23
+math,arithmetic,beginner,What is $12 + 6$?,$12+6=18$.,,,,3,5,20,13,25,18
+math,arithmetic,beginner,What is $6 + 14$?,$6+14=20$.,,,,0,5,20,22,23,25
+math,arithmetic,beginner,What is double of 17?,$2\times17=34$.,,,,3,5,36,38,24,34
+math,arithmetic,beginner,What is $24 + 2$?,$24+2=26$.,,,,1,5,31,26,16,25
+math,arithmetic,beginner,What is $29 - 16$?,$29-16=13$.,,,,2,5,11,18,13,17
+math,arithmetic,beginner,What is $7 + 5$?,$7+5=12$.,,,,3,5,10,11,9,12
+math,multiplication,beginner,What is $5 \times 7$?,$5\times7=35$.,,,,3,5,32,39,30,35

@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+data_query,operators,beginner,What best describes Greater than?,Greater than - tests whether a value exceeds another.,,,,2,5,the named set of rows a query reads,requires multiple conditions to all be true,tests whether a value exceeds another,the statement that changes existing rows
+data_query,dml,beginner,Which of these is an example of UPDATE?,UPDATE users SET active = true is an example of UPDATE.,,,,1,5,LIMIT 10,UPDATE users SET active = true,ORDER BY price DESC,SELECT * FROM products
+data_query,clauses,beginner,Which term means: the clause restricting how many rows return?,That describes LIMIT.,,,,1,5,FROM,LIMIT,AND,Semicolon
+data_query,basics,beginner,What best describes Alias (basic)?,Alias (basic) - a temporary name given with AS.,,,,0,5,a temporary name given with AS,tests whether a value is in a list,the marker ending a SQL statement,the statement that removes rows
+data_query,basics,beginner,Which term means: the named set of rows a query reads?,That describes Table.,,,,0,5,Table,Greater than,INSERT,FROM
+data_query,basics,beginner,Which term means: the marker ending a SQL statement?,That describes Semicolon.,,,,0,5,Semicolon,UPDATE,SELECT *,AND
+data_query,basics,beginner,Which of these is an example of SELECT *?,SELECT * FROM products is an example of SELECT *.,,,,1,5,ORDER BY price DESC,SELECT * FROM products,WHERE status = 'active',ORDER BY name
+data_query,basics,beginner,Which term means: a named field returned or filtered?,That describes Column.,,,,2,5,Equals operator,String literal,Column,BETWEEN
+data_query,operators,beginner,Which of these is an example of OR?,WHERE a = 1 OR b = 2 is an example of OR.,,,,0,5,WHERE a = 1 OR b = 2,'A%' for names starting with A,FROM orders,SELECT name AS customer_name
+data_query,dml,beginner,Which term means: the statement that removes rows?,That describes DELETE.,,,,3,5,Statement,Row,DISTINCT,DELETE
+data_query,basics,beginner,Which of these is an example of String literal?,'hello' is an example of String literal.,,,,0,5,'hello',SELECT name FROM users,'A%' for names starting with A,WHERE status = 'active'
+data_query,dml,beginner,Which term means: supplies the data for an INSERT?,That describes VALUES.,,,,1,5,OR,VALUES,Equals operator,Statement
+data_query,operators,beginner,Which term means: tests whether a value is missing?,That describes IS NULL.,,,,0,5,IS NULL,Number literal,WHERE,IN
+data_query,dml,beginner,Which term means: the statement that changes existing rows?,That describes UPDATE.,,,,1,5,AND,UPDATE,LIKE,NOT
+data_query,clauses,beginner,Which term means: sorts results in descending order?,That describes DESC.,,,,0,5,DESC,BETWEEN,FROM,ORDER BY
+data_query,operators,beginner,Which term means: tests whether a value is below another?,That describes Less than.,,,,3,5,INSERT,UPDATE,Statement,Less than
+data_query,operators,beginner,What best describes BETWEEN?,BETWEEN - tests whether a value is within a range.,,,,0,5,tests whether a value is within a range,negates a condition,the statement that adds new rows,sorts results in descending order
+data_query,clauses,beginner,Which of these is an example of ORDER BY?,ORDER BY name is an example of ORDER BY.,,,,3,5,WHERE a = 1 OR b = 2,UPDATE users SET active = true,the email column,ORDER BY name
+data_query,clauses,beginner,What best describes SELECT?,SELECT - the clause that chooses which columns to return.,,,,2,5,requires at least one condition to be true,sorts results in ascending order,the clause that chooses which columns to return,supplies the data for an INSERT
+data_query,clauses,beginner,Which term means: the clause that filters rows by a condition?,That describes WHERE.,,,,1,5,BETWEEN,WHERE,String literal,LIMIT
+data_query,clauses,beginner,What best describes ORDER BY?,ORDER BY - the clause that sorts the result rows.,,,,0,5,the clause that sorts the result rows,matches text against a pattern,a numeric value written directly,the marker ending a SQL statement
+data_query,basics,beginner,Which term means: a complete SQL command?,That describes Statement.,,,,1,5,String literal,Statement,Table,NOT
+data_query,basics,beginner,Which of these is an example of Row?,one matching customer is an example of Row.,,,,1,5,42,one matching customer,ORDER BY price DESC,SELECT name FROM users
+data_query,operators,beginner,Which term means: negates a condition?,That describes NOT.,,,,1,5,Row,NOT,VALUES,String literal
+data_query,operators,beginner,Which of these is an example of LIKE?,WHERE name LIKE 'A%' is an example of LIKE.,,,,1,5,WHERE status = 'active',WHERE name LIKE 'A%',FROM orders,LIMIT 10
+data_query,clauses,beginner,Which term means: sorts results in ascending order?,That describes ASC.,,,,0,5,ASC,Row,OR,Keyword
+data_query,operators,beginner,Which of these is an example of NOT?,WHERE NOT active is an example of NOT.,,,,0,5,WHERE NOT active,"WHERE id IN (1, 2, 3)",WHERE name LIKE 'A%',LIMIT 10
+data_query,dml,beginner,What best describes VALUES?,VALUES - supplies the data for an INSERT.,,,,1,5,tests whether a value is within a range,supplies the data for an INSERT,a reserved word with special meaning in SQL,matches text against a pattern
+data_query,basics,beginner,What best describes Table?,Table - the named set of rows a query reads.,,,,3,5,a complete SQL command,the statement that adds new rows,sorts results in ascending order,the named set of rows a query reads
+data_query,operators,beginner,What best describes NOT?,NOT - negates a condition.,,,,1,5,matches text against a pattern,negates a condition,the marker ending a SQL statement,a single record returned by a query
+data_query,clauses,beginner,Which of these is an example of WHERE?,WHERE age > 18 is an example of WHERE.,,,,0,5,WHERE age > 18,42,INSERT INTO users VALUES (...),SELECT name AS customer_name
+data_query,basics,beginner,What best describes Semicolon?,Semicolon - the marker ending a SQL statement.,,,,0,5,the marker ending a SQL statement,supplies the data for an INSERT,a named field returned or filtered,selecting every column of a table
+data_query,basics,beginner,Which of these is an example of Comment?,-- this is a note is an example of Comment.,,,,1,5,WHERE qty < 5,-- this is a note,'hello',SELECT * FROM products
+data_query,clauses,beginner,What best describes DESC?,DESC - sorts results in descending order.,,,,3,5,tests whether a value is in a list,tests whether two values are equal,a text value in single quotes,sorts results in descending order
+data_query,basics,beginner,What best describes Statement?,Statement - a complete SQL command.,,,,1,5,the clause naming the table to read from,a complete SQL command,a numeric value written directly,the clause that sorts the result rows
+data_query,operators,beginner,What best describes AND?,AND - requires multiple conditions to all be true.,,,,0,5,requires multiple conditions to all be true,the statement that changes existing rows,negates a condition,removes duplicate rows from a result
+data_query,basics,beginner,Which of these is an example of Table?,the customers table is an example of Table.,,,,3,5,42,UPDATE users SET active = true,INSERT INTO users VALUES (...),the customers table
+data_query,clauses,beginner,Which of these is an example of ASC?,ORDER BY price ASC is an example of ASC.,,,,0,5,ORDER BY price ASC,WHERE a = 1 OR b = 2,INSERT INTO users VALUES (...),WHERE age > 18
+data_query,basics,beginner,Which term means: matches any sequence of characters in LIKE?,That describes Wildcard %.,,,,3,5,SELECT,WHERE,Number literal,Wildcard %
+data_query,basics,beginner,What best describes Column?,Column - a named field returned or filtered.,,,,2,5,a complete SQL command,the clause naming the table to read from,a named field returned or filtered,selecting every column of a table
+data_query,basics,beginner,Which of these is an example of Keyword?,SELECT is an example of Keyword.,,,,1,5,WHERE a = 1 OR b = 2,SELECT,-- this is a note,FROM orders
+data_query,basics,beginner,Which of these is an example of DISTINCT?,SELECT DISTINCT country is an example of DISTINCT.,,,,1,5,"WHERE id IN (1, 2, 3)",SELECT DISTINCT country,FROM orders,"VALUES ('Ann', 30)"
+data_query,clauses,beginner,Which term means: the clause that chooses which columns to return?,That describes SELECT.,,,,1,5,ASC,SELECT,WHERE,FROM
+data_query,basics,beginner,Which of these is an example of Alias (basic)?,SELECT name AS customer_name is an example of Alias (basic).,,,,1,5,WHERE name LIKE 'A%',SELECT name AS customer_name,WHERE a = 1 OR b = 2,SELECT DISTINCT country
+data_query,clauses,beginner,Which of these is an example of DESC?,ORDER BY price DESC is an example of DESC.,,,,2,5,"VALUES ('Ann', 30)",WHERE name LIKE 'A%',ORDER BY price DESC,UPDATE users SET active = true
+data_query,dml,beginner,What best describes UPDATE?,UPDATE - the statement that changes existing rows.,,,,0,5,the statement that changes existing rows,the clause that chooses which columns to return,a complete SQL command,the clause that sorts the result rows
+data_query,operators,beginner,Which of these is an example of Greater than?,WHERE price > 100 is an example of Greater than.,,,,2,5,ORDER BY name,DELETE FROM users WHERE id = 3,WHERE price > 100,WHERE NOT active
+data_query,operators,beginner,Which of these is an example of Less than?,WHERE qty < 5 is an example of Less than.,,,,2,5,SELECT name AS customer_name,-- this is a note,WHERE qty < 5,the email column
+data_query,operators,beginner,Which term means: requires at least one condition to be true?,That describes OR.,,,,2,5,WHERE,Column,OR,NOT
+data_query,clauses,beginner,What best describes FROM?,FROM - the clause naming the table to read from.,,,,2,5,sorts results in descending order,the marker ending a SQL statement,the clause naming the table to read from,negates a condition
+data_query,clauses,beginner,Which of these is an example of FROM?,FROM orders is an example of FROM.,,,,0,5,FROM orders,"WHERE id IN (1, 2, 3)",WHERE phone IS NULL,SELECT name FROM users
+data_query,basics,beginner,What best describes Wildcard %?,Wildcard % - matches any sequence of characters in LIKE.,,,,2,5,negates a condition,selecting every column of a table,matches any sequence of characters in LIKE,requires at least one condition to be true
+data_query,operators,beginner,Which of these is an example of BETWEEN?,WHERE age BETWEEN 18 AND 30 is an example of BETWEEN.,,,,1,5,SELECT DISTINCT country,WHERE age BETWEEN 18 AND 30,WHERE a = 1 OR b = 2,DELETE FROM users WHERE id = 3
+data_query,dml,beginner,Which of these is an example of INSERT?,INSERT INTO users VALUES (...) is an example of INSERT.,,,,0,5,INSERT INTO users VALUES (...),SELECT 1;,ORDER BY name,SELECT
+data_query,clauses,beginner,Which of these is an example of SELECT?,SELECT name FROM users is an example of SELECT.,,,,0,5,SELECT name FROM users,the customers table,the email column,INSERT INTO users VALUES (...)
+data_query,clauses,beginner,What best describes WHERE?,WHERE - the clause that filters rows by a condition.,,,,1,5,text ignored by the database,the clause that filters rows by a condition,a text value in single quotes,a complete SQL command
+data_query,operators,beginner,Which of these is an example of AND?,WHERE a = 1 AND b = 2 is an example of AND.,,,,1,5,SELECT,WHERE a = 1 AND b = 2,-- this is a note,"VALUES ('Ann', 30)"
+data_query,dml,beginner,Which of these is an example of DELETE?,DELETE FROM users WHERE id = 3 is an example of DELETE.,,,,1,5,WHERE name LIKE 'A%',DELETE FROM users WHERE id = 3,WHERE a = 1 OR b = 2,SELECT name FROM users
+data_query,operators,beginner,Which of these is an example of IS NULL?,WHERE phone IS NULL is an example of IS NULL.,,,,2,5,the customers table,SELECT * FROM products,WHERE phone IS NULL,WHERE a = 1 AND b = 2
+data_query,basics,beginner,What best describes DISTINCT?,DISTINCT - removes duplicate rows from a result.,,,,1,5,tests whether two values are equal,removes duplicate rows from a result,a numeric value written directly,negates a condition
+data_query,operators,beginner,What best describes LIKE?,LIKE - matches text against a pattern.,,,,3,5,tests whether a value is within a range,a temporary name given with AS,removes duplicate rows from a result,matches text against a pattern
+data_query,basics,beginner,Which term means: a text value in single quotes?,That describes String literal.,,,,1,5,UPDATE,String literal,Semicolon,DISTINCT
+data_query,basics,beginner,Which term means: text ignored by the database?,That describes Comment.,,,,3,5,DESC,Row,ASC,Comment
+data_query,basics,beginner,Which of these is an example of Statement?,a full SELECT query is an example of Statement.,,,,0,5,a full SELECT query,ORDER BY price ASC,-- this is a note,ORDER BY name
+data_query,operators,beginner,Which term means: tests whether two values are equal?,That describes Equals operator.,,,,2,5,Wildcard %,Statement,Equals operator,Keyword
+data_query,basics,beginner,Which term means: a reserved word with special meaning in SQL?,That describes Keyword.,,,,2,5,WHERE,Row,Keyword,FROM
+data_query,operators,beginner,What best describes Equals operator?,Equals operator - tests whether two values are equal.,,,,2,5,the named set of rows a query reads,a single record returned by a query,tests whether two values are equal,the clause restricting how many rows return
+data_query,operators,beginner,What best describes IS NULL?,IS NULL - tests whether a value is missing.,,,,1,5,tests whether two values are equal,tests whether a value is missing,text ignored by the database,the marker ending a SQL statement
+data_query,basics,beginner,Which term means: a temporary name given with AS?,That describes Alias (basic).,,,,0,5,Alias (basic),String literal,ASC,Keyword
+data_query,operators,beginner,Which of these is an example of Equals operator?,WHERE status = 'active' is an example of Equals operator.,,,,1,5,LIMIT 10,WHERE status = 'active',INSERT INTO users VALUES (...),WHERE a = 1 AND b = 2
+data_query,clauses,beginner,Which term means: the clause that sorts the result rows?,That describes ORDER BY.,,,,1,5,IN,ORDER BY,OR,AND
+data_query,operators,beginner,What best describes IN?,IN - tests whether a value is in a list.,,,,1,5,tests whether a value is below another,tests whether a value is in a list,selecting every column of a table,a text value in single quotes
+data_query,operators,beginner,What best describes OR?,OR - requires at least one condition to be true.,,,,2,5,a single record returned by a query,tests whether a value is in a list,requires at least one condition to be true,tests whether a value is missing
+data_query,basics,beginner,Which term means: removes duplicate rows from a result?,That describes DISTINCT.,,,,2,5,SELECT *,String literal,DISTINCT,LIKE
+data_query,dml,beginner,Which term means: the statement that adds new rows?,That describes INSERT.,,,,0,5,INSERT,NOT,VALUES,DELETE
+data_query,basics,beginner,What best describes Comment?,Comment - text ignored by the database.,,,,0,5,text ignored by the database,the clause restricting how many rows return,the statement that adds new rows,a temporary name given with AS
+data_query,dml,beginner,What best describes INSERT?,INSERT - the statement that adds new rows.,,,,1,5,tests whether two values are equal,the statement that adds new rows,requires multiple conditions to all be true,a text value in single quotes
+data_query,operators,beginner,Which term means: tests whether a value is within a range?,That describes BETWEEN.,,,,1,5,Wildcard %,BETWEEN,Semicolon,ASC
+data_query,clauses,beginner,What best describes ASC?,ASC - sorts results in ascending order.,,,,0,5,sorts results in ascending order,tests whether a value is in a list,a text value in single quotes,the statement that removes rows
+data_query,clauses,beginner,Which term means: the clause naming the table to read from?,That describes FROM.,,,,2,5,Semicolon,Wildcard %,FROM,UPDATE
+data_query,clauses,beginner,Which of these is an example of LIMIT?,LIMIT 10 is an example of LIMIT.,,,,1,5,the email column,LIMIT 10,the customers table,WHERE phone IS NULL
+data_query,operators,beginner,What best describes Less than?,Less than - tests whether a value is below another.,,,,0,5,tests whether a value is below another,sorts results in ascending order,the clause that filters rows by a condition,matches text against a pattern
+data_query,basics,beginner,Which of these is an example of Semicolon?,SELECT 1; is an example of Semicolon.,,,,0,5,SELECT 1;,SELECT DISTINCT country,DELETE FROM users WHERE id = 3,'hello'
+data_query,operators,beginner,Which term means: tests whether a value is in a list?,That describes IN.,,,,0,5,IN,IS NULL,DESC,Row
+data_query,basics,beginner,Which of these is an example of Number literal?,42 is an example of Number literal.,,,,1,5,'hello',42,WHERE age BETWEEN 18 AND 30,a full SELECT query
+data_query,basics,beginner,Which term means: a single record returned by a query?,That describes Row.,,,,3,5,IS NULL,OR,Statement,Row
+data_query,basics,beginner,Which term means: a numeric value written directly?,That describes Number literal.,,,,3,5,ASC,IS NULL,Semicolon,Number literal
+data_query,basics,beginner,Which term means: selecting every column of a table?,That describes SELECT *.,,,,2,5,OR,SELECT,SELECT *,Wildcard %
+data_query,operators,beginner,Which term means: matches text against a pattern?,That describes LIKE.,,,,3,5,NOT,SELECT *,Comment,LIKE
+data_query,clauses,beginner,What best describes LIMIT?,LIMIT - the clause restricting how many rows return.,,,,1,5,requires multiple conditions to all be true,the clause restricting how many rows return,requires at least one condition to be true,the clause naming the table to read from
+data_query,basics,beginner,What best describes String literal?,String literal - a text value in single quotes.,,,,0,5,a text value in single quotes,matches any sequence of characters in LIKE,a numeric value written directly,the clause naming the table to read from
+data_query,operators,beginner,Which of these is an example of IN?,"WHERE id IN (1, 2, 3) is an example of IN.",,,,0,5,"WHERE id IN (1, 2, 3)",WHERE status = 'active',DELETE FROM users WHERE id = 3,WHERE age BETWEEN 18 AND 30
+data_query,basics,beginner,What best describes SELECT *?,SELECT * - selecting every column of a table.,,,,3,5,the clause that chooses which columns to return,a reserved word with special meaning in SQL,tests whether a value exceeds another,selecting every column of a table
+data_query,basics,beginner,What best describes Keyword?,Keyword - a reserved word with special meaning in SQL.,,,,3,5,the named set of rows a query reads,tests whether two values are equal,negates a condition,a reserved word with special meaning in SQL
+data_query,basics,beginner,What best describes Row?,Row - a single record returned by a query.,,,,2,5,a reserved word with special meaning in SQL,a numeric value written directly,a single record returned by a query,sorts results in ascending order
+data_query,operators,beginner,Which term means: tests whether a value exceeds another?,That describes Greater than.,,,,2,5,Semicolon,Keyword,Greater than,Equals operator
+data_query,basics,beginner,Which of these is an example of Wildcard %?,'A%' for names starting with A is an example of Wildcard %.,,,,3,5,ORDER BY price ASC,WHERE age BETWEEN 18 AND 30,"VALUES ('Ann', 30)",'A%' for names starting with A
+data_query,dml,beginner,What best describes DELETE?,DELETE - the statement that removes rows.,,,,0,5,the statement that removes rows,the clause naming the table to read from,the clause that filters rows by a condition,requires multiple conditions to all be true
+data_query,basics,beginner,What best describes Number literal?,Number literal - a numeric value written directly.,,,,1,5,selecting every column of a table,a numeric value written directly,matches text against a pattern,text ignored by the database
+data_query,operators,beginner,Which term means: requires multiple conditions to all be true?,That describes AND.,,,,2,5,DESC,BETWEEN,AND,LIMIT

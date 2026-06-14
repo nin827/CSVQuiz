@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+statistics,binomial,hard,Flip a fair coin 3 times. Probability of exactly 2 heads?,"$C(3,2)(\tfrac12)^3=\frac38$.","$P=C(n,k)p^k(1-p)^{n-k}$.",true,,2,20,$\frac{4}{9}$,$\frac{1}{4}$,$\frac{3}{8}$,$\frac{1}{3}$
+statistics,standard deviation,hard,"Data 2, 4, 4, 5, 5, 6, 6, 8 has mean 5. Population standard deviation?","Variance $=2.75$, so sd $=1.66$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,2,20,2.66,2.75,1.66,2.16
+statistics,conditional,hard,$P(A\text{ and }B)=0.1$ and $P(B)=0.5$. $P(A\mid B)$?,$0.1\div0.5=0.2$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,0,20,0.2,0.1,0.3,0.4
+statistics,expected value,hard,Expected value of one fair die roll?,$\frac{1+2+3+4+5+6}{6}=3.5$.,"$E[X]=\sum x\,P(x)$.",true,,2,20,3,6,3.5,4
+statistics,standard deviation,hard,"Data 6, 8, 8, 9, 9, 10, 10, 12 has mean 9. Population standard deviation?","Variance $=2.75$, so sd $=1.66$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,1,20,2.75,1.66,2.66,2.16
+statistics,variance,hard,Multiply every value by 3. The variance multiplies by?,Variance scales by the square: $3^2=9$.,$\text{Var}(aX)=a^2\text{Var}(X)$.,true,,3,20,27,3,6,9
+statistics,conditional,hard,$P(A\text{ and }B)=0.3$ and $P(B)=0.5$. $P(A\mid B)$?,$0.3\div0.5=0.6$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,0,20,0.6,0.2,0.7,0.3
+statistics,combinatorics,hard,How many ways to arrange 5 distinct items?,$5!=120$.,$n!$ arrangements.,true,,1,20,125,120,24,115
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.4$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.5+0.4-0.2=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.9,0.2,0.8,0.7
+statistics,z-score,hard,"With mean 50 and sd 10, the z-score of 40?",$(40-50)\div10=-1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,2,0,-1,1
+statistics,z-score,hard,"With mean 60 and sd 20, the z-score of 40?",$(40-60)\div20=-1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,-3,-6,-2,-1
+statistics,combinatorics,hard,How many ways to arrange 4 distinct items?,$4!=24$.,$n!$ arrangements.,true,,2,20,6,20,24,28
+statistics,z-score,hard,"With mean 50 and sd 5, the z-score of 45?",$(45-50)\div5=-1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,-3,-1,2,9
+statistics,z-score,hard,"With mean 100 and sd 10, the z-score of 110?",$(110-100)\div10=1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,0,20,1,-4,4,-2
+statistics,combinatorics,hard,How many ways to arrange 7 distinct items?,$7!=5040$.,$n!$ arrangements.,true,,0,20,5040,720,5033,5047
+statistics,z-score,hard,"With mean 60 and sd 20, the z-score of 20?",$(20-60)\div20=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,8,-2,-5,1
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.5$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.6+0.5-0.2=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.9,1,0.2,1.1
+statistics,z-score,hard,"With mean 100 and sd 5, the z-score of 115?",$(115-100)\div5=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,8,3,6,0
+statistics,standard deviation,hard,"Data 3, 4, 4, 5, 5, 6, 6, 7 has mean 5. Population standard deviation?","Variance $=1.5$, so sd $=1.22$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,0,20,1.22,1.72,1.5,2.22
+statistics,z-score,hard,"With mean 60 and sd 15, the z-score of 105?",$(105-60)\div15=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,5,3,7,4
+statistics,standard deviation,hard,"Data 6, 6, 8, 8, 8, 8, 10, 10 has mean 8. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,3,20,1.91,2.41,2,1.41
+statistics,variance,hard,Multiply every value by 2. The variance multiplies by?,Variance scales by the square: $2^2=4$.,$\text{Var}(aX)=a^2\text{Var}(X)$.,true,,0,20,4,5,2,8
+statistics,combinatorics,hard,"What is $C(9,7)$?","$C(9,7)=36$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,37,35,36,63
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.4$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.6+0.4-0.2=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.8,0.2,0.9,1
+statistics,variance,hard,Multiply every value by 4. The variance multiplies by?,Variance scales by the square: $4^2=16$.,$\text{Var}(aX)=a^2\text{Var}(X)$.,true,,2,20,64,4,16,8
+statistics,standard deviation,hard,"Data 5, 6, 6, 7, 7, 8, 8, 9 has mean 7. Population standard deviation?","Variance $=1.5$, so sd $=1.22$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,2,20,2.22,1.72,1.22,1.5
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.5$, $P(A\text{ and }B)=0.4$. $P(A\text{ or }B)$?",$0.5+0.5-0.4=0.6$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.6,1,0.4,0.7
+statistics,standard deviation,hard,"Data 5, 5, 7, 7, 7, 7, 9, 9 has mean 7. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,3,20,2.41,1.91,2,1.41
+statistics,probability,hard,"$P(A)=0.4$, $P(B)=0.4$, $P(A\text{ and }B)=0.3$. $P(A\text{ or }B)$?",$0.4+0.4-0.3=0.5$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,2,20,0.3,0.6,0.5,0.8
+statistics,combinatorics,hard,How many ways to arrange 6 distinct items?,$6!=720$.,$n!$ arrangements.,true,,3,20,714,120,726,720
+statistics,standard deviation,hard,"Data 3, 5, 5, 6, 6, 7, 7, 9 has mean 6. Population standard deviation?","Variance $=2.75$, so sd $=1.66$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,3,20,2.66,2.75,2.16,1.66
+statistics,probability,hard,"$P(A)=0.4$, $P(B)=0.6$, $P(A\text{ and }B)=0.3$. $P(A\text{ or }B)$?",$0.4+0.6-0.3=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.7,1,0.3,0.8
+statistics,combinatorics,hard,"What is $C(6,4)$?","$C(6,4)=15$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,16,15,24,14
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.6$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.5+0.6-0.2=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.2,1,1.1,0.9
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.4$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.7+0.4-0.2=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,2,20,1,1.1,0.9,0.2
+statistics,z-score,hard,"With mean 100 and sd 20, the z-score of 140?",$(140-100)\div20=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,7,1,2,5
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.3$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.6+0.3-0.1=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.18,0.9,0.1,0.8
+statistics,conditional,hard,$P(A\text{ and }B)=0.2$ and $P(B)=0.4$. $P(A\mid B)$?,$0.2\div0.4=0.5$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,2,20,0.6,0.2,0.5,0.25
+statistics,z-score,hard,"With mean 70 and sd 10, the z-score of 50?",$(50-70)\div10=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,1,-1,8,-2
+statistics,z-score,hard,"With mean 50 and sd 15, the z-score of 80?",$(80-50)\div15=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,6,4,0,2
+statistics,conditional,hard,$P(A\text{ and }B)=0.16$ and $P(B)=0.8$. $P(A\mid B)$?,$0.16\div0.8=0.2$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,3,20,0.16,0.3,0.64,0.2
+statistics,conditional,hard,$P(A\text{ and }B)=0.08$ and $P(B)=0.4$. $P(A\mid B)$?,$0.08\div0.4=0.2$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,0,20,0.2,0.32,0.3,0.08
+statistics,standard deviation,hard,"Data 7, 8, 8, 9, 9, 10, 10, 11 has mean 9. Population standard deviation?","Variance $=1.5$, so sd $=1.22$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,0,20,1.22,2.22,1.5,1.72
+statistics,conditional,hard,$P(A\text{ and }B)=0.48$ and $P(B)=0.8$. $P(A\mid B)$?,$0.48\div0.8=0.6$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,2,20,0.7,0.48,0.6,0.32
+statistics,z-score,hard,"With mean 100 and sd 15, the z-score of 85?",$(85-100)\div15=-1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,2,-1,4,6
+statistics,conditional,hard,$P(A\text{ and }B)=0.32$ and $P(B)=0.8$. $P(A\mid B)$?,$0.32\div0.8=0.4$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,2,20,0.5,0.48,0.4,0.32
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.3$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.6+0.3-0.2=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,0.9,0.7,0.2,0.8
+statistics,standard deviation,hard,"Data 3, 3, 5, 5, 5, 5, 7, 7 has mean 5. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,2,20,1.91,2,1.41,2.41
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.5$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.6+0.5-0.1=1$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,1.1,0.1,0.3,1
+statistics,z-score,hard,"With mean 50 and sd 15, the z-score of 20?",$(20-50)\div15=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,0,-3,-2,1
+statistics,z-score,hard,"With mean 60 and sd 15, the z-score of 75?",$(75-60)\div15=1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,-2,6,1,0
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.4$, $P(A\text{ and }B)=0.3$. $P(A\text{ or }B)$?",$0.7+0.4-0.3=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.8,1.1,0.9,0.3
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.3$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.5+0.3-0.2=0.6$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.7,0.2,0.8,0.6
+statistics,z-score,hard,"With mean 70 and sd 10, the z-score of 100?",$(100-70)\div10=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,0,20,3,-2,7,1
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.6$, $P(A\text{ and }B)=0.3$. $P(A\text{ or }B)$?",$0.6+0.6-0.3=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.9,1.2,0.3,1
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.3$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.7+0.3-0.1=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.21,0.1,1,0.9
+statistics,variance,hard,Multiply every value by 5. The variance multiplies by?,Variance scales by the square: $5^2=25$.,$\text{Var}(aX)=a^2\text{Var}(X)$.,true,,3,20,5,125,10,25
+statistics,z-score,hard,"With mean 70 and sd 15, the z-score of 100?",$(100-70)\div15=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,-3,0,9,2
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.4$, $P(A\text{ and }B)=0.3$. $P(A\text{ or }B)$?",$0.5+0.4-0.3=0.6$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,0.3,0.6,0.7,0.9
+statistics,z-score,hard,"With mean 50 and sd 5, the z-score of 60?",$(60-50)\div5=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,0,20,2,9,-1,-3
+statistics,standard deviation,hard,"Data 1, 3, 3, 4, 4, 5, 5, 7 has mean 4. Population standard deviation?","Variance $=2.75$, so sd $=1.66$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,3,20,2.75,2.16,2.66,1.66
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.5$, $P(A\text{ and }B)=0.4$. $P(A\text{ or }B)$?",$0.6+0.5-0.4=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.4,0.8,1.1,0.7
+statistics,combinatorics,hard,"What is $C(6,3)$?","$C(6,3)=20$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,21,18,20,19
+statistics,z-score,hard,"With mean 50 and sd 20, the z-score of 110?",$(110-50)\div20=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,2,7,4,3
+statistics,combinatorics,hard,"What is $C(6,5)$?","$C(6,5)=6$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,2,20,5,30,6,7
+statistics,z-score,hard,"With mean 50 and sd 5, the z-score of 40?",$(40-50)\div5=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,5,-7,-2,0
+statistics,z-score,hard,"With mean 60 and sd 10, the z-score of 40?",$(40-60)\div10=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,0,20,-2,-1,-5,-3
+statistics,z-score,hard,"With mean 60 and sd 15, the z-score of 90?",$(90-60)\div15=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,-3,12,7,2
+statistics,conditional,hard,$P(A\text{ and }B)=0.4$ and $P(B)=0.8$. $P(A\mid B)$?,$0.4\div0.8=0.5$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,0,20,0.5,0.4,0.25,0.6
+statistics,conditional,hard,$P(A\text{ and }B)=0.16$ and $P(B)=0.4$. $P(A\mid B)$?,$0.16\div0.4=0.4$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,2,20,0.24,0.5,0.4,0.16
+statistics,standard deviation,hard,"Data 7, 7, 9, 9, 9, 9, 11, 11 has mean 9. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,2,20,1.91,2,1.41,2.41
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.6$, $P(A\text{ and }B)=0.4$. $P(A\text{ or }B)$?",$0.5+0.6-0.4=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,1.1,0.7,0.8,0.4
+statistics,standard deviation,hard,"Data 4, 4, 6, 6, 6, 6, 8, 8 has mean 6. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,1,20,1.91,1.41,2.41,2
+statistics,z-score,hard,"With mean 70 and sd 20, the z-score of 90?",$(90-70)\div20=1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,8,3,1,6
+statistics,z-score,hard,"With mean 60 and sd 10, the z-score of 50?",$(50-60)\div10=-1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,9,-4,1,-1
+statistics,z-score,hard,"With mean 60 and sd 20, the z-score of 120?",$(120-60)\div20=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,13,3,10,0
+statistics,standard deviation,hard,"Data 4, 6, 6, 7, 7, 8, 8, 10 has mean 7. Population standard deviation?","Variance $=2.75$, so sd $=1.66$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,3,20,2.16,2.66,2.75,1.66
+statistics,z-score,hard,"With mean 100 and sd 10, the z-score of 80?",$(80-100)\div10=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,1,2,-5,-2
+statistics,probability,hard,"$P(A)=0.4$, $P(B)=0.6$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.4+0.6-0.2=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,1,0.8,0.9,0.2
+statistics,z-score,hard,"With mean 70 and sd 20, the z-score of 110?",$(110-70)\div20=2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,-3,12,2,6
+statistics,z-score,hard,"With mean 70 and sd 15, the z-score of 115?",$(115-70)\div15=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,4,13,10,3
+statistics,combinatorics,hard,"What is $C(8,3)$?","$C(8,3)=56$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,57,56,55,24
+statistics,conditional,hard,$P(A\text{ and }B)=0.2$ and $P(B)=0.5$. $P(A\mid B)$?,$0.2\div0.5=0.4$.,$P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}$.,true,,2,20,0.5,0.3,0.4,0.2
+statistics,combinatorics,hard,"What is $C(5,4)$?","$C(5,4)=5$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,4,5,6,20
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.3$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.7+0.3-0.2=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.8,0.2,1,0.9
+statistics,standard deviation,hard,"Data 6, 7, 7, 8, 8, 9, 9, 10 has mean 8. Population standard deviation?","Variance $=1.5$, so sd $=1.22$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,0,20,1.22,1.5,1.72,2.22
+statistics,probability,hard,"$P(A)=0.5$, $P(B)=0.5$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.5+0.5-0.2=0.8$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.2,1,0.9,0.8
+statistics,probability,hard,"$P(A)=0.4$, $P(B)=0.4$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.4+0.4-0.1=0.7$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,0,20,0.7,0.8,0.16,0.1
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.6$, $P(A\text{ and }B)=0.2$. $P(A\text{ or }B)$?",$0.7+0.6-0.2=1.1$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,1.2,1.1,1.3,0.2
+statistics,z-score,hard,"With mean 50 and sd 15, the z-score of 95?",$(95-50)\div15=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,8,2,3,5
+statistics,z-score,hard,"With mean 100 and sd 5, the z-score of 105?",$(105-100)\div5=1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,0,-2,3,1
+statistics,combinatorics,hard,"What is $C(7,6)$?","$C(7,6)=7$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,6,7,8,42
+statistics,z-score,hard,"With mean 70 and sd 20, the z-score of 130?",$(130-70)\div20=3$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,1,20,4,3,10,6
+statistics,z-score,hard,"With mean 100 and sd 5, the z-score of 90?",$(90-100)\div5=-2$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,3,20,5,0,-7,-2
+statistics,probability,hard,"$P(A)=0.7$, $P(B)=0.6$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.7+0.6-0.1=1.2$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,3,20,0.42,1.3,0.1,1.2
+statistics,probability,hard,"$P(A)=0.6$, $P(B)=0.4$, $P(A\text{ and }B)=0.1$. $P(A\text{ or }B)$?",$0.6+0.4-0.1=0.9$.,$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.,true,,1,20,0.1,0.9,1,0.24
+statistics,standard deviation,hard,"Data 2, 2, 4, 4, 4, 4, 6, 6 has mean 4. Population standard deviation?","Variance $=2$, so sd $=1.41$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,0,20,1.41,2.41,1.91,2
+statistics,combinatorics,hard,"What is $C(8,2)$?","$C(8,2)=28$.","$C(n,k)=\dfrac{n!}{k!(n-k)!}$.",true,,1,20,29,28,16,27
+statistics,standard deviation,hard,"Data 4, 5, 5, 6, 6, 7, 7, 8 has mean 6. Population standard deviation?","Variance $=1.5$, so sd $=1.22$.",$\text{sd}=\sqrt{\frac{1}{n}\sum (x-\bar x)^2}$.,true,,1,20,2.22,1.22,1.5,1.72
+statistics,z-score,hard,"With mean 60 and sd 5, the z-score of 65?",$(65-60)\div5=1$.,$z=\dfrac{x-\mu}{\sigma}$.,true,,2,20,11,5,1,6

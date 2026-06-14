@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+data_query,functions,easy,What best describes LENGTH?,LENGTH - returns the number of characters.,,,,0,10,returns the number of characters,tests two values are not equal,counts the number of rows,adds up numeric values
+data_query,ddl,easy,What best describes CREATE TABLE?,CREATE TABLE - defines a new table and its columns.,,,,0,10,defines a new table and its columns,tests two values are not equal,rounds a number to given decimals,adds up numeric values
+data_query,ddl,easy,Which term means: deletes a table and its data?,That describes DROP TABLE.,,,,0,10,DROP TABLE,TRUNCATE,Wildcard underscore,UPPER
+data_query,operators,easy,What best describes Wildcard underscore?,Wildcard underscore - matches a single character in LIKE.,,,,3,10,skips a number of rows before returning,changes an existing table's structure,counts unique non-null values,matches a single character in LIKE
+data_query,aggregates,easy,What best describes COUNT?,COUNT - counts the number of rows.,,,,3,10,returns the absolute value,filters groups after aggregation,groups rows so aggregates apply per group,counts the number of rows
+data_query,operators,easy,Which term means: tests a value is absent from a list?,That describes NOT IN.,,,,3,10,COUNT,HAVING,Wildcard underscore,NOT IN
+data_query,functions,easy,What best describes SUBSTRING?,SUBSTRING - extracts part of a string.,,,,2,10,converts a value to another type,returns the largest value,extracts part of a string,adds up numeric values
+data_query,ddl,easy,Which of these is an example of TRUNCATE?,TRUNCATE logs is an example of TRUNCATE.,,,,1,10,CURRENT_DATE,TRUNCATE logs,"WHERE id NOT IN (1, 2)",OFFSET 20
+data_query,functions,easy,Which of these is an example of ROUND?,"ROUND(price, 2) is an example of ROUND.",,,,0,10,"ROUND(price, 2)",UPPER(name),LOWER(email),COUNT(DISTINCT country)
+data_query,functions,easy,What best describes NOW?,NOW - returns the current date and time.,,,,0,10,returns the current date and time,tests that a value is present,returns the number of characters,converts text to lower case
+data_query,functions,easy,Which of these is an example of TRIM?,TRIM(input) is an example of TRIM.,,,,3,10,"REPLACE(phone, '-', '')",AVG(score),WHERE status <> 'done',TRIM(input)
+data_query,aggregates,easy,Which term means: computes the average of values?,That describes AVG.,,,,0,10,AVG,CREATE TABLE,UPPER,AS
+data_query,ddl,easy,Which of these is an example of CREATE TABLE?,CREATE TABLE users (...) is an example of CREATE TABLE.,,,,1,10,LOWER(email),CREATE TABLE users (...),HAVING COUNT(*) > 5,id % 2 = 0
+data_query,aggregates,easy,What best describes MAX?,MAX - returns the largest value.,,,,3,10,tests a value is absent from a list,returns today's date,deletes a table and its data,returns the largest value
+data_query,grouping,easy,Which of these is an example of GROUP BY?,GROUP BY country is an example of GROUP BY.,,,,1,10,CAST(price AS INT),GROUP BY country,DROP TABLE temp,MAX(price)
+data_query,clauses,easy,Which of these is an example of Multi-column order?,"ORDER BY country, name is an example of Multi-column order.",,,,1,10,"COALESCE(nickname, name)","ORDER BY country, name",'A_' matches Ax,"SUBSTRING(name, 1, 3)"
+data_query,functions,easy,Which of these is an example of REPLACE?,"REPLACE(phone, '-', '') is an example of REPLACE.",,,,0,10,"REPLACE(phone, '-', '')",LOWER(email),"COALESCE(nickname, name)",MIN(price)
+data_query,ddl,easy,What best describes ALTER TABLE?,ALTER TABLE - changes an existing table's structure.,,,,0,10,changes an existing table's structure,returns the largest value,gives a column or table an alias,converts text to lower case
+data_query,functions,easy,What best describes REPLACE?,REPLACE - substitutes text within a string.,,,,2,10,returns the largest value,joins strings together,substitutes text within a string,returns today's date
+data_query,aggregates,easy,Which term means: returns the smallest value?,That describes MIN.,,,,0,10,MIN,ROUND,CREATE TABLE,Arithmetic
+data_query,functions,easy,Which term means: removes surrounding whitespace?,That describes TRIM.,,,,1,10,COALESCE,TRIM,SUBSTRING,MIN
+data_query,grouping,easy,What best describes HAVING?,HAVING - filters groups after aggregation.,,,,3,10,joins strings together,tests two values are not equal,extracts part of a string,filters groups after aggregation
+data_query,operators,easy,Which of these is an example of IS NOT NULL?,WHERE email IS NOT NULL is an example of IS NOT NULL.,,,,3,10,id % 2 = 0,SELECT price AS p,"CONCAT(first, last)",WHERE email IS NOT NULL
+data_query,operators,easy,Which term means: matches a single character in LIKE?,That describes Wildcard underscore.,,,,1,10,ROUND,Wildcard underscore,IS NOT NULL,Multi-column order
+data_query,functions,easy,Which term means: returns the current date and time?,That describes NOW.,,,,1,10,GROUP BY,NOW,COUNT DISTINCT,SUBSTRING
+data_query,aggregates,easy,Which of these is an example of MAX?,MAX(price) is an example of MAX.,,,,1,10,id % 2 = 0,MAX(price),ALTER TABLE users ADD age INT,HAVING COUNT(*) > 5
+data_query,clauses,easy,Which of these is an example of OFFSET?,OFFSET 20 is an example of OFFSET.,,,,2,10,SUM(amount),COUNT(DISTINCT country),OFFSET 20,"COALESCE(nickname, name)"
+data_query,clauses,easy,What best describes Multi-column order?,Multi-column order - sorting by several columns in turn.,,,,0,10,sorting by several columns in turn,quickly removes all rows from a table,filters groups after aggregation,extracts part of a string
+data_query,functions,easy,Which term means: rounds a number to given decimals?,That describes ROUND.,,,,0,10,ROUND,IS NOT NULL,CREATE TABLE,CONCAT
+data_query,functions,easy,Which term means: returns today's date?,That describes CURRENT_DATE.,,,,2,10,Multi-column order,MIN,CURRENT_DATE,SUM
+data_query,aggregates,easy,Which term means: returns the largest value?,That describes MAX.,,,,3,10,MIN,Arithmetic,CAST,MAX
+data_query,functions,easy,Which term means: converts text to upper case?,That describes UPPER.,,,,3,10,CURRENT_DATE,Inequality,Modulo,UPPER
+data_query,functions,easy,Which term means: returns the absolute value?,That describes ABS.,,,,1,10,SUM,ABS,NOW,CREATE TABLE
+data_query,aggregates,easy,What best describes AVG?,AVG - computes the average of values.,,,,3,10,defines a new table and its columns,gives a column or table an alias,returns the number of characters,computes the average of values
+data_query,functions,easy,What best describes ABS?,ABS - returns the absolute value.,,,,1,10,joins strings together,returns the absolute value,rounds a number to given decimals,substitutes text within a string
+data_query,aggregates,easy,What best describes MIN?,MIN - returns the smallest value.,,,,0,10,returns the smallest value,returns the largest value,rounds a number to given decimals,gives a column or table an alias
+data_query,ddl,easy,What best describes TRUNCATE?,TRUNCATE - quickly removes all rows from a table.,,,,3,10,returns the remainder of a division,counts the number of rows,substitutes text within a string,quickly removes all rows from a table
+data_query,functions,easy,Which of these is an example of SUBSTRING?,"SUBSTRING(name, 1, 3) is an example of SUBSTRING.",,,,2,10,LOWER(email),price * quantity,"SUBSTRING(name, 1, 3)",COUNT(DISTINCT country)
+data_query,clauses,easy,Which term means: skips a number of rows before returning?,That describes OFFSET.,,,,1,10,ROUND,OFFSET,Arithmetic,CURRENT_DATE
+data_query,aggregates,easy,Which of these is an example of AVG?,AVG(score) is an example of AVG.,,,,1,10,WHERE email IS NOT NULL,AVG(score),"ORDER BY country, name","REPLACE(phone, '-', '')"
+data_query,aggregates,easy,What best describes SUM?,SUM - adds up numeric values.,,,,1,10,rounds a number to given decimals,adds up numeric values,converts a value to another type,matches a single character in LIKE
+data_query,aggregates,easy,Which term means: adds up numeric values?,That describes SUM.,,,,1,10,NOT IN,SUM,CAST,UPPER
+data_query,functions,easy,Which term means: converts text to lower case?,That describes LOWER.,,,,3,10,ABS,Wildcard underscore,COUNT,LOWER
+data_query,grouping,easy,Which term means: groups rows so aggregates apply per group?,That describes GROUP BY.,,,,3,10,Multi-column order,ALTER TABLE,COALESCE,GROUP BY
+data_query,functions,easy,Which of these is an example of LOWER?,LOWER(email) is an example of LOWER.,,,,1,10,"ORDER BY country, name",LOWER(email),GROUP BY country,WHERE status <> 'done'
+data_query,operators,easy,What best describes IS NOT NULL?,IS NOT NULL - tests that a value is present.,,,,1,10,matches a single character in LIKE,tests that a value is present,returns the current date and time,converts text to upper case
+data_query,operators,easy,What best describes Arithmetic?,Arithmetic - computes values with + - * /.,,,,1,10,tests a value is absent from a list,computes values with + - * /,returns the current date and time,removes surrounding whitespace
+data_query,functions,easy,What best describes CONCAT?,CONCAT - joins strings together.,,,,3,10,returns the absolute value,deletes a table and its data,skips a number of rows before returning,joins strings together
+data_query,operators,easy,Which term means: returns the remainder of a division?,That describes Modulo.,,,,2,10,ROUND,OFFSET,Modulo,AS
+data_query,operators,easy,Which of these is an example of Arithmetic?,price * quantity is an example of Arithmetic.,,,,1,10,COUNT(DISTINCT country),price * quantity,LENGTH(name),MIN(price)
+data_query,operators,easy,Which of these is an example of Modulo?,id % 2 = 0 is an example of Modulo.,,,,1,10,CURRENT_DATE,id % 2 = 0,"CONCAT(first, last)",WHERE email IS NOT NULL
+data_query,functions,easy,Which of these is an example of ABS?,ABS(balance) is an example of ABS.,,,,3,10,OFFSET 20,CAST(price AS INT),AVG(score),ABS(balance)
+data_query,operators,easy,What best describes NOT IN?,NOT IN - tests a value is absent from a list.,,,,3,10,extracts part of a string,returns the remainder of a division,converts text to upper case,tests a value is absent from a list
+data_query,ddl,easy,Which term means: changes an existing table's structure?,That describes ALTER TABLE.,,,,3,10,REPLACE,CONCAT,MIN,ALTER TABLE
+data_query,functions,easy,Which of these is an example of CURRENT_DATE?,CURRENT_DATE is an example of CURRENT_DATE.,,,,1,10,AVG(score),CURRENT_DATE,CAST(price AS INT),CREATE TABLE users (...)
+data_query,operators,easy,What best describes Modulo?,Modulo - returns the remainder of a division.,,,,1,10,returns the smallest value,returns the remainder of a division,skips a number of rows before returning,groups rows so aggregates apply per group
+data_query,functions,easy,What best describes CURRENT_DATE?,CURRENT_DATE - returns today's date.,,,,0,10,returns today's date,gives a column or table an alias,counts the number of rows,rounds a number to given decimals
+data_query,functions,easy,Which term means: returns the number of characters?,That describes LENGTH.,,,,2,10,SUBSTRING,UPPER,LENGTH,CONCAT
+data_query,clauses,easy,Which of these is an example of AS?,SELECT price AS p is an example of AS.,,,,1,10,"ORDER BY country, name",SELECT price AS p,DROP TABLE temp,WHERE status <> 'done'
+data_query,operators,easy,What best describes Inequality?,Inequality - tests two values are not equal.,,,,2,10,gives a column or table an alias,returns the remainder of a division,tests two values are not equal,computes values with + - * /
+data_query,clauses,easy,What best describes AS?,AS - gives a column or table an alias.,,,,2,10,returns the smallest value,returns the number of characters,gives a column or table an alias,returns the current date and time
+data_query,grouping,easy,Which of these is an example of HAVING?,HAVING COUNT(*) > 5 is an example of HAVING.,,,,1,10,WHERE status <> 'done',HAVING COUNT(*) > 5,MAX(price),"SUBSTRING(name, 1, 3)"
+data_query,ddl,easy,Which of these is an example of DROP TABLE?,DROP TABLE temp is an example of DROP TABLE.,,,,2,10,price * quantity,SELECT price AS p,DROP TABLE temp,CREATE TABLE users (...)
+data_query,operators,easy,Which term means: computes values with + - * /?,That describes Arithmetic.,,,,3,10,ALTER TABLE,TRIM,ABS,Arithmetic
+data_query,functions,easy,What best describes LOWER?,LOWER - converts text to lower case.,,,,2,10,skips a number of rows before returning,counts unique non-null values,converts text to lower case,changes an existing table's structure
+data_query,aggregates,easy,Which of these is an example of SUM?,SUM(amount) is an example of SUM.,,,,3,10,"REPLACE(phone, '-', '')",MAX(price),ALTER TABLE users ADD age INT,SUM(amount)
+data_query,functions,easy,Which term means: extracts part of a string?,That describes SUBSTRING.,,,,2,10,LENGTH,NOT IN,SUBSTRING,MIN
+data_query,functions,easy,Which term means: joins strings together?,That describes CONCAT.,,,,0,10,CONCAT,ABS,DROP TABLE,Modulo
+data_query,aggregates,easy,Which of these is an example of COUNT?,COUNT(*) is an example of COUNT.,,,,2,10,price * quantity,TRUNCATE logs,COUNT(*),"REPLACE(phone, '-', '')"
+data_query,functions,easy,Which term means: converts a value to another type?,That describes CAST.,,,,0,10,CAST,IS NOT NULL,COALESCE,AS
+data_query,clauses,easy,What best describes OFFSET?,OFFSET - skips a number of rows before returning.,,,,0,10,skips a number of rows before returning,substitutes text within a string,defines a new table and its columns,tests a value is absent from a list
+data_query,ddl,easy,Which term means: quickly removes all rows from a table?,That describes TRUNCATE.,,,,2,10,Arithmetic,GROUP BY,TRUNCATE,COUNT DISTINCT
+data_query,functions,easy,Which of these is an example of LENGTH?,LENGTH(name) is an example of LENGTH.,,,,0,10,LENGTH(name),"SUBSTRING(name, 1, 3)",MIN(price),WHERE email IS NOT NULL
+data_query,functions,easy,Which of these is an example of COALESCE?,"COALESCE(nickname, name) is an example of COALESCE.",,,,0,10,"COALESCE(nickname, name)",CAST(price AS INT),WHERE email IS NOT NULL,"SUBSTRING(name, 1, 3)"
+data_query,grouping,easy,Which term means: counts unique non-null values?,That describes COUNT DISTINCT.,,,,1,10,Inequality,COUNT DISTINCT,Multi-column order,CONCAT
+data_query,operators,easy,Which of these is an example of Wildcard underscore?,'A_' matches Ax is an example of Wildcard underscore.,,,,0,10,'A_' matches Ax,CAST(price AS INT),AVG(score),WHERE email IS NOT NULL
+data_query,ddl,easy,What best describes DROP TABLE?,DROP TABLE - deletes a table and its data.,,,,1,10,substitutes text within a string,deletes a table and its data,filters groups after aggregation,groups rows so aggregates apply per group
+data_query,operators,easy,Which term means: tests that a value is present?,That describes IS NOT NULL.,,,,3,10,Inequality,COUNT,Arithmetic,IS NOT NULL
+data_query,operators,easy,Which term means: tests two values are not equal?,That describes Inequality.,,,,3,10,Wildcard underscore,MIN,TRIM,Inequality
+data_query,functions,easy,Which of these is an example of CAST?,CAST(price AS INT) is an example of CAST.,,,,1,10,COUNT(*),CAST(price AS INT),"ORDER BY country, name",CREATE TABLE users (...)
+data_query,clauses,easy,Which term means: sorting by several columns in turn?,That describes Multi-column order.,,,,2,10,LOWER,AVG,Multi-column order,AS
+data_query,functions,easy,What best describes TRIM?,TRIM - removes surrounding whitespace.,,,,3,10,returns the remainder of a division,computes the average of values,substitutes text within a string,removes surrounding whitespace
+data_query,ddl,easy,Which term means: defines a new table and its columns?,That describes CREATE TABLE.,,,,1,10,CONCAT,CREATE TABLE,NOT IN,AS
+data_query,aggregates,easy,Which of these is an example of MIN?,MIN(price) is an example of MIN.,,,,0,10,MIN(price),TRUNCATE logs,id % 2 = 0,LENGTH(name)
+data_query,grouping,easy,What best describes GROUP BY?,GROUP BY - groups rows so aggregates apply per group.,,,,2,10,computes the average of values,returns the remainder of a division,groups rows so aggregates apply per group,tests a value is absent from a list
+data_query,functions,easy,What best describes UPPER?,UPPER - converts text to upper case.,,,,2,10,computes the average of values,gives a column or table an alias,converts text to upper case,rounds a number to given decimals
+data_query,clauses,easy,Which term means: gives a column or table an alias?,That describes AS.,,,,2,10,SUBSTRING,MAX,AS,DROP TABLE
+data_query,ddl,easy,Which of these is an example of ALTER TABLE?,ALTER TABLE users ADD age INT is an example of ALTER TABLE.,,,,3,10,TRUNCATE logs,LOWER(email),MAX(price),ALTER TABLE users ADD age INT
+data_query,grouping,easy,Which term means: filters groups after aggregation?,That describes HAVING.,,,,1,10,SUM,HAVING,ALTER TABLE,OFFSET
+data_query,grouping,easy,Which of these is an example of COUNT DISTINCT?,COUNT(DISTINCT country) is an example of COUNT DISTINCT.,,,,2,10,CAST(price AS INT),UPPER(name),COUNT(DISTINCT country),SELECT price AS p
+data_query,operators,easy,Which of these is an example of Inequality?,WHERE status <> 'done' is an example of Inequality.,,,,0,10,WHERE status <> 'done',CAST(price AS INT),NOW(),"ROUND(price, 2)"
+data_query,functions,easy,What best describes CAST?,CAST - converts a value to another type.,,,,1,10,rounds a number to given decimals,converts a value to another type,returns the number of characters,adds up numeric values
+data_query,operators,easy,Which of these is an example of NOT IN?,"WHERE id NOT IN (1, 2) is an example of NOT IN.",,,,0,10,"WHERE id NOT IN (1, 2)",TRIM(input),OFFSET 20,COUNT(DISTINCT country)
+data_query,grouping,easy,What best describes COUNT DISTINCT?,COUNT DISTINCT - counts unique non-null values.,,,,1,10,removes surrounding whitespace,counts unique non-null values,returns today's date,tests that a value is present
+data_query,aggregates,easy,Which term means: counts the number of rows?,That describes COUNT.,,,,0,10,COUNT,CREATE TABLE,SUBSTRING,AVG
+data_query,functions,easy,Which of these is an example of UPPER?,UPPER(name) is an example of UPPER.,,,,2,10,"REPLACE(phone, '-', '')",id % 2 = 0,UPPER(name),LENGTH(name)
+data_query,functions,easy,Which term means: returns the first non-null argument?,That describes COALESCE.,,,,1,10,IS NOT NULL,COALESCE,OFFSET,Arithmetic
+data_query,functions,easy,Which term means: substitutes text within a string?,That describes REPLACE.,,,,0,10,REPLACE,Multi-column order,HAVING,GROUP BY
+data_query,functions,easy,What best describes ROUND?,ROUND - rounds a number to given decimals.,,,,3,10,computes the average of values,returns the current date and time,converts text to upper case,rounds a number to given decimals
+data_query,functions,easy,What best describes COALESCE?,COALESCE - returns the first non-null argument.,,,,2,10,sorting by several columns in turn,returns the smallest value,returns the first non-null argument,computes values with + - * /

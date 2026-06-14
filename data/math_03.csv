@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+math,algebra,medium,Solve for $x$: $2x + 1 = 17$.,$x=(17-1)\div2=8$.,"Undo $+1$, then divide by $2$.",,,1,15,3,8,10,5
+math,statistics,medium,"What is the mean of 26, 18, 13?",$(26+18+13)\div3=19$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,16,19,9,26
+math,statistics,medium,"What is the mean of 19, 21, 14?",$(19+21+14)\div3=18$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,20,23,17,18
+math,roots,medium,What is $\sqrt{49}$?,$7^2=49$.,Find $k$ with $k^2$ equal to it.,,,0,15,7,8,9,14
+math,geometry,medium,Area of a rectangle $4 \times 12$?,$4\times12=48$.,Area $= w\times h$.,,,3,15,47,52,50,48
+math,algebra,medium,Solve for $x$: $3x + 12 = 27$.,$x=(27-12)\div3=5$.,"Undo $+12$, then divide by $3$.",,,1,15,15,5,0,9
+math,roots,medium,What is $\sqrt{36}$?,$6^2=36$.,Find $k$ with $k^2$ equal to it.,,,3,15,1,16,3,6
+math,statistics,medium,"What is the mean of 3, 10, 10, 9?",$(3+10+10+9)\div4=8$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,8,10,6,18
+math,exponents,medium,What is $2^{6}$?,$2^6=64$.,$2^6$ means 6 factors of 2.,,,3,15,68,59,62,64
+math,geometry,medium,Area of a triangle with base 3 and height 2?,$\frac12\times3\times2=3$.,Area $=\frac12 b h$.,,,2,15,8,4,3,2
+math,percentages,medium,What is $40\%$ of 40?,$40\%$ of 40 is 16.,"Convert the percent to a decimal, then multiply.",,,2,15,26,21,16,13
+math,statistics,medium,"What is the mean of 14, 7, 12?",$(14+7+12)\div3=11$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,15,21,1,11
+math,fractions,medium,What is $\frac{2}{3}$ of 9?,$\frac{2}{3}\times9=6$.,'Of' means multiply.,,,0,15,6,3,1,4
+math,fractions,medium,What is $\frac{1}{4}$ of 28?,$\frac{1}{4}\times28=7$.,'Of' means multiply.,,,2,15,2,4,7,9
+math,percentages,medium,What is $40\%$ of 35?,$40\%$ of 35 is 14.,"Convert the percent to a decimal, then multiply.",,,1,15,13,14,4,18
+math,statistics,medium,"What is the mean of 8, 20, 29?",$(8+20+29)\div3=19$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,21,20,17,19
+math,sequences,medium,"What is the next term: 1, 2, 4, 8, ?","Each term doubles, so 16.",Look for a constant ratio.,,,1,15,24,16,14,8
+math,statistics,medium,"What is the mean of 7, 2, 3?",$(7+2+3)\div3=4$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,1,7,4,3
+math,roots,medium,What is $\sqrt{9}$?,$3^2=9$.,Find $k$ with $k^2$ equal to it.,,,3,15,1,4,10,3
+math,geometry,medium,Area of a rectangle $8 \times 10$?,$8\times10=80$.,Area $= w\times h$.,,,1,15,84,80,78,85
+math,exponents,medium,What is $2^{4}$?,$2^4=16$.,$2^4$ means 4 factors of 2.,,,1,15,15,16,13,26
+math,sequences,medium,"What is the next term: 4, 8, 16, 32, ?","Each term doubles, so 64.",Look for a constant ratio.,,,3,15,62,96,32,64
+math,algebra,medium,Solve for $x$: $6x + 2 = 38$.,$x=(38-2)\div6=6$.,"Undo $+2$, then divide by $6$.",,,1,15,7,6,10,9
+math,fractions,medium,What is $\frac{1}{2}$ of 12?,$\frac{1}{2}\times12=6$.,'Of' means multiply.,,,1,15,5,6,10,11
+math,fractions,medium,What is $\frac{1}{2}$ of 10?,$\frac{1}{2}\times10=5$.,'Of' means multiply.,,,1,15,9,5,0,15
+math,percentages,medium,What is $25\%$ of 8?,$25\%$ of 8 is 2.,"Convert the percent to a decimal, then multiply.",,,0,15,2,3,5,6
+math,roots,medium,What is $\sqrt{16}$?,$4^2=16$.,Find $k$ with $k^2$ equal to it.,,,3,15,6,14,11,4
+math,roots,medium,What is $\sqrt{121}$?,$11^2=121$.,Find $k$ with $k^2$ equal to it.,,,0,15,11,1,12,18
+math,algebra,medium,Solve for $x$: $6x + 11 = 53$.,$x=(53-11)\div6=7$.,"Undo $+11$, then divide by $6$.",,,0,15,7,11,9,6
+math,geometry,medium,Area of a triangle with base 4 and height 9?,$\frac12\times4\times9=18$.,Area $=\frac12 b h$.,,,3,15,20,17,28,18
+math,roots,medium,What is $\sqrt{81}$?,$9^2=81$.,Find $k$ with $k^2$ equal to it.,,,3,15,14,7,19,9
+math,algebra,medium,Solve for $x$: $2x + 13 = 35$.,$x=(35-13)\div2=11$.,"Undo $+13$, then divide by $2$.",,,2,15,9,12,11,21
+math,roots,medium,What is $\sqrt{256}$?,$16^2=256$.,Find $k$ with $k^2$ equal to it.,,,0,15,16,21,19,11
+math,percentages,medium,What is $20\%$ of 40?,$20\%$ of 40 is 8.,"Convert the percent to a decimal, then multiply.",,,3,15,11,18,10,8
+math,geometry,medium,Area of a rectangle $6 \times 9$?,$6\times9=54$.,Area $= w\times h$.,,,3,15,55,64,57,54
+math,exponents,medium,What is $5^{6}$?,$5^6=15625$.,$5^6$ means 6 factors of 5.,,,2,15,15632,15635,15625,15623
+math,statistics,medium,"What is the mean of 10, 2, 13, 7?",$(10+2+13+7)\div4=8$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,6,12,8,3
+math,algebra,medium,Solve for $x$: $5x + 3 = 13$.,$x=(13-3)\div5=2$.,"Undo $+3$, then divide by $5$.",,,2,15,1,3,2,5
+math,algebra,medium,Solve for $x$: $5x + 7 = 17$.,$x=(17-7)\div5=2$.,"Undo $+7$, then divide by $5$.",,,3,15,9,12,5,2
+math,fractions,medium,What is $\frac{1}{2}$ of 4?,$\frac{1}{2}\times4=2$.,'Of' means multiply.,,,1,15,0,2,7,6
+math,sequences,medium,"What is the next term: 2, 4, 8, 16, ?","Each term doubles, so 32.",Look for a constant ratio.,,,1,15,16,32,48,30
+math,geometry,medium,Area of a rectangle $4 \times 3$?,$4\times3=12$.,Area $= w\times h$.,,,0,15,12,13,14,15
+math,exponents,medium,What is $2^{5}$?,$2^5=32$.,$2^5$ means 5 factors of 2.,,,3,15,29,39,37,32
+math,statistics,medium,"What is the mean of 13, 5, 15?",$(13+5+15)\div3=11$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,21,8,1,11
+math,geometry,medium,Area of a triangle with base 5 and height 8?,$\frac12\times5\times8=20$.,Area $=\frac12 b h$.,,,1,15,25,20,22,10
+math,algebra,medium,Solve for $x$: $4x + 1 = 9$.,$x=(9-1)\div4=2$.,"Undo $+1$, then divide by $4$.",,,2,15,9,0,2,5
+math,geometry,medium,Area of a triangle with base 8 and height 4?,$\frac12\times8\times4=16$.,Area $=\frac12 b h$.,,,1,15,6,16,19,23
+math,percentages,medium,What is $40\%$ of 25?,$40\%$ of 25 is 10.,"Convert the percent to a decimal, then multiply.",,,0,15,10,11,14,0
+math,fractions,medium,What is $\frac{2}{4}$ of 16?,$\frac{2}{4}\times16=8$.,'Of' means multiply.,,,3,15,15,13,12,8
+math,fractions,medium,What is $\frac{4}{5}$ of 45?,$\frac{4}{5}\times45=36$.,'Of' means multiply.,,,1,15,41,36,38,37
+math,percentages,medium,What is $60\%$ of 35?,$60\%$ of 35 is 21.,"Convert the percent to a decimal, then multiply.",,,1,15,19,21,20,16
+math,algebra,medium,Solve for $x$: $6x + 10 = 40$.,$x=(40-10)\div6=5$.,"Undo $+10$, then divide by $6$.",,,3,15,6,10,7,5
+math,geometry,medium,Area of a triangle with base 14 and height 9?,$\frac12\times14\times9=63$.,Area $=\frac12 b h$.,,,1,15,68,63,62,58
+math,exponents,medium,What is $5^{3}$?,$5^3=125$.,$5^3$ means 3 factors of 5.,,,3,15,126,128,122,125
+math,statistics,medium,"What is the mean of 17, 7, 15?",$(17+7+15)\div3=13$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,11,18,13,3
+math,geometry,medium,Area of a rectangle $9 \times 11$?,$9\times11=99$.,Area $= w\times h$.,,,2,15,97,109,99,104
+math,algebra,medium,Solve for $x$: $4x + 12 = 60$.,$x=(60-12)\div4=12$.,"Undo $+12$, then divide by $4$.",,,2,15,15,7,12,17
+math,fractions,medium,What is $\frac{2}{3}$ of 24?,$\frac{2}{3}\times24=16$.,'Of' means multiply.,,,1,15,17,16,18,19
+math,geometry,medium,Area of a triangle with base 13 and height 12?,$\frac12\times13\times12=78$.,Area $=\frac12 b h$.,,,0,15,78,88,76,81
+math,algebra,medium,Solve for $x$: $3x + 1 = 34$.,$x=(34-1)\div3=11$.,"Undo $+1$, then divide by $3$.",,,1,15,21,11,18,1
+math,percentages,medium,What is $150\%$ of 8?,$150\%$ of 8 is 12.,"Convert the percent to a decimal, then multiply.",,,3,15,19,13,15,12
+math,exponents,medium,What is $2^{2}$?,$2^2=4$.,$2^2$ means 2 factors of 2.,,,0,15,4,1,5,3
+math,statistics,medium,"What is the mean of 8, 21, 24, 23?",$(8+21+24+23)\div4=19$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,9,21,19,23
+math,geometry,medium,Area of a rectangle $4 \times 8$?,$4\times8=32$.,Area $= w\times h$.,,,0,15,32,35,37,29
+math,exponents,medium,What is $5^{4}$?,$5^4=625$.,$5^4$ means 4 factors of 5.,,,2,15,624,626,625,630
+math,statistics,medium,"What is the mean of 1, 10, 4?",$(1+10+4)\div3=5$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,15,7,5,12
+math,percentages,medium,What is $25\%$ of 16?,$25\%$ of 16 is 4.,"Convert the percent to a decimal, then multiply.",,,2,15,11,9,4,8
+math,percentages,medium,What is $20\%$ of 35?,$20\%$ of 35 is 7.,"Convert the percent to a decimal, then multiply.",,,1,15,17,7,12,4
+math,statistics,medium,"What is the mean of 1, 1, 9, 5?",$(1+1+9+5)\div4=4$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,5,4,8,7
+math,geometry,medium,Area of a triangle with base 10 and height 2?,$\frac12\times10\times2=10$.,Area $=\frac12 b h$.,,,0,15,10,8,11,20
+math,geometry,medium,Area of a triangle with base 14 and height 10?,$\frac12\times14\times10=70$.,Area $=\frac12 b h$.,,,1,15,74,70,60,72
+math,geometry,medium,Area of a triangle with base 7 and height 8?,$\frac12\times7\times8=28$.,Area $=\frac12 b h$.,,,2,15,35,31,28,29
+math,statistics,medium,"What is the mean of 9, 3, 9, 3?",$(9+3+9+3)\div4=6$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,4,5,7,6
+math,statistics,medium,"What is the mean of 19, 14, 15?",$(19+14+15)\div3=16$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,19,16,14,15
+math,statistics,medium,"What is the mean of 4, 7, 4, 5?",$(4+7+4+5)\div4=5$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,2,15,7,8,5,0
+math,algebra,medium,Solve for $x$: $4x + 13 = 57$.,$x=(57-13)\div4=11$.,"Undo $+13$, then divide by $4$.",,,3,15,12,10,15,11
+math,algebra,medium,Solve for $x$: $5x + 14 = 59$.,$x=(59-14)\div5=9$.,"Undo $+14$, then divide by $5$.",,,3,15,19,4,11,9
+math,exponents,medium,What is $3^{5}$?,$3^5=243$.,$3^5$ means 5 factors of 3.,,,1,15,238,243,253,246
+math,geometry,medium,Area of a triangle with base 3 and height 6?,$\frac12\times3\times6=9$.,Area $=\frac12 b h$.,,,0,15,9,6,8,10
+math,geometry,medium,Area of a rectangle $11 \times 10$?,$11\times10=110$.,Area $= w\times h$.,,,3,15,111,114,113,110
+math,geometry,medium,Area of a rectangle $4 \times 14$?,$4\times14=56$.,Area $= w\times h$.,,,2,15,58,54,56,55
+math,algebra,medium,Solve for $x$: $5x + 4 = 49$.,$x=(49-4)\div5=9$.,"Undo $+4$, then divide by $5$.",,,0,15,9,6,19,8
+math,algebra,medium,Solve for $x$: $3x + 12 = 30$.,$x=(30-12)\div3=6$.,"Undo $+12$, then divide by $3$.",,,1,15,1,6,16,7
+math,geometry,medium,Area of a rectangle $14 \times 10$?,$14\times10=140$.,Area $= w\times h$.,,,2,15,145,144,140,141
+math,algebra,medium,Solve for $x$: $2x + 15 = 27$.,$x=(27-15)\div2=6$.,"Undo $+15$, then divide by $2$.",,,2,15,4,10,6,3
+math,algebra,medium,Solve for $x$: $4x + 3 = 19$.,$x=(19-3)\div4=4$.,"Undo $+3$, then divide by $4$.",,,1,15,1,4,9,7
+math,algebra,medium,Solve for $x$: $4x + 5 = 41$.,$x=(41-5)\div4=9$.,"Undo $+5$, then divide by $4$.",,,0,15,9,16,13,19
+math,statistics,medium,"What is the mean of 2, 9, 7?",$(2+9+7)\div3=6$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,7,6,4,1
+math,algebra,medium,Solve for $x$: $3x + 6 = 15$.,$x=(15-6)\div3=3$.,"Undo $+6$, then divide by $3$.",,,3,15,1,6,10,3
+math,algebra,medium,Solve for $x$: $6x + 8 = 80$.,$x=(80-8)\div6=12$.,"Undo $+8$, then divide by $6$.",,,3,15,13,14,10,12
+math,geometry,medium,Area of a rectangle $11 \times 5$?,$11\times5=55$.,Area $= w\times h$.,,,1,15,45,55,59,65
+math,algebra,medium,Solve for $x$: $5x + 1 = 61$.,$x=(61-1)\div5=12$.,"Undo $+1$, then divide by $5$.",,,1,15,2,12,13,16
+math,roots,medium,What is $\sqrt{64}$?,$8^2=64$.,Find $k$ with $k^2$ equal to it.,,,2,15,11,15,8,5
+math,geometry,medium,Area of a rectangle $3 \times 4$?,$3\times4=12$.,Area $= w\times h$.,,,3,15,10,16,14,12
+math,percentages,medium,What is $150\%$ of 10?,$150\%$ of 10 is 15.,"Convert the percent to a decimal, then multiply.",,,0,15,15,10,12,17
+math,statistics,medium,"What is the mean of 14, 18, 16?",$(14+18+16)\div3=16$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,1,15,23,16,18,6
+math,geometry,medium,Area of a rectangle $14 \times 2$?,$14\times2=28$.,Area $= w\times h$.,,,2,15,31,18,28,35
+math,statistics,medium,"What is the mean of 5, 7, 15?",$(5+7+15)\div3=9$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,0,15,9,10,14,7
+math,exponents,medium,What is $5^{5}$?,$5^5=3125$.,$5^5$ means 5 factors of 5.,,,1,15,3130,3125,3129,3127
+math,statistics,medium,"What is the mean of 1, 3, 11?",$(1+3+11)\div3=5$.,Mean $=\dfrac{\text{sum}}{\text{count}}$.,,,3,15,0,3,2,5

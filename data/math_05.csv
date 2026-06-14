@@ -1,0 +1,101 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+math,calculus,expert,Derivative of $4\cos x$?,$-4\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,1,30,$4\cos x$,$-4\sin x$,$-4\cos x$,$4\sin x$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{13}$?,Power rule: $13x^{12}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$x^{12}$,$13x^{13}$,$13x^{12}$,$12x^{11}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{10}$?,Power rule: $10x^{9}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$10x^{9}$,$10x^{10}$,$9x^{8}$,$x^{9}$
+math,calculus,expert,Derivative of $3x^{5}$?,$\frac{d}{dx}3x^{5}=15x^{4}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,3,30,$3x^{4}$,$15x^{5}$,$5x^{4}$,$15x^{4}$
+math,calculus,expert,Derivative of $3x^{6}$?,$\frac{d}{dx}3x^{6}=18x^{5}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,1,30,$6x^{5}$,$18x^{5}$,$18x^{6}$,$3x^{5}$
+math,calculus,expert,Derivative of $3x^{2}$?,$\frac{d}{dx}3x^{2}=6x$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$6x$,$6x^{2}$,$2x$,$3x$
+math,calculus,expert,Derivative of $5x^{3}$?,$\frac{d}{dx}5x^{3}=15x^{2}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$15x^{2}$,$3x^{2}$,$15x^{3}$,$5x^{2}$
+math,calculus,expert,Derivative of $(5x+6)^{4}$?,Chain rule: $4(5x+6)^{3}\times5=20(5x+6)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$20(5x+6)^{4}$,$4(5x+6)^{3}$,$20(5x+6)^{3}$,$5(5x+6)^{4}$
+math,calculus,expert,Derivative of $2\cos x$?,$-2\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,3,30,$-2\cos x$,$2\cos x$,$2\sin x$,$-2\sin x$
+math,calculus,expert,Derivative of $(3x+6)^{2}$?,Chain rule: $2(3x+6)^{1}\times3=6(3x+6)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,3,30,$2(3x+6)^{1}$,$6(3x+6)^{2}$,$3(3x+6)^{2}$,$6(3x+6)^{1}$
+math,calculus,expert,"What is $\int x^{2}\,dx$?",Add 1 to the power: $\frac{x^{3}}{3}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,0,30,$\frac{x^{3}}{3} + C$,$2x^{1} + C$,$2x + C$,$\frac{x^{4}}{4} + C$
+math,calculus,expert,Second derivative of $x^{3}$?,"First $3x^{2}$, then $6x$.",Differentiate twice with the power rule.,true,,0,30,$6x$,$3x^{2}$,$2$,$6x^{2}$
+math,calculus,expert,"Value of $\int_0^{2} x^{3}\,dx$?",$\left[\frac{x^{4}}{4}\right]_0^{2}=4$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,0,30,4,9,2,6
+math,calculus,expert,"What is $\int x^{1}\,dx$?",Add 1 to the power: $\frac{x^{2}}{2}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,2,30,$1 + C$,$1x^{0} + C$,$\frac{x^{2}}{2} + C$,$\frac{x^{3}}{3} + C$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{2}$?,Power rule: $2x$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,3,30,$1$,$x$,$2x^{2}$,$2x$
+math,calculus,expert,Second derivative of $x^{4}$?,"First $4x^{3}$, then $12x^{2}$.",Differentiate twice with the power rule.,true,,2,30,$4x^{3}$,$6x$,$12x^{2}$,$12x^{3}$
+math,calculus,expert,Derivative of $5\cos x$?,$-5\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,0,30,$-5\sin x$,$5\sin x$,$-5\cos x$,$5\cos x$
+math,calculus,expert,Second derivative of $x^{7}$?,"First $7x^{6}$, then $42x^{5}$.",Differentiate twice with the power rule.,true,,3,30,$42x^{6}$,$7x^{6}$,$30x^{4}$,$42x^{5}$
+math,calculus,expert,"What is $\int x^{8}\,dx$?",Add 1 to the power: $\frac{x^{9}}{9}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,2,30,$\frac{x^{10}}{10} + C$,$x^{9} + C$,$\frac{x^{9}}{9} + C$,$8x^{7} + C$
+math,calculus,expert,Derivative of $6e^{2x}$?,$\frac{d}{dx}6e^{2x}=12e^{2x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,1,30,$12e^{1x}$,$12e^{2x}$,$6ke^{x}$,$6e^{2x}$
+math,calculus,expert,Derivative of $(3x+5)^{3}$?,Chain rule: $3(3x+5)^{2}\times3=9(3x+5)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$3(3x+5)^{3}$,$9(3x+5)^{2}$,$3(3x+5)^{2}$,$9(3x+5)^{3}$
+math,calculus,expert,Derivative of $2\sin x$?,$2\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,0,30,$2\cos x$,$-2\sin x$,$2\sin x$,$-2\cos x$
+math,calculus,expert,Second derivative of $x^{6}$?,"First $6x^{5}$, then $30x^{4}$.",Differentiate twice with the power rule.,true,,0,30,$30x^{4}$,$20x^{3}$,$30x^{5}$,$6x^{5}$
+math,calculus,expert,"Value of $\int_0^{2} x^{1}\,dx$?",$\left[\frac{x^{2}}{2}\right]_0^{2}=2$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,3,30,7,5,9,2
+math,calculus,expert,Derivative of $3\sin x$?,$3\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,1,30,$3\sin x$,$3\cos x$,$-3\sin x$,$-3\cos x$
+math,calculus,expert,Derivative of $8\sin x$?,$8\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,3,30,$8\sin x$,$-8\sin x$,$-8\cos x$,$8\cos x$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{3}$?,Power rule: $3x^{2}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$3x^{3}$,$x^{2}$,$3x^{2}$,$2x$
+math,calculus,expert,Derivative of $8\cos x$?,$-8\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,0,30,$-8\sin x$,$8\cos x$,$-8\cos x$,$8\sin x$
+math,calculus,expert,"What is $\int x^{6}\,dx$?",Add 1 to the power: $\frac{x^{7}}{7}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,1,30,$6x^{5} + C$,$\frac{x^{7}}{7} + C$,$x^{7} + C$,$\frac{x^{8}}{8} + C$
+math,calculus,expert,"What is $\int x^{7}\,dx$?",Add 1 to the power: $\frac{x^{8}}{8}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,0,30,$\frac{x^{8}}{8} + C$,$\frac{x^{9}}{9} + C$,$x^{8} + C$,$7x^{6} + C$
+math,calculus,expert,Derivative of $(3x+6)^{3}$?,Chain rule: $3(3x+6)^{2}\times3=9(3x+6)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$3(3x+6)^{2}$,$9(3x+6)^{2}$,$9(3x+6)^{3}$,$3(3x+6)^{3}$
+math,calculus,expert,Derivative of $6e^{3x}$?,$\frac{d}{dx}6e^{3x}=18e^{3x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$6e^{3x}$,$18e^{2x}$,$18e^{3x}$,$6ke^{x}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{4}$?,Power rule: $4x^{3}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$4x^{3}$,$3x^{2}$,$4x^{4}$,$x^{3}$
+math,calculus,expert,Derivative of $2e^{4x}$?,$\frac{d}{dx}2e^{4x}=8e^{4x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,0,30,$8e^{4x}$,$8e^{3x}$,$2ke^{x}$,$2e^{4x}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{11}$?,Power rule: $11x^{10}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$11x^{10}$,$11x^{11}$,$10x^{9}$,$x^{10}$
+math,calculus,expert,Derivative of $(2x+6)^{4}$?,Chain rule: $4(2x+6)^{3}\times2=8(2x+6)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$2(2x+6)^{4}$,$4(2x+6)^{3}$,$8(2x+6)^{3}$,$8(2x+6)^{4}$
+math,calculus,expert,"Value of $\int_0^{4} x^{3}\,dx$?",$\left[\frac{x^{4}}{4}\right]_0^{4}=64$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,1,30,59,64,67,66
+math,calculus,expert,Derivative of $6x^{6}$?,$\frac{d}{dx}6x^{6}=36x^{5}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$36x^{5}$,$6x^{5}$,$36x^{6}$,$30x^{4}$
+math,calculus,expert,Derivative of $6\cos x$?,$-6\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,3,30,$-6\cos x$,$6\cos x$,$6\sin x$,$-6\sin x$
+math,calculus,expert,"What is $\int x^{3}\,dx$?",Add 1 to the power: $\frac{x^{4}}{4}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,3,30,$3x^{2} + C$,$\frac{x^{5}}{5} + C$,$x^{4} + C$,$\frac{x^{4}}{4} + C$
+math,calculus,expert,Derivative of $7\sin x$?,$7\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,1,30,$-7\sin x$,$7\cos x$,$-7\cos x$,$7\sin x$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{6}$?,Power rule: $6x^{5}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,1,30,$5x^{4}$,$6x^{5}$,$6x^{6}$,$x^{5}$
+math,calculus,expert,Derivative of $5e^{3x}$?,$\frac{d}{dx}5e^{3x}=15e^{3x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,3,30,$5e^{3x}$,$15e^{2x}$,$5ke^{x}$,$15e^{3x}$
+math,calculus,expert,Derivative of $(2x+4)^{3}$?,Chain rule: $3(2x+4)^{2}\times2=6(2x+4)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$3(2x+4)^{2}$,$2(2x+4)^{3}$,$6(2x+4)^{2}$,$6(2x+4)^{3}$
+math,calculus,expert,Derivative of $6x^{4}$?,$\frac{d}{dx}6x^{4}=24x^{3}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$24x^{4}$,$4x^{3}$,$24x^{3}$,$6x^{3}$
+math,calculus,expert,Derivative of $7\cos x$?,$-7\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,1,30,$7\sin x$,$-7\sin x$,$-7\cos x$,$7\cos x$
+math,calculus,expert,Derivative of $(2x+2)^{2}$?,Chain rule: $2(2x+2)^{1}\times2=4(2x+2)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$4(2x+2)^{2}$,$4(2x+2)^{1}$,$2(2x+2)^{1}$,$2(2x+2)^{2}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{5}$?,Power rule: $5x^{4}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,1,30,$5x^{5}$,$5x^{4}$,$4x^{3}$,$x^{4}$
+math,calculus,expert,Derivative of $(4x+3)^{4}$?,Chain rule: $4(4x+3)^{3}\times4=16(4x+3)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,0,30,$16(4x+3)^{3}$,$4(4x+3)^{3}$,$16(4x+3)^{4}$,$4(4x+3)^{4}$
+math,calculus,expert,Derivative of $4e^{3x}$?,$\frac{d}{dx}4e^{3x}=12e^{3x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,1,30,$12e^{2x}$,$12e^{3x}$,$4e^{3x}$,$4ke^{x}$
+math,calculus,expert,"What is $\int x^{5}\,dx$?",Add 1 to the power: $\frac{x^{6}}{6}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,0,30,$\frac{x^{6}}{6} + C$,$x^{6} + C$,$\frac{x^{7}}{7} + C$,$5x^{4} + C$
+math,calculus,expert,"Value of $\int_0^{4} x^{1}\,dx$?",$\left[\frac{x^{2}}{2}\right]_0^{4}=8$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,2,30,5,18,8,9
+math,calculus,expert,Derivative of $6e^{4x}$?,$\frac{d}{dx}6e^{4x}=24e^{4x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$6e^{4x}$,$6ke^{x}$,$24e^{4x}$,$24e^{3x}$
+math,calculus,expert,Derivative of $(2x+3)^{2}$?,Chain rule: $2(2x+3)^{1}\times2=4(2x+3)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$2(2x+3)^{1}$,$4(2x+3)^{1}$,$2(2x+3)^{2}$,$4(2x+3)^{2}$
+math,calculus,expert,Derivative of $(5x+3)^{3}$?,Chain rule: $3(5x+3)^{2}\times5=15(5x+3)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,0,30,$15(5x+3)^{2}$,$5(5x+3)^{3}$,$3(5x+3)^{2}$,$15(5x+3)^{3}$
+math,calculus,expert,Derivative of $3x^{3}$?,$\frac{d}{dx}3x^{3}=9x^{2}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$6x$,$3x^{2}$,$9x^{2}$,$9x^{3}$
+math,calculus,expert,Derivative of $(5x+6)^{3}$?,Chain rule: $3(5x+6)^{2}\times5=15(5x+6)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$5(5x+6)^{3}$,$15(5x+6)^{3}$,$15(5x+6)^{2}$,$3(5x+6)^{2}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{9}$?,Power rule: $9x^{8}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$9x^{8}$,$x^{8}$,$9x^{9}$,$8x^{7}$
+math,calculus,expert,"Value of $\int_0^{3} x^{2}\,dx$?",$\left[\frac{x^{3}}{3}\right]_0^{3}=9$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,0,30,9,7,16,10
+math,calculus,expert,Second derivative of $x^{5}$?,"First $5x^{4}$, then $20x^{3}$.",Differentiate twice with the power rule.,true,,3,30,$20x^{4}$,$5x^{4}$,$12x^{2}$,$20x^{3}$
+math,calculus,expert,Derivative of $(3x+2)^{3}$?,Chain rule: $3(3x+2)^{2}\times3=9(3x+2)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$9(3x+2)^{3}$,$9(3x+2)^{2}$,$3(3x+2)^{3}$,$3(3x+2)^{2}$
+math,calculus,expert,Derivative of $(5x+4)^{3}$?,Chain rule: $3(5x+4)^{2}\times5=15(5x+4)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,3,30,$3(5x+4)^{2}$,$15(5x+4)^{3}$,$5(5x+4)^{3}$,$15(5x+4)^{2}$
+math,calculus,expert,Derivative of $4e^{4x}$?,$\frac{d}{dx}4e^{4x}=16e^{4x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$16e^{3x}$,$4e^{4x}$,$16e^{4x}$,$4ke^{x}$
+math,calculus,expert,Derivative of $2e^{2x}$?,$\frac{d}{dx}2e^{2x}=4e^{2x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,0,30,$4e^{2x}$,$2e^{2x}$,$2ke^{x}$,$4e^{1x}$
+math,calculus,expert,"Value of $\int_0^{5} x^{4}\,dx$?",$\left[\frac{x^{5}}{5}\right]_0^{5}=625$.,Antiderivative of $x^n$ is $\frac{x^{n+1}}{n+1}$.,true,,0,30,625,623,630,622
+math,calculus,expert,Derivative of $4\sin x$?,$4\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,3,30,$4\sin x$,$-4\sin x$,$-4\cos x$,$4\cos x$
+math,calculus,expert,Derivative of $(4x+4)^{4}$?,Chain rule: $4(4x+4)^{3}\times4=16(4x+4)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$16(4x+4)^{4}$,$4(4x+4)^{3}$,$16(4x+4)^{3}$,$4(4x+4)^{4}$
+math,calculus,expert,Derivative of $6\sin x$?,$6\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,2,30,$-6\cos x$,$-6\sin x$,$6\cos x$,$6\sin x$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{7}$?,Power rule: $7x^{6}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$6x^{5}$,$7x^{7}$,$7x^{6}$,$x^{6}$
+math,calculus,expert,Derivative of $5e^{4x}$?,$\frac{d}{dx}5e^{4x}=20e^{4x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,1,30,$5ke^{x}$,$20e^{4x}$,$5e^{4x}$,$20e^{3x}$
+math,calculus,expert,Derivative of $3\cos x$?,$-3\sin x$.,$\frac{d}{dx}\cos x=-\sin x$.,true,,2,30,$3\cos x$,$3\sin x$,$-3\sin x$,$-3\cos x$
+math,calculus,expert,Derivative of $3e^{5x}$?,$\frac{d}{dx}3e^{5x}=15e^{5x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$3ke^{x}$,$15e^{4x}$,$15e^{5x}$,$3e^{5x}$
+math,calculus,expert,Derivative of $3x^{7}$?,$\frac{d}{dx}3x^{7}=21x^{6}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$21x^{6}$,$3x^{6}$,$21x^{7}$,$7x^{6}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{8}$?,Power rule: $8x^{7}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$8x^{7}$,$7x^{6}$,$x^{7}$,$8x^{8}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{12}$?,Power rule: $12x^{11}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$12x^{11}$,$x^{11}$,$12x^{12}$,$11x^{10}$
+math,calculus,expert,Derivative of $(3x+2)^{4}$?,Chain rule: $4(3x+2)^{3}\times3=12(3x+2)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$4(3x+2)^{3}$,$3(3x+2)^{4}$,$12(3x+2)^{3}$,$12(3x+2)^{4}$
+math,calculus,expert,Derivative of $(3x+1)^{2}$?,Chain rule: $2(3x+1)^{1}\times3=6(3x+1)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,0,30,$6(3x+1)^{1}$,$6(3x+1)^{2}$,$3(3x+1)^{2}$,$2(3x+1)^{1}$
+math,calculus,expert,Derivative of $(3x+4)^{4}$?,Chain rule: $4(3x+4)^{3}\times3=12(3x+4)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$3(3x+4)^{4}$,$12(3x+4)^{3}$,$12(3x+4)^{4}$,$4(3x+4)^{3}$
+math,calculus,expert,Derivative of $5\sin x$?,$5\cos x$.,$\frac{d}{dx}\sin x=\cos x$.,true,,0,30,$5\cos x$,$-5\cos x$,$5\sin x$,$-5\sin x$
+math,calculus,expert,Derivative of $6x^{7}$?,$\frac{d}{dx}6x^{7}=42x^{6}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,3,30,$7x^{6}$,$6x^{6}$,$42x^{7}$,$42x^{6}$
+math,calculus,expert,Derivative of $2x^{2}$?,$\frac{d}{dx}2x^{2}=4x$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,3,30,$2x$,$2$,$4x^{2}$,$4x$
+math,calculus,expert,Derivative of $(5x+1)^{3}$?,Chain rule: $3(5x+1)^{2}\times5=15(5x+1)^{2}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$5(5x+1)^{3}$,$15(5x+1)^{2}$,$15(5x+1)^{3}$,$3(5x+1)^{2}$
+math,calculus,expert,What is $\dfrac{d}{dx}x^{14}$?,Power rule: $14x^{13}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$14x^{13}$,$13x^{12}$,$x^{13}$,$14x^{14}$
+math,calculus,expert,"What is $\int x^{4}\,dx$?",Add 1 to the power: $\frac{x^{5}}{5}+C$.,Raise the power by 1 and divide by it; add $+C$.,true,,0,30,$\frac{x^{5}}{5} + C$,$x^{5} + C$,$4x^{3} + C$,$\frac{x^{6}}{6} + C$
+math,calculus,expert,Derivative of $(5x+1)^{4}$?,Chain rule: $4(5x+1)^{3}\times5=20(5x+1)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$4(5x+1)^{3}$,$5(5x+1)^{4}$,$20(5x+1)^{3}$,$20(5x+1)^{4}$
+math,calculus,expert,Derivative of $4x^{5}$?,$\frac{d}{dx}4x^{5}=20x^{4}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$20x^{5}$,$4x^{4}$,$20x^{4}$,$5x^{4}$
+math,calculus,expert,Derivative of $6x^{5}$?,$\frac{d}{dx}6x^{5}=30x^{4}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,1,30,$30x^{5}$,$30x^{4}$,$5x^{4}$,$6x^{4}$
+math,calculus,expert,Derivative of $(2x+5)^{2}$?,Chain rule: $2(2x+5)^{1}\times2=4(2x+5)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,2,30,$2(2x+5)^{1}$,$4(2x+5)^{2}$,$4(2x+5)^{1}$,$2(2x+5)^{2}$
+math,calculus,expert,Derivative of $5x^{4}$?,$\frac{d}{dx}5x^{4}=20x^{3}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,3,30,$5x^{3}$,$20x^{4}$,$4x^{3}$,$20x^{3}$
+math,calculus,expert,Derivative of $4e^{2x}$?,$\frac{d}{dx}4e^{2x}=8e^{2x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$8e^{1x}$,$4ke^{x}$,$8e^{2x}$,$4e^{2x}$
+math,calculus,expert,Derivative of $(2x+5)^{4}$?,Chain rule: $4(2x+5)^{3}\times2=8(2x+5)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,0,30,$8(2x+5)^{3}$,$2(2x+5)^{4}$,$4(2x+5)^{3}$,$8(2x+5)^{4}$
+math,calculus,expert,Derivative of $2e^{5x}$?,$\frac{d}{dx}2e^{5x}=10e^{5x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,0,30,$10e^{5x}$,$2ke^{x}$,$2e^{5x}$,$10e^{4x}$
+math,calculus,expert,Derivative of $(5x+6)^{2}$?,Chain rule: $2(5x+6)^{1}\times5=10(5x+6)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,1,30,$2(5x+6)^{1}$,$10(5x+6)^{1}$,$5(5x+6)^{2}$,$10(5x+6)^{2}$
+math,calculus,expert,Derivative of $2x^{7}$?,$\frac{d}{dx}2x^{7}=14x^{6}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,0,30,$14x^{6}$,$7x^{6}$,$2x^{6}$,$14x^{7}$
+math,calculus,expert,Derivative of $(4x+4)^{2}$?,Chain rule: $2(4x+4)^{1}\times4=8(4x+4)^{1}$.,Chain rule: outer derivative times inner derivative.,true,,3,30,$2(4x+4)^{1}$,$4(4x+4)^{2}$,$8(4x+4)^{2}$,$8(4x+4)^{1}$
+math,calculus,expert,Derivative of $2x^{3}$?,$\frac{d}{dx}2x^{3}=6x^{2}$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,2,30,$2x^{2}$,$6x^{3}$,$6x^{2}$,$3x^{2}$
+math,calculus,expert,Derivative of $(4x+5)^{4}$?,Chain rule: $4(4x+5)^{3}\times4=16(4x+5)^{3}$.,Chain rule: outer derivative times inner derivative.,true,,3,30,$16(4x+5)^{4}$,$4(4x+5)^{3}$,$4(4x+5)^{4}$,$16(4x+5)^{3}$
+math,calculus,expert,Derivative of $5x^{2}$?,$\frac{d}{dx}5x^{2}=10x$.,Power rule: $\dfrac{d}{dx}x^n=nx^{n-1}$.,true,,1,30,$10x^{2}$,$10x$,$5x$,$2x$
+math,calculus,expert,Derivative of $4e^{5x}$?,$\frac{d}{dx}4e^{5x}=20e^{5x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,2,30,$4e^{5x}$,$20e^{4x}$,$20e^{5x}$,$4ke^{x}$
+math,calculus,expert,Derivative of $3e^{4x}$?,$\frac{d}{dx}3e^{4x}=12e^{4x}$.,$\frac{d}{dx}e^{kx}=ke^{kx}$.,true,,0,30,$12e^{4x}$,$3ke^{x}$,$12e^{3x}$,$3e^{4x}$
