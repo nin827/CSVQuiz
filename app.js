@@ -312,8 +312,9 @@ function renderStats() {
   let html = '';
   for (const [subject, s] of Object.entries(summaries)) {
     const modeTag = a => {
-      if (a.preset === 'standard') return a.mode === 'survival' ? 'Standard Survival' : 'Standard';
-      return a.mode === 'survival' ? 'Survival' : 'Custom';
+      const isCustom = a.preset === 'custom';
+      if (a.mode === 'survival') return isCustom ? 'Survival (custom)' : 'Survival';
+      return isCustom ? 'Normal (custom)' : 'Normal';
     };
     const diffTag = a => (a.diffs && a.diffs.length) ? a.diffs.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ') : '';
     const recentHtml = s.recent.slice(0, 5).map(a => {
