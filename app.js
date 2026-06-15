@@ -732,14 +732,12 @@ function renderQuestion() {
     hintBtn.style.display = 'none';
     hintBox.textContent = '';
   }
-  // Calculator: show the scratchpad only when this question opts in.
+  // Calculator is always available as a scratch tool.
   const calcBox = document.getElementById('calcBox');
-  calcBox.style.display = q.calculator ? 'block' : 'none';
-  if (q.calculator) {
-    document.getElementById('calcInput').value = '';
-    document.getElementById('calcResult').textContent = '';
-    document.getElementById('calcResult').className = 'calc-result';
-  }
+  calcBox.style.display = 'block';
+  document.getElementById('calcInput').value = '';
+  document.getElementById('calcResult').textContent = '';
+  document.getElementById('calcResult').className = 'calc-result';
   const labels = 'ABCDEFGHIJ';
   const container = document.getElementById('choices');
   container.innerHTML = '';
