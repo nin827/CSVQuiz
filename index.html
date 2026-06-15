@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practice Quiz</title>
+<script>try{var _t=localStorage.getItem('csvquiz_theme');if(!_t)_t=window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';if(_t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
@@ -13,7 +14,20 @@
 
 <!-- HOME -->
 <section id="s-upload" class="active">
-  <h1 data-i18n="app_title">Practice quiz</h1>
+  <div class="home-util">
+    <h1 data-i18n="app_title">Practice quiz</h1>
+    <div class="home-util-right">
+      <button class="btn" id="btnStats" style="font-size:13px;padding:.35rem .9rem" data-i18n="stats_button">My progress</button>
+      <div class="theme-toggle-row">
+        <span data-i18n="theme_dark">Dark mode</span>
+        <label class="theme-toggle" aria-label="Toggle dark mode">
+          <input type="checkbox" id="themeToggle">
+          <span class="theme-toggle-track"></span>
+          <span class="theme-toggle-thumb"></span>
+        </label>
+      </div>
+    </div>
+  </div>
   <p class="sub" data-i18n="upload_sub">Load a CSV to get started. Questions are shuffled every session.</p>
 
   <div class="home-options">
@@ -29,6 +43,26 @@
     </button>
   </div>
   <button id="btnDebug" class="debug-link" style="display:none" data-i18n="debug_button">debug</button>
+</section>
+
+<!-- STATS / PROGRESS -->
+<section id="s-stats">
+  <h1 data-i18n="stats_title">Your progress</h1>
+  <p class="sub" data-i18n="stats_sub">Scores are saved on this device only.</p>
+  <div id="statsMsg" class="stats-msg"></div>
+  <div class="card">
+    <div id="statsBody"></div>
+  </div>
+  <div class="stats-actions">
+    <button class="btn primary" id="btnStatsExport" data-i18n="stats_export">Export data</button>
+    <button class="btn" id="btnStatsImport" data-i18n="stats_import">Import data</button>
+    <button class="btn danger" id="btnStatsClear" data-i18n="stats_clear">Clear all</button>
+  </div>
+  <input type="file" id="statsImportInput" accept=".json,application/json">
+  <div class="row" style="margin-top:1rem">
+    <button class="btn" id="btnStatsBack" data-i18n="stats_back">Back</button>
+    <div></div>
+  </div>
 </section>
 
 <!-- DEBUG / VERIFY (local only) -->
@@ -116,44 +150,68 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
   <div class="card" id="quizPickCard">
     <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="catalog_heading">Choose a quiz</div>
     <div class="catalog" id="catalog"></div>
-  </div>
-
-  <div class="mode-tabs">
-    <div class="mode-tab active" data-mode="standard" id="tab-standard" data-i18n="mode_standard">Standard</div>
-    <div class="mode-tab" data-mode="survival" id="tab-survival" data-i18n="mode_survival">Survival</div>
-  </div>
-
-  <div id="standard-opts">
-    <div class="card">
-      <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="standard_mode_label">Standard mode</div>
-      <div class="config-grid">
-        <div class="config-field">
-          <label data-i18n="num_questions">Number of questions</label>
-          <input type="number" id="cfgCount" min="1" value="10">
-        </div>
-        <div class="config-field">
-          <label data-i18n="time_limit_min">Time limit (minutes)</label>
-          <input type="number" id="cfgTime" min="1" value="10">
-        </div>
-      </div>
+    <div class="row" style="margin-top:.75rem">
+      <div></div>
+      <button class="btn primary" id="btnStartQuizTop" data-i18n="start_quiz">Start quiz</button>
     </div>
   </div>
 
-  <div id="survival-opts" style="display:none">
+  <!-- Preset tabs: Standard (fixed preset) | Custom (fully configurable) -->
+  <div class="mode-tabs" id="presetTabs">
+    <div class="mode-tab active" data-preset="standard" id="tab-preset-std" data-i18n="preset_standard">Standard</div>
+    <div class="mode-tab" data-preset="custom" id="tab-preset-cust" data-i18n="preset_custom">Custom</div>
+  </div>
+
+  <!-- Standard preset: fixed settings, single difficulty -->
+  <div id="std-preset-opts">
     <div class="card">
-      <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="survival_mode_label">Survival mode — goes until questions run out or limit is hit</div>
-      <div class="radio-row">
-        <label><input type="radio" name="survType" value="lives" checked> <span data-i18n="surv_lives">Lives</span></label>
-        <label><input type="radio" name="survType" value="time"> <span data-i18n="surv_time">Time</span></label>
+      <div class="std-type-row">
+        <label><input type="radio" name="stdType" value="quiz" checked> <span data-i18n="std_type_quiz">Quiz — 20 questions, 30 min</span></label>
+        <label><input type="radio" name="stdType" value="survival"> <span data-i18n="std_type_survival">Survival — 5 lives, 15 min</span></label>
       </div>
-      <div class="surv-opts">
-        <div class="config-field" id="survLivesField">
-          <label data-i18n="starting_lives">Starting lives</label>
-          <input type="number" id="cfgLives" min="1" value="5">
+      <div class="std-note" data-i18n="std_note">One subject · One difficulty · No question navigation · Labeled "Standard" in records</div>
+    </div>
+  </div>
+
+  <!-- Custom preset: fully configurable -->
+  <div id="cust-preset-opts" style="display:none">
+    <div class="mode-tabs">
+      <div class="mode-tab active" data-mode="standard" id="tab-standard" data-i18n="mode_standard">Standard</div>
+      <div class="mode-tab" data-mode="survival" id="tab-survival" data-i18n="mode_survival">Survival</div>
+    </div>
+
+    <div id="standard-opts">
+      <div class="card">
+        <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="standard_mode_label">Standard mode</div>
+        <div class="config-grid">
+          <div class="config-field">
+            <label data-i18n="num_questions">Number of questions</label>
+            <input type="number" id="cfgCount" min="1" value="10">
+          </div>
+          <div class="config-field">
+            <label data-i18n="time_limit_min">Time limit (minutes)</label>
+            <input type="number" id="cfgTime" min="1" value="10">
+          </div>
         </div>
-        <div class="config-field" id="survTimeField" style="display:none">
-          <label data-i18n="time_limit_min">Time limit (minutes)</label>
-          <input type="number" id="cfgSurvTime" min="1" value="5">
+      </div>
+    </div>
+
+    <div id="survival-opts" style="display:none">
+      <div class="card">
+        <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="survival_mode_label">Survival mode — goes until questions run out or limit is hit</div>
+        <div class="radio-row">
+          <label><input type="radio" name="survType" value="lives" checked> <span data-i18n="surv_lives">Lives</span></label>
+          <label><input type="radio" name="survType" value="time"> <span data-i18n="surv_time">Time</span></label>
+        </div>
+        <div class="surv-opts">
+          <div class="config-field" id="survLivesField">
+            <label data-i18n="starting_lives">Starting lives</label>
+            <input type="number" id="cfgLives" min="1" value="5">
+          </div>
+          <div class="config-field" id="survTimeField" style="display:none">
+            <label data-i18n="time_limit_min">Time limit (minutes)</label>
+            <input type="number" id="cfgSurvTime" min="1" value="5">
+          </div>
         </div>
       </div>
     </div>
@@ -168,6 +226,7 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
       <button class="btn" data-diff="hard" data-i18n="diff_hard" style="font-size:13px;padding:.35rem .9rem">Hard</button>
       <button class="btn" data-diff="expert" data-i18n="diff_expert" style="font-size:13px;padding:.35rem .9rem">Expert</button>
     </div>
+    <div id="diffSingleHint" style="display:block;font-size:12px;color:var(--color-text-secondary);margin-top:.5rem" data-i18n="diff_single_hint">Standard mode uses one difficulty.</div>
   </div>
 
   <div id="cfgWarning" style="font-size:13px;color:#993C1D;margin-bottom:.75rem;display:none"></div>
@@ -181,6 +240,7 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
 <section id="s-quiz">
   <div class="hud" id="hud"></div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="q-nav" id="qNav"></div>
   <div class="meta" id="qMeta"></div>
   <div class="card">
     <div class="row" style="margin-bottom:1rem">
@@ -192,17 +252,35 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
     <button class="hint-toggle" id="btnHint" style="display:none"><i class="ti ti-bulb" aria-hidden="true"></i> <span data-i18n="show_hint">Show hint</span></button>
     <div class="hint-box" id="hintBox" style="display:none"></div>
     <div class="choices" id="choices"></div>
-    <div class="calc-box" id="calcBox" style="display:none">
-      <div class="calc-label"><i class="ti ti-calculator" aria-hidden="true"></i> <span data-i18n="calc_label">Calculator</span></div>
-      <input class="calc-input" id="calcInput" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="calc_placeholder" placeholder="e.g. (2 + 3) * 4^2">
-      <div class="calc-result" id="calcResult"></div>
-      <div class="calc-help" data-i18n="calc_help">Supports + - * / ^ ( ) and log, ln, e, pi</div>
-    </div>
     <div class="feedback" id="feedback"></div>
     <div class="row">
       <div></div>
       <button class="btn primary" id="btnSubmit" data-i18n="check_answer" disabled>Check answer</button>
     </div>
+  </div>
+  <!-- Side panel tab buttons (fixed to right edge) -->
+  <div class="side-tabs" id="sideTabs">
+    <button class="side-tab-btn" id="tabBtnCalc" title="Calculator" aria-label="Toggle calculator"><i class="ti ti-calculator" aria-hidden="true"></i></button>
+    <button class="side-tab-btn" id="tabBtnNotes" title="Notes" aria-label="Toggle notes"><i class="ti ti-notes" aria-hidden="true"></i></button>
+  </div>
+  <!-- Calculator side panel -->
+  <div class="side-panel" id="panelCalc">
+    <div class="side-panel-head">
+      <span><i class="ti ti-calculator" aria-hidden="true"></i> <span data-i18n="calc_label">Calculator</span></span>
+      <button class="side-panel-close" id="closePanelCalc" aria-label="Close">&#x2715;</button>
+    </div>
+    <input class="calc-input" id="calcInput" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="calc_placeholder" placeholder="e.g. (2 + 3) * 4^2">
+    <div class="calc-result" id="calcResult"></div>
+    <div class="calc-help" data-i18n="calc_help">Supports + - * / ^ ( ) and log, ln, e, pi</div>
+  </div>
+  <!-- Notes side panel -->
+  <div class="side-panel" id="panelNotes">
+    <div class="side-panel-head">
+      <span><i class="ti ti-notes" aria-hidden="true"></i> <span data-i18n="notes_label">Notes</span></span>
+      <button class="side-panel-close" id="closePanelNotes" aria-label="Close">&#x2715;</button>
+    </div>
+    <textarea id="notesInput" class="notes-input" data-i18n-ph="notes_placeholder" placeholder="Write notes to plan things out..."></textarea>
+    <div class="notes-help" data-i18n="notes_help">Notes are cleared when you leave the quiz.</div>
   </div>
 </section>
 
