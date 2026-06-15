@@ -125,7 +125,7 @@ subject_unknown,Quiz
 preset_standard,Standard
 preset_custom,Custom
 std_type_quiz,Quiz - 20 questions 30 min
-std_type_survival,Survival - 5 lives 15 min
+std_type_survival,Survival - 5 lives 20 min
 std_note,One subject - One difficulty - No question navigation - Labeled Standard in records
 diff_single_hint,Standard mode uses one difficulty.
 notes_label,Notes

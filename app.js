@@ -136,7 +136,7 @@ const STRINGS_EN = {
   preset_standard: 'Standard',
   preset_custom: 'Custom',
   std_type_quiz: 'Quiz - 20 questions, 30 min',
-  std_type_survival: 'Survival - 5 lives, 15 min',
+  std_type_survival: 'Survival - 5 lives, 20 min',
   std_note: 'One subject - One difficulty - No question navigation - Labeled "Standard" in records',
   diff_single_hint: 'Standard mode uses one difficulty.',
   // Notes widget
@@ -311,14 +311,26 @@ function renderStats() {
   const summaries = computeSubjectSummaries(stats);
   let html = '';
   for (const [subject, s] of Object.entries(summaries)) {
-    const lastDate = s.lastDate ? new Date(s.lastDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
-    const recentHtml = s.recent.slice(0, 3).map(a =>
-      `<span>${new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})} &middot; ${a.pct}%</span>`
-    ).join('');
+    const modeTag = a => {
+      const isCustom = a.preset === 'custom';
+      if (a.mode === 'survival') return isCustom ? 'Survival (custom)' : 'Survival';
+      return isCustom ? 'Normal (custom)' : 'Normal';
+    };
+    const diffTag = a => (a.diffs && a.diffs.length) ? a.diffs.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ') : '';
+    const recentHtml = s.recent.slice(0, 5).map(a => {
+      const date = new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      const diff = diffTag(a);
+      const mode = modeTag(a);
+      const tags = [diff, mode].filter(Boolean).join(' · ');
+      return `<div class="stats-attempt-row">
+        <div class="stats-attempt-meta">${date}${tags ? ' <span class="stats-attempt-tags">' + tags + '</span>' : ''}</div>
+        <div class="stats-attempt-detail">${a.correct}/${a.answered} correct &middot; ${a.score} pts &middot; ${a.pct}%</div>
+      </div>`;
+    }).join('');
     html += `<div class="stats-subject-row">
-      <div>
+      <div style="flex:1;min-width:0">
         <div class="stats-subject-name">${subject}</div>
-        <div class="stats-subject-meta">${s.count} ${t('stats_attempts')} &middot; ${t('stats_last')}: ${lastDate}</div>
+        <div class="stats-subject-meta">${s.count} ${t('stats_attempts')}</div>
         <div class="stats-recent">${recentHtml}</div>
       </div>
       <div class="stats-subject-score">
@@ -443,7 +455,7 @@ Geography,World,Medium,What is the longest river in the world?,The Nile River st
 let allQuestions = [], sessionQuestions = [], current = 0, totalPoints = 0, earnedPoints = 0;
 let answered = false, selected = new Set(), domainStats = {};
 let mode = 'standard', survType = 'lives', lives = 5, startingLives = 5, timerSec = 0, timerInterval = null;
-let selectedDiffs = new Set(['beginner', 'easy']);
+let selectedDiffs = new Set(['beginner']);
 let survivalRunning = false;
 let quizSource = 'builtin'; // 'builtin' shows the quiz picker on the config screen; 'custom' hides it
 let currentSubject = '';
@@ -623,7 +635,10 @@ function showScreen(name) {
 }
 
 function buildConfig() {
-  document.getElementById('quizPickCard').style.display = quizSource === 'builtin' ? '' : 'none';
+  const isBuiltin = quizSource === 'builtin';
+  document.getElementById('quizPickCard').style.display = isBuiltin ? '' : 'none';
+  // For premade quizzes show only the top Start button; for custom uploads show the bottom one
+  document.getElementById('btnStartQuiz').style.display = isBuiltin ? 'none' : '';
   document.getElementById('cfgSub').textContent = t('questions_loaded', { n: allQuestions.length });
   // Sync preset UI
   const isStdPreset = preset === 'standard';
@@ -658,7 +673,7 @@ function startSurvival() {
     sessionQuestions = [...pool];
     mode = 'survival'; survType = 'lives';
     lives = 5; startingLives = 5;
-    initSession(15 * 60);
+    initSession(20 * 60);
     return;
   }
   survType = document.querySelector('input[name=survType]:checked').value;
@@ -809,9 +824,9 @@ function renderQuestion() {
     document.getElementById('btnSubmit').textContent = t('check_answer');
   }
 
-  // Question navigation bar (custom quiz mode only — not Standard preset, not survival)
+  // Question navigation bar — all non-survival quiz modes
   const qNav = document.getElementById('qNav');
-  if (preset === 'custom' && mode === 'standard') {
+  if (mode === 'standard') {
     renderQNav();
   } else {
     qNav.innerHTML = '';
@@ -870,7 +885,7 @@ function checkAnswer() {
   showFeedback(q, allRight, partialCredit);
   document.getElementById('btnSubmit').textContent = current + 1 >= sessionQuestions.length ? t('see_results') : t('next_question');
   document.getElementById('btnSubmit').disabled = false;
-  if (preset === 'custom' && mode === 'standard') renderQNav();
+  if (mode === 'standard') renderQNav();
 }
 
 function renderQNav() {
@@ -946,6 +961,7 @@ function endSession(reason) {
     source: quizSource,
     date: new Date().toISOString(),
     preset, mode, survType: mode === 'survival' ? survType : null,
+    diffs: [...selectedDiffs],
     score: earnedPoints, maxPoints: totalPoints,
     correct, answered: answered_count, pct,
     reason,

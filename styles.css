@@ -180,8 +180,9 @@ h1{font-size:22px;font-weight:500;margin-bottom:4px}
 .debug-link:hover{opacity:.9;text-decoration:underline}
 section{display:none}
 section.active{display:block}
-/* Catalog list */
-.catalog{display:flex;flex-direction:column;gap:8px;margin-bottom:1rem}
+/* Catalog list — 1 col on mobile, 2 col on wider screens */
+.catalog{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:1rem}
+@media(min-width:520px){.catalog{grid-template-columns:1fr 1fr}}
 .catalog-btn{display:flex;align-items:center;gap:10px;padding:.7rem 1rem;border:0.5px solid var(--color-border-secondary,rgba(0,0,0,.2));border-radius:8px;background:var(--color-background-primary,#fff);cursor:pointer;text-align:left;font-size:15px;color:var(--color-text-primary,#1a1a1a);transition:background .12s,border-color .12s;width:100%}
 .catalog-btn:hover{background:var(--color-background-secondary,#f5f5f5);border-color:var(--color-accent,#534AB7)}
 .catalog-btn.selected{border-color:var(--color-accent,#534AB7);background:var(--color-accent-tint,#EEEDFE);font-weight:500}
@@ -246,8 +247,12 @@ section.active{display:block}
 .stats-subject-score{text-align:right;flex-shrink:0}
 .stats-subject-pct{font-size:22px;font-weight:500;color:var(--color-accent,#534AB7)}
 .stats-subject-attempts{font-size:12px;color:var(--color-text-secondary,#666)}
-.stats-recent{margin-top:.4rem;font-size:12px;color:var(--color-text-tertiary,#999)}
-.stats-recent span{display:inline-block;margin-right:8px}
+.stats-recent{margin-top:.5rem}
+.stats-attempt-row{padding:.35rem 0;border-top:0.5px solid var(--color-border-tertiary,rgba(0,0,0,.08))}
+.stats-attempt-row:first-child{border-top:none}
+.stats-attempt-meta{font-size:12px;color:var(--color-text-secondary,#666)}
+.stats-attempt-tags{color:var(--color-accent,#534AB7);font-weight:500}
+.stats-attempt-detail{font-size:13px;color:var(--color-text-primary,#1a1a1a);font-weight:500;margin-top:1px}
 .stats-msg{font-size:13px;padding:.6rem .9rem;border-radius:8px;margin-bottom:.75rem;display:none}
 .stats-msg.ok{background:var(--color-success-bg,#E1F5EE);color:var(--color-success-text,#085041)}
 .stats-msg.err{background:var(--color-danger-bg,#FAECE7);color:var(--color-danger-text,#4A1B0C)}
