@@ -1,0 +1,51 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+english,parts-of-speech,beginner,What part of speech is the word "dog"?,A noun is a word that names a person place thing or idea. "Dog" names a thing so it is a noun.,,,,0,5,Noun,Verb,Adjective,Adverb
+english,parts-of-speech,beginner,"In the sentence ""She runs fast"" what part of speech is ""runs""?",A verb is a word that shows an action or state of being. "Runs" is an action so it is a verb.,,,,1,5,Noun,Verb,Adjective,Pronoun
+english,parts-of-speech,beginner,"In the phrase ""a happy child"" what part of speech is ""happy""?",An adjective describes or modifies a noun. "Happy" describes the child so it is an adjective.,,,,2,5,Noun,Verb,Adjective,Adverb
+english,parts-of-speech,beginner,Which word is a pronoun?,A pronoun takes the place of a noun. "She" replaces a person's name so it is a pronoun.,,,,3,5,Table,Quickly,Bright,She
+english,parts-of-speech,beginner,"In ""He sang loudly"" what part of speech is ""loudly""?",An adverb modifies a verb adjective or another adverb and often ends in -ly. "Loudly" tells how he sang.,,,,1,5,Adjective,Adverb,Noun,Pronoun
+english,parts-of-speech,beginner,Which word is a verb?,A verb shows action or being. "Jump" is an action word so it is a verb.,,,,2,5,Blue,Slowly,Jump,Happy
+english,parts-of-speech,beginner,Which of these words is a noun?,A noun names a person place thing or idea. "Teacher" names a person so it is a noun.,,,,0,5,Teacher,Write,Tall,Gently
+english,parts-of-speech,beginner,"What part of speech connects words like ""and"" ""but"" and ""or""?",A conjunction joins words phrases or clauses. "And" "but" and "or" are common conjunctions.,,,,3,5,Noun,Adjective,Adverb,Conjunction
+english,articles,beginner,"Which article is used before a word that begins with a consonant sound such as ""book""?","Use ""a"" before words that begin with a consonant sound. We say ""a book.""",,,,0,5,a,an,the only,no article
+english,articles,beginner,"Which article correctly fills the blank: ""I ate ___ apple""?","Use ""an"" before a word that begins with a vowel sound. ""Apple"" begins with a vowel sound so we say ""an apple.""",,,,1,5,a,an,no article,this
+english,capitalization,beginner,Which word should always be capitalized?,Proper nouns naming specific people places or things are always capitalized. "London" is a city name.,,,,2,5,dog,happy,London,run
+english,capitalization,beginner,What is the first letter of a sentence always?,The first word of every sentence begins with a capital letter.,,,,0,5,A capital letter,A lowercase letter,A number,A punctuation mark
+english,capitalization,beginner,"Which is written correctly?","The pronoun ""I"" is always capitalized no matter where it appears in a sentence.",,,,1,5,my friend and i went home,My friend and I went home,my friend and I went home,My friend and i went home
+english,punctuation,beginner,What punctuation mark ends a statement?,A period (.) ends a declarative sentence or statement.,,,,0,5,Period,Question mark,Exclamation point,Comma
+english,punctuation,beginner,What punctuation mark ends a question?,A question mark (?) is placed at the end of an interrogative sentence or question.,,,,1,5,Period,Question mark,Comma,Colon
+english,punctuation,beginner,"Which mark shows strong emotion or excitement at the end of a sentence?",An exclamation point (!) shows strong feeling such as excitement surprise or urgency.,,,,2,5,Period,Comma,Exclamation point,Question mark
+english,punctuation,beginner,"Which sentence is punctuated correctly?","A statement should end with a period. ""I like to read."" is correctly punctuated.",,,,0,5,I like to read.,I like to read,i like to read.,I like to read?
+english,synonyms,beginner,"Which word means almost the same as ""happy""?",A synonym is a word with a similar meaning. "Glad" means almost the same as "happy.",,,,1,5,Sad,Glad,Angry,Tired
+english,synonyms,beginner,"Which word is a synonym for ""big""?",A synonym has a similar meaning. "Large" means the same as "big.",,,,3,5,Tiny,Small,Short,Large
+english,synonyms,beginner,"Which word means about the same as ""fast""?","""Quick"" is a synonym for ""fast"" - both describe high speed.",,,,0,5,Quick,Slow,Late,Heavy
+english,synonyms,beginner,"Which word is a synonym for ""begin""?","""Start"" means the same as ""begin"" - to commence something.",,,,2,5,Stop,End,Start,Finish
+english,antonyms,beginner,"Which word is the opposite of ""hot""?",An antonym is a word with the opposite meaning. "Cold" is the opposite of "hot.",,,,1,5,Warm,Cold,Boiling,Heat
+english,antonyms,beginner,"Which word is the opposite of ""up""?","""Down"" is the antonym of ""up"" - they point in opposite directions.",,,,0,5,Down,Above,High,Tall
+english,antonyms,beginner,"Which word is the opposite of ""happy""?","""Sad"" is the antonym of ""happy"" - they describe opposite feelings.",,,,3,5,Glad,Joyful,Cheerful,Sad
+english,antonyms,beginner,"Which word is the opposite of ""open""?","""Closed"" is the antonym of ""open.""",,,,2,5,Wide,Ajar,Closed,Empty
+english,plurals,beginner,"What is the plural of ""cat""?",Most nouns form the plural by adding -s. The plural of "cat" is "cats.",,,,0,5,cats,cat,cates,caties
+english,plurals,beginner,"What is the plural of ""box""?","Nouns ending in -x add -es to form the plural. The plural of ""box"" is ""boxes.""",,,,1,5,boxs,boxes,box,boxies
+english,plurals,beginner,"What is the plural of ""baby""?","For a noun ending in a consonant + y change the y to i and add -es. ""Baby"" becomes ""babies.""",,,,2,5,babys,babyes,babies,baby
+english,plurals,beginner,"What is the plural of ""child""?","""Child"" has an irregular plural form: ""children.""",,,,3,5,childs,childes,childrens,children
+english,plurals,beginner,"What is the plural of ""mouse"" (the animal)?","""Mouse"" has an irregular plural: ""mice.""",,,,0,5,mice,mouses,mouse,mices
+english,spelling,beginner,Which word is spelled correctly?,The correct spelling is "friend" - remember the i comes before the e.,,,,1,5,freind,friend,frend,friendd
+english,spelling,beginner,Which word is spelled correctly?,The correct spelling is "because.",,,,0,5,because,becuase,becouse,becauze
+english,spelling,beginner,Which word is spelled correctly?,The correct spelling is "happy" with two p's.,,,,2,5,hapy,happpy,happy,happi
+english,spelling,beginner,Which word is spelled correctly?,The correct spelling is "school.",,,,3,5,skool,scool,shcool,school
+english,nouns,beginner,Which of these is a person noun?,A noun can name a person. "Doctor" names a person.,,,,0,5,Doctor,Running,Quickly,Blue
+english,nouns,beginner,Which of these is a place noun?,A noun can name a place. "Park" names a place.,,,,1,5,Jump,Park,Soft,Loudly
+english,verbs,beginner,Which sentence has an action verb?,An action verb shows something being done. "Birds fly" shows the action of flying.,,,,2,5,The sky is blue.,She is tall.,Birds fly south.,He seems happy.
+english,verbs,beginner,"What is the action verb in ""The boy kicks the ball""?","The action verb is ""kicks"" - it shows what the boy does.",,,,1,5,boy,kicks,ball,the
+english,adjectives,beginner,"What is the adjective in ""The red car is fast""?","""Red"" is an adjective describing the noun ""car."" (""Fast"" describes it too but ""red"" comes directly before the noun.)",,,,0,5,red,car,is,the
+english,adjectives,beginner,Which word can describe a noun?,An adjective describes a noun. "Soft" can describe a noun like "soft blanket.",,,,3,5,Run,Quickly,Jumped,Soft
+english,sentence-basics,beginner,What must every complete sentence have?,A complete sentence needs a subject (who or what) and a verb (the action or state).,,,,0,5,A subject and a verb,Only a noun,At least ten words,A question mark
+english,sentence-basics,beginner,"What is the subject in ""The dog barks""?","The subject is who or what the sentence is about. ""The dog"" is the subject.",,,,1,5,barks,The dog,dog barks,barks loudly
+english,sentence-basics,beginner,"Which group of words is a complete sentence?","A complete sentence has a subject and a verb and expresses a full thought. ""The bird sings."" is complete.",,,,2,5,Running fast,The big red,The bird sings.,Over the hill
+english,vocabulary,beginner,"What does the word ""tiny"" mean?","""Tiny"" means extremely small.",,,,0,5,Very small,Very large,Very fast,Very loud
+english,vocabulary,beginner,"What does the word ""enormous"" mean?","""Enormous"" means very large or huge.",,,,2,5,Very quiet,Very small,Very large,Very old
+english,vocabulary,beginner,"What does the word ""rapid"" mean?","""Rapid"" means very fast or quick.",,,,1,5,Slow,Fast,Heavy,Bright
+english,pronouns,beginner,"Which pronoun replaces ""the boys"" in a sentence?",The plural pronoun "they" replaces a plural noun like "the boys.",,,,3,5,he,she,it,they
+english,pronouns,beginner,"Which pronoun would replace ""Maria"" in a sentence?","""She"" is the pronoun that replaces a single female name like ""Maria.""",,,,0,5,She,He,They,It
+english,punctuation,beginner,What punctuation separates items in a list?,"A comma is used to separate three or more items in a list.",,,,1,5,Period,Comma,Question mark,Colon
+english,capitalization,beginner,Which words in a title are usually capitalized?,In titles the important words (and always the first word) are capitalized.,,,,0,5,The important words and the first word,Only the last word,No words at all,Only verbs

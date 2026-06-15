@@ -16,6 +16,7 @@ A lightweight, no-install practice quiz app that runs entirely in your browser â
 | Finance | Beginner, Easy, Medium |
 | Accounting | Beginner, Easy, Medium |
 | Management | Beginner, Easy, Medium |
+| English | Beginner, Easy, Medium |
 
 Each subject has 50 questions per difficulty tier. Questions are shuffled every session.
 

@@ -1,0 +1,51 @@
+domain,subdomain,difficulty,description,explanation,hint,calculator,verified,correct,point,choice0,choice1,choice2,choice3
+english,verb-tenses,easy,Which sentence is in the past tense?,"The past tense describes an action that already happened. ""She walked to school"" uses the past-tense verb ""walked.""",,,,1,10,She walks to school.,She walked to school.,She will walk to school.,She is walking to school.
+english,verb-tenses,easy,"What is the past tense of ""go""?","""Go"" is irregular; its past tense is ""went.""",,,,2,10,goed,gone,went,going
+english,verb-tenses,easy,"What is the past tense of ""eat""?","""Eat"" is irregular; its past tense is ""ate.""",,,,0,10,ate,eated,eaten,eats
+english,verb-tenses,easy,Which sentence is in the future tense?,"The future tense often uses ""will."" ""I will call you"" describes an action that has not happened yet.",,,,3,10,I called you.,I call you.,I am calling you.,I will call you.
+english,verb-tenses,easy,"What is the present participle (-ing form) of ""run""?","The present participle of ""run"" doubles the final consonant: ""running.""",,,,1,10,runing,running,runned,runs
+english,subject-verb-agreement,easy,Which sentence has correct subject-verb agreement?,"A singular subject takes a singular verb. ""The cat sleeps"" matches the singular subject with ""sleeps.""",,,,0,10,The cat sleeps all day.,The cat sleep all day.,The cats sleeps all day.,The cat sleeping all day.
+english,subject-verb-agreement,easy,"Choose the correct verb: ""The students ___ studying.""","A plural subject (""students"") takes the plural verb ""are.""",,,,2,10,is,was,are,has
+english,subject-verb-agreement,easy,"Choose the correct verb: ""She ___ to music every morning.""","A singular third-person subject (""she"") takes the verb form ending in -s: ""listens.""",,,,1,10,listen,listens,listening,are listening
+english,subject-verb-agreement,easy,"Choose the correct verb: ""Each of the boys ___ a turn.""","""Each"" is singular so it takes a singular verb: ""gets.""",,,,0,10,gets,get,getting,are getting
+english,pronouns,easy,Which is a possessive pronoun?,"A possessive pronoun shows ownership. ""Theirs"" shows that something belongs to them.",,,,3,10,they,them,they're,theirs
+english,pronouns,easy,"Choose the correct pronoun: ""___ are going to the party.""","""We"" is a subject pronoun used to perform the action of the verb.",,,,0,10,We,Us,Our,Ours
+english,pronouns,easy,"Choose the correct pronoun: ""Give the book to ___.""","After a preposition like ""to"" use an object pronoun. ""Me"" is the object pronoun.",,,,1,10,I,me,my,mine
+english,pronouns,easy,Which sentence uses the reflexive pronoun correctly?,"A reflexive pronoun (himself herself etc.) refers back to the subject. ""He hurt himself"" is correct.",,,,2,10,He hurt hisself.,He hurt his self.,He hurt himself.,He hurt themself.
+english,homophones,easy,"Choose the correct word: ""___ going to the store.""","""They're"" is the contraction of ""they are."" ""They're going to the store"" is correct.",,,,0,10,They're,Their,There,Theyre
+english,homophones,easy,"Choose the correct word: ""I put the keys over ___.""","""There"" refers to a place or location.",,,,1,10,their,there,they're,theyre
+english,homophones,easy,"Choose the correct word: ""The dog wagged ___ tail.""","""Its"" (no apostrophe) is the possessive form showing the tail belongs to the dog.",,,,2,10,it's,its',its,its's
+english,homophones,easy,"Choose the correct word: ""___ a beautiful day.""","""It's"" is the contraction of ""it is."" ""It's a beautiful day"" is correct.",,,,0,10,It's,Its,Its',Itts
+english,homophones,easy,"Choose the correct word: ""You ___ welcome to join us.""","""Your"" is possessive while ""you're"" means ""you are."" Here ""You're welcome"" needs the contraction.",,,,1,10,your,you're,yore,youre
+english,prefixes,easy,"What does the prefix ""un-"" mean in ""unhappy""?","The prefix ""un-"" means ""not."" ""Unhappy"" means ""not happy.""",,,,0,10,Not,Again,Before,Under
+english,prefixes,easy,"What does the prefix ""re-"" mean in ""redo""?","The prefix ""re-"" means ""again."" ""Redo"" means to do again.",,,,1,10,Not,Again,Against,After
+english,prefixes,easy,"What does the prefix ""pre-"" mean in ""preview""?","The prefix ""pre-"" means ""before."" A ""preview"" is seen before the main event.",,,,2,10,After,Not,Before,Again
+english,suffixes,easy,"What does the suffix ""-less"" mean in ""fearless""?","The suffix ""-less"" means ""without."" ""Fearless"" means without fear.",,,,3,10,Full of,More,Again,Without
+english,suffixes,easy,"What does the suffix ""-ful"" mean in ""hopeful""?","The suffix ""-ful"" means ""full of."" ""Hopeful"" means full of hope.",,,,0,10,Full of,Without,Before,Not
+english,commas,easy,Which sentence uses commas correctly in a list?,"Use a comma to separate three or more items. ""I bought apples, bread, and milk."" is correct.",,,,1,10,I bought apples bread and milk.,"I bought apples, bread, and milk.","I bought, apples bread and milk.","I bought apples, bread and, milk."
+english,commas,easy,"Where should a comma go: ""After the movie we got ice cream""?","Use a comma after an introductory phrase. ""After the movie, we got ice cream.""",,,,0,10,"After the movie, we got ice cream.","After, the movie we got ice cream.","After the movie we got, ice cream.",No comma is needed.
+english,apostrophes,easy,Which shows correct possession for one dog?,"A singular possessive adds apostrophe + s. ""The dog's bone"" shows the bone belongs to one dog.",,,,2,10,The dogs bone,The dogs' bone,The dog's bone,The dogs's bone
+english,apostrophes,easy,"What is the contraction for ""do not""?","The contraction of ""do not"" is ""don't"" with the apostrophe replacing the missing o.",,,,1,10,dont,don't,do'nt,donot
+english,apostrophes,easy,Which shows correct possession for more than one student?,"A plural noun ending in -s adds only an apostrophe. ""The students' books"" shows books belonging to several students.",,,,3,10,The students books,The student's books,The students's books,The students' books
+english,sentence-types,easy,"What type of sentence is ""Close the door.""?","An imperative sentence gives a command or request. ""Close the door."" tells someone to do something.",,,,2,10,Declarative,Interrogative,Imperative,Exclamatory
+english,sentence-types,easy,What type of sentence asks a question?,An interrogative sentence asks a question and ends with a question mark.,,,,1,10,Declarative,Interrogative,Imperative,Exclamatory
+english,sentence-types,easy,"What type of sentence is ""What a wonderful surprise!""?",An exclamatory sentence expresses strong emotion and ends with an exclamation point.,,,,3,10,Declarative,Interrogative,Imperative,Exclamatory
+english,sentence-types,easy,What type of sentence makes a statement?,A declarative sentence states a fact or idea and ends with a period.,,,,0,10,Declarative,Interrogative,Imperative,Exclamatory
+english,comparatives,easy,"What is the comparative form of ""big""?","The comparative compares two things. For ""big"" double the consonant and add -er: ""bigger.""",,,,1,10,big,bigger,biggest,most big
+english,comparatives,easy,"What is the superlative form of ""tall""?","The superlative compares three or more things. For ""tall"" add -est: ""tallest.""",,,,2,10,taller,more tall,tallest,most tall
+english,comparatives,easy,"Which is the correct comparative: ""This book is ___ than that one.""","Use the comparative ""more interesting"" for longer adjectives - not ""more interestinger.""",,,,0,10,more interesting,interestinger,most interesting,more interestinger
+english,nouns,easy,Which is a collective noun?,"A collective noun names a group. ""Team"" refers to a group of people.",,,,3,10,player,ball,field,team
+english,nouns,easy,Which is a proper noun?,"A proper noun names a specific person place or thing and is capitalized. ""Paris"" is a specific city.",,,,1,10,city,Paris,country,river
+english,nouns,easy,Which is an abstract noun?,"An abstract noun names an idea or feeling you cannot touch. ""Freedom"" is an abstract concept.",,,,0,10,Freedom,Chair,Mountain,Dog
+english,adverbs,easy,"Which word is an adverb in ""She quickly finished her work""?","An adverb modifies a verb and often ends in -ly. ""Quickly"" tells how she finished.",,,,2,10,She,finished,quickly,work
+english,adverbs,easy,An adverb can answer which question?,Adverbs tell how when where or to what extent an action happens.,,,,0,10,How when or where,Who or what,Which one,How many
+english,conjunctions,easy,"Which conjunction shows contrast: ""I wanted to go ___ it was raining""?","""But"" is a coordinating conjunction that shows contrast between two ideas.",,,,1,10,and,but,so,or
+english,conjunctions,easy,"Which conjunction shows a choice: ""You can have tea ___ coffee""?","""Or"" presents a choice between two options.",,,,3,10,and,but,so,or
+english,prepositions,easy,"What is the preposition in ""The cat sat on the mat""?","A preposition shows the relationship between words often position or direction. ""On"" shows where the cat sat.",,,,2,10,cat,sat,on,mat
+english,prepositions,easy,"Choose the correct preposition: ""The meeting is ___ Monday.""","Use ""on"" with specific days of the week. ""The meeting is on Monday.""",,,,0,10,on,in,at,by
+english,vocabulary,easy,"What does ""generous"" mean?","""Generous"" means willing to give or share freely.",,,,1,10,Selfish,Giving freely,Very quiet,Very fast
+english,vocabulary,easy,"What does ""ancient"" mean?","""Ancient"" means very old or from a long time ago.",,,,0,10,Very old,Very new,Very large,Very small
+english,vocabulary,easy,"What does ""frequent"" mean?","""Frequent"" means happening often.",,,,2,10,Rarely,Never,Happening often,Happening once
+english,spelling,easy,Which word is spelled correctly?,"The correct spelling is ""necessary"" - one c and two s's.",,,,1,10,neccessary,necessary,necesary,neccesary
+english,spelling,easy,Which word is spelled correctly?,"The correct spelling is ""separate"" - remember ""there is a rat in separate.""",,,,0,10,separate,seperate,seperete,separete
+english,spelling,easy,Which word is spelled correctly?,"The correct spelling is ""beautiful.""",,,,2,10,beutiful,beautifull,beautiful,beatiful
