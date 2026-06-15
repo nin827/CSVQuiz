@@ -131,7 +131,18 @@ const STRINGS_EN = {
   stats_back: 'Back',
   subject_custom: 'Custom quiz',
   subject_sample: 'Sample quiz',
-  subject_unknown: 'Quiz'
+  subject_unknown: 'Quiz',
+  // Preset mode config
+  preset_standard: 'Standard',
+  preset_custom: 'Custom',
+  std_type_quiz: 'Quiz - 20 questions, 30 min',
+  std_type_survival: 'Survival - 5 lives, 15 min',
+  std_note: 'One subject - One difficulty - No question navigation - Labeled "Standard" in records',
+  diff_single_hint: 'Standard mode uses one difficulty.',
+  // Notes widget
+  notes_label: 'Notes',
+  notes_placeholder: 'Write notes to plan things out...',
+  notes_help: 'Notes are cleared when you leave the quiz.'
 };
 
 let STRINGS = Object.assign({}, STRINGS_EN);
@@ -436,6 +447,11 @@ let selectedDiffs = new Set(['beginner', 'easy']);
 let survivalRunning = false;
 let quizSource = 'builtin'; // 'builtin' shows the quiz picker on the config screen; 'custom' hides it
 let currentSubject = '';
+let preset = 'standard'; // 'standard' (fixed 20q/30min preset) | 'custom' (fully configurable)
+let standardType = 'quiz'; // 'quiz' | 'survival' (sub-type for Standard preset)
+let activePanel = null; // 'calc' | 'notes' | null
+let maxReached = 0; // highest question index reached (nav boundary)
+let questionStates = []; // per-question: null | { selected, allRight, partialCredit }
 
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
 
@@ -603,15 +619,18 @@ function showParseError(msg) {
 function showScreen(name) {
   document.querySelectorAll('section').forEach(el => { el.classList.remove('active') });
   document.getElementById(`s-${name}`).classList.add('active');
+  if (name !== 'quiz') closePanel();
 }
 
 function buildConfig() {
-  // The quiz picker lives on this screen for premade quizzes; for a custom
-  // upload the file itself is the quiz, so the picker is hidden.
   document.getElementById('quizPickCard').style.display = quizSource === 'builtin' ? '' : 'none';
-  // Domain is already determined by the quiz, so questions are filtered by
-  // difficulty only — there is no domain filter.
   document.getElementById('cfgSub').textContent = t('questions_loaded', { n: allQuestions.length });
+  // Sync preset UI
+  const isStdPreset = preset === 'standard';
+  document.getElementById('std-preset-opts').style.display = isStdPreset ? 'block' : 'none';
+  document.getElementById('cust-preset-opts').style.display = isStdPreset ? 'none' : 'block';
+  document.getElementById('diffSingleHint').style.display = isStdPreset ? 'block' : 'none';
+  document.querySelectorAll('#presetTabs .mode-tab').forEach(t => t.classList.toggle('active', t.dataset.preset === preset));
   showScreen('config');
 }
 
@@ -622,8 +641,8 @@ function getFilteredQuestions() {
 }
 
 function startStandard() {
-  const count = Math.max(1, parseInt(document.getElementById('cfgCount').value) || 10);
-  const mins = Math.max(1, parseInt(document.getElementById('cfgTime').value) || 10);
+  const count = preset === 'standard' ? 20 : Math.max(1, parseInt(document.getElementById('cfgCount').value) || 10);
+  const mins = preset === 'standard' ? 30 : Math.max(1, parseInt(document.getElementById('cfgTime').value) || 10);
   const pool = shuffle(getFilteredQuestions());
   if (pool.length === 0) { showWarning(t('no_match_filter')); return; }
   sessionQuestions = pool.slice(0, Math.min(count, pool.length));
@@ -632,6 +651,16 @@ function startStandard() {
 }
 
 function startSurvival() {
+  if (preset === 'standard') {
+    // Standard survival preset: fixed 5 lives, 15 min
+    const pool = shuffle(getFilteredQuestions());
+    if (pool.length === 0) { showWarning(t('no_match_filter')); return; }
+    sessionQuestions = [...pool];
+    mode = 'survival'; survType = 'lives';
+    lives = 5; startingLives = 5;
+    initSession(15 * 60);
+    return;
+  }
   survType = document.querySelector('input[name=survType]:checked').value;
   const pool = shuffle(getFilteredQuestions());
   if (pool.length === 0) { showWarning(t('no_match_filter')); return; }
@@ -657,6 +686,11 @@ function initSession(secs) {
   current = 0; earnedPoints = 0; totalPoints = sessionQuestions.reduce((a, q) => a + q.point, 0);
   domainStats = {}; answered = false; selected = new Set(); survivalRunning = true;
   timerSec = secs;
+  maxReached = 0;
+  questionStates = new Array(sessionQuestions.length).fill(null);
+  // Clear notes between sessions
+  const notesEl = document.getElementById('notesInput');
+  if (notesEl) notesEl.value = '';
   clearInterval(timerInterval);
   if (timerSec > 0) {
     timerInterval = setInterval(() => {
@@ -704,7 +738,12 @@ function diffClass(d) {
 function renderQuestion() {
   if (current >= sessionQuestions.length) { endSession('complete'); return; }
   const q = sessionQuestions[current];
-  answered = false; selected = new Set();
+  const savedState = questionStates[current]; // non-null means already answered (review mode)
+
+  // Restore or reset interaction state
+  answered = savedState !== null;
+  selected = savedState ? new Set(savedState.selected) : new Set();
+
   const isMulti = q.correctSet.size > 1;
   const total = sessionQuestions.length;
   const pct = mode === 'survival' ? ((current / Math.max(1, total)) * 100) : ((current / total) * 100);
@@ -721,7 +760,6 @@ function renderQuestion() {
   qText.textContent = q.description;
   renderMath(qText);
   document.getElementById('multiHint').style.display = isMulti ? 'block' : 'none';
-  // Hint: show the toggle only when this question has one; collapse it each time.
   const hintBtn = document.getElementById('btnHint');
   const hintBox = document.getElementById('hintBox');
   hintBox.style.display = 'none';
@@ -732,12 +770,6 @@ function renderQuestion() {
     hintBtn.style.display = 'none';
     hintBox.textContent = '';
   }
-  // Calculator is always available as a scratch tool.
-  const calcBox = document.getElementById('calcBox');
-  calcBox.style.display = 'block';
-  document.getElementById('calcInput').value = '';
-  document.getElementById('calcResult').textContent = '';
-  document.getElementById('calcResult').className = 'calc-result';
   const labels = 'ABCDEFGHIJ';
   const container = document.getElementById('choices');
   container.innerHTML = '';
@@ -754,10 +786,38 @@ function renderQuestion() {
     container.appendChild(btn);
   });
   renderMath(container);
-  const fb = document.getElementById('feedback');
-  fb.style.display = 'none'; fb.className = 'feedback'; fb.innerHTML = '';
-  document.getElementById('btnSubmit').disabled = true;
-  document.getElementById('btnSubmit').textContent = t('check_answer');
+
+  if (savedState) {
+    // Restore answered state — read-only view of an already-answered question
+    const btns = document.querySelectorAll('.choice-btn');
+    const correctPositions = new Set();
+    q.choices.forEach((ch, i) => { if (q.correctSet.has(ch.origIdx)) correctPositions.add(i); });
+    btns.forEach((btn, i) => {
+      btn.disabled = true;
+      if (correctPositions.has(i) && savedState.selected.has(i)) btn.className = 'choice-btn correct';
+      else if (savedState.selected.has(i) && !correctPositions.has(i)) btn.className = 'choice-btn wrong';
+      else if (correctPositions.has(i) && !savedState.selected.has(i)) btn.className = 'choice-btn missed';
+    });
+    showFeedback(q, savedState.allRight, savedState.partialCredit);
+    const submitBtn = document.getElementById('btnSubmit');
+    submitBtn.disabled = false;
+    submitBtn.textContent = (current + 1 >= sessionQuestions.length) ? t('see_results') : t('next_question');
+  } else {
+    const fb = document.getElementById('feedback');
+    fb.style.display = 'none'; fb.className = 'feedback'; fb.innerHTML = '';
+    document.getElementById('btnSubmit').disabled = true;
+    document.getElementById('btnSubmit').textContent = t('check_answer');
+  }
+
+  // Question navigation bar (custom quiz mode only — not Standard preset, not survival)
+  const qNav = document.getElementById('qNav');
+  if (preset === 'custom' && mode === 'standard') {
+    renderQNav();
+  } else {
+    qNav.innerHTML = '';
+    qNav.style.display = 'none';
+  }
+
   renderHUD();
 }
 
@@ -787,6 +847,8 @@ function checkAnswer() {
     else if (correctPositions.has(i) && !selected.has(i)) btn.className = 'choice-btn missed';
     else btn.className = 'choice-btn';
   });
+  // Save state for question navigation (review mode)
+  questionStates[current] = { selected: new Set(selected), allRight, partialCredit };
   if (!domainStats[q.domain]) domainStats[q.domain] = { correct: 0, total: 0, points: 0, maxPoints: 0 };
   domainStats[q.domain].total++;
   domainStats[q.domain].maxPoints += q.point;
@@ -808,6 +870,32 @@ function checkAnswer() {
   showFeedback(q, allRight, partialCredit);
   document.getElementById('btnSubmit').textContent = current + 1 >= sessionQuestions.length ? t('see_results') : t('next_question');
   document.getElementById('btnSubmit').disabled = false;
+  if (preset === 'custom' && mode === 'standard') renderQNav();
+}
+
+function renderQNav() {
+  const nav = document.getElementById('qNav');
+  if (!nav) return;
+  const total = sessionQuestions.length;
+  if (total <= 1) { nav.innerHTML = ''; nav.style.display = 'none'; return; }
+  let html = '';
+  for (let i = 0; i < total; i++) {
+    const st = questionStates[i];
+    let cls = 'q-nav-btn';
+    let dis = '';
+    if (i === current) cls += ' q-nav-current';
+    else if (st !== null) cls += st.allRight ? ' q-nav-correct' : ' q-nav-wrong';
+    else if (i > maxReached) { cls += ' q-nav-future'; dis = ' disabled'; }
+    html += `<button class="${cls}"${dis} data-qi="${i}" aria-label="Question ${i + 1}">${i + 1}</button>`;
+  }
+  nav.innerHTML = html;
+  nav.style.display = 'flex';
+  nav.querySelectorAll('.q-nav-btn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => {
+      current = parseInt(btn.dataset.qi);
+      renderQuestion();
+    });
+  });
 }
 
 function showFeedback(q, allRight, partial) {
@@ -857,7 +945,7 @@ function endSession(reason) {
     subject: currentSubject || (quizSource === 'custom' ? t('subject_custom') : t('subject_unknown')),
     source: quizSource,
     date: new Date().toISOString(),
-    mode, survType: mode === 'survival' ? survType : null,
+    preset, mode, survType: mode === 'survival' ? survType : null,
     score: earnedPoints, maxPoints: totalPoints,
     correct, answered: answered_count, pct,
     reason,
@@ -867,11 +955,87 @@ function endSession(reason) {
 }
 
 /* ============================================================
+   Panel helpers (calculator / notes side panels)
+   ============================================================ */
+function closePanel() {
+  const panelCalc = document.getElementById('panelCalc');
+  const panelNotes = document.getElementById('panelNotes');
+  if (panelCalc) panelCalc.classList.remove('open');
+  if (panelNotes) panelNotes.classList.remove('open');
+  const tabCalc = document.getElementById('tabBtnCalc');
+  const tabNotes = document.getElementById('tabBtnNotes');
+  if (tabCalc) tabCalc.classList.remove('active');
+  if (tabNotes) tabNotes.classList.remove('active');
+  activePanel = null;
+}
+
+function togglePanel(name) {
+  if (activePanel === name) { closePanel(); return; }
+  closePanel();
+  if (!name) return;
+  const panel = document.getElementById(name === 'calc' ? 'panelCalc' : 'panelNotes');
+  const tab = document.getElementById(name === 'calc' ? 'tabBtnCalc' : 'tabBtnNotes');
+  if (panel) panel.classList.add('open');
+  if (tab) tab.classList.add('active');
+  activePanel = name;
+}
+
+/* ============================================================
+   Difficulty button helper
+   ============================================================ */
+function updateDiffBtns() {
+  const styles = { beginner: ['#E1F5EE', '#0F6E56', '#085041'], easy: ['#EAF3DE', '#3B6D11', '#27500A'], medium: ['#FAEEDA', '#854F0B', '#633806'], hard: ['#FCEBEB', '#A32D2D', '#791F1F'], expert: ['#EEEDFE', '#534AB7', '#3C3489'] };
+  document.querySelectorAll('#diffBtns button').forEach(btn => {
+    const d = btn.dataset.diff;
+    if (selectedDiffs.has(d)) {
+      btn.classList.add('active');
+      const s = styles[d] || styles.medium;
+      btn.style.background = s[0]; btn.style.borderColor = s[1]; btn.style.color = s[2];
+    } else {
+      btn.classList.remove('active');
+      btn.style.background = ''; btn.style.borderColor = ''; btn.style.color = '';
+    }
+  });
+}
+
+/* ============================================================
+   Quiz start dispatcher
+   ============================================================ */
+function doStartQuiz() {
+  document.getElementById('cfgWarning').style.display = 'none';
+  if (preset === 'standard') {
+    if (standardType === 'quiz') startStandard(); else startSurvival();
+  } else {
+    if (mode === 'standard') startStandard(); else startSurvival();
+  }
+}
+
+/* ============================================================
    Event wiring
    ============================================================ */
-document.querySelectorAll('.mode-tab').forEach(tab => {
+// Top-level preset tabs: Standard | Custom
+document.querySelectorAll('#presetTabs .mode-tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#presetTabs .mode-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    preset = tab.dataset.preset;
+    const isStdPreset = preset === 'standard';
+    document.getElementById('std-preset-opts').style.display = isStdPreset ? 'block' : 'none';
+    document.getElementById('cust-preset-opts').style.display = isStdPreset ? 'none' : 'block';
+    document.getElementById('diffSingleHint').style.display = isStdPreset ? 'block' : 'none';
+    if (isStdPreset) {
+      // Collapse to single difficulty
+      const first = [...selectedDiffs][0] || 'beginner';
+      selectedDiffs.clear(); selectedDiffs.add(first);
+      updateDiffBtns();
+    }
+  });
+});
+
+// Inner Custom mode tabs: Quiz (Standard) | Survival
+document.querySelectorAll('#cust-preset-opts .mode-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('#cust-preset-opts .mode-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     mode = tab.dataset.mode;
     document.getElementById('standard-opts').style.display = mode === 'standard' ? 'block' : 'none';
@@ -890,11 +1054,15 @@ document.querySelectorAll('input[name=survType]').forEach(r => {
 document.querySelectorAll('#diffBtns button').forEach(btn => {
   btn.addEventListener('click', () => {
     const d = btn.dataset.diff;
-    if (selectedDiffs.has(d)) { if (selectedDiffs.size === 1) return; selectedDiffs.delete(d); btn.classList.remove('active'); btn.style.background = ''; btn.style.borderColor = ''; btn.style.color = ''; }
-    else {
-      selectedDiffs.add(d); btn.classList.add('active');
-      const styles = { beginner: ['#E1F5EE', '#0F6E56', '#085041'], easy: ['#EAF3DE', '#3B6D11', '#27500A'], medium: ['#FAEEDA', '#854F0B', '#633806'], hard: ['#FCEBEB', '#A32D2D', '#791F1F'], expert: ['#EEEDFE', '#534AB7', '#3C3489'] };
-      const s = styles[d] || styles.medium; btn.style.background = s[0]; btn.style.borderColor = s[1]; btn.style.color = s[2];
+    if (preset === 'standard') {
+      // Single-select for Standard preset
+      selectedDiffs.clear(); selectedDiffs.add(d);
+      updateDiffBtns();
+    } else {
+      // Multi-select for Custom preset
+      if (selectedDiffs.has(d)) { if (selectedDiffs.size === 1) return; selectedDiffs.delete(d); }
+      else { selectedDiffs.add(d); }
+      updateDiffBtns();
     }
   });
 });
@@ -903,7 +1071,11 @@ document.getElementById('btnSubmit').addEventListener('click', () => {
   if (!answered) { checkAnswer(); }
   else {
     if (mode === 'survival' && survType === 'lives' && lives <= 0) { endSession('lives'); return; }
-    current++; renderQuestion();
+    const nextIdx = current + 1;
+    if (nextIdx >= sessionQuestions.length) { endSession('complete'); return; }
+    current = nextIdx;
+    if (current > maxReached) maxReached = current;
+    renderQuestion();
   }
 });
 
@@ -929,14 +1101,21 @@ document.getElementById('calcInput').addEventListener('input', e => {
   }
 });
 
-document.getElementById('btnStartQuiz').addEventListener('click', () => {
-  document.getElementById('cfgWarning').style.display = 'none';
-  if (mode === 'standard') startStandard(); else startSurvival();
+// Standard preset type selection (Quiz vs Survival)
+document.querySelectorAll('input[name=stdType]').forEach(r => {
+  r.addEventListener('change', () => { standardType = r.value; });
 });
+
+// Side panel toggle buttons
+document.getElementById('tabBtnCalc').addEventListener('click', () => togglePanel('calc'));
+document.getElementById('tabBtnNotes').addEventListener('click', () => togglePanel('notes'));
+document.getElementById('closePanelCalc').addEventListener('click', () => closePanel());
+document.getElementById('closePanelNotes').addEventListener('click', () => closePanel());
+
+document.getElementById('btnStartQuiz').addEventListener('click', doStartQuiz);
+document.getElementById('btnStartQuizTop').addEventListener('click', doStartQuiz);
 document.getElementById('btnBackToUpload').addEventListener('click', () => showScreen('upload'));
-document.getElementById('btnPlayAgain').addEventListener('click', () => {
-  if (mode === 'standard') startStandard(); else startSurvival();
-});
+document.getElementById('btnPlayAgain').addEventListener('click', doStartQuiz);
 document.getElementById('btnReconfigure').addEventListener('click', () => buildConfig());
 document.getElementById('btnNewFile').addEventListener('click', () => { showScreen('upload'); document.getElementById('parseError').style.display = 'none'; });
 
