@@ -108,7 +108,30 @@ const STRINGS_EN = {
   help_point: 'Points for a fully-correct answer (default 10)',
   help_choices: 'Answer choices choice0 ... choice9 (at least two)',
   help_multi_note: "A correct value with more than one digit (like 013) becomes a 'select all that apply' question.",
-  help_example_heading: 'Example'
+  help_example_heading: 'Example',
+  // Theme
+  theme_dark: 'Dark mode',
+  theme_light: 'Light',
+  // Stats / progress
+  stats_button: 'My progress',
+  stats_title: 'Your progress',
+  stats_sub: 'Scores are saved on this device only.',
+  stats_empty: 'No attempts yet. Finish a quiz to see your progress here.',
+  stats_best: 'Best',
+  stats_attempts: 'Attempts',
+  stats_last: 'Last attempt',
+  stats_recent: 'Recent',
+  stats_export: 'Export data',
+  stats_import: 'Import data',
+  stats_clear: 'Clear all',
+  stats_clear_confirm: 'Delete all saved progress on this device?',
+  stats_import_ok: 'Progress imported successfully.',
+  stats_import_err: 'Could not import that file. Make sure it is a valid progress export.',
+  stats_storage_warn: 'Progress cannot be saved in this browser (private mode or storage disabled).',
+  stats_back: 'Back',
+  subject_custom: 'Custom quiz',
+  subject_sample: 'Sample quiz',
+  subject_unknown: 'Quiz'
 };
 
 let STRINGS = Object.assign({}, STRINGS_EN);
@@ -126,6 +149,174 @@ function applyStaticText() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
   document.title = t('app_title');
+}
+
+/* ============================================================
+   Storage helpers (private-mode safe)
+   ============================================================ */
+function storageGet(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function storageSet(key, val) {
+  try { localStorage.setItem(key, val); return true; } catch (e) { return false; }
+}
+function storageRemove(key) {
+  try { localStorage.removeItem(key); return true; } catch (e) { return false; }
+}
+
+/* ============================================================
+   Theme
+   ============================================================ */
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  const toggle = document.getElementById('themeToggle');
+  if (toggle) toggle.checked = (theme === 'dark');
+}
+
+function initTheme() {
+  const stored = storageGet('csvquiz_theme');
+  const theme = stored || (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  applyTheme(theme);
+}
+
+/* ============================================================
+   Stats / progress persistence
+   ============================================================ */
+const STATS_KEY = 'csvquiz_stats';
+const STATS_VERSION = 1;
+
+function loadStats() {
+  try {
+    const raw = storageGet(STATS_KEY);
+    if (!raw) return { version: STATS_VERSION, attempts: [] };
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.attempts)) return { version: STATS_VERSION, attempts: [] };
+    return parsed;
+  } catch (e) {
+    return { version: STATS_VERSION, attempts: [] };
+  }
+}
+
+function saveStats(stats) {
+  const ok = storageSet(STATS_KEY, JSON.stringify(stats));
+  if (!ok) showStatsMsg(t('stats_storage_warn'), 'warn');
+  return ok;
+}
+
+function saveAttempt(record) {
+  const stats = loadStats();
+  // De-dupe by id — re-import is idempotent
+  if (!stats.attempts.find(a => a.id === record.id)) {
+    stats.attempts.push(record);
+    // Cap at 200 total attempts to bound storage size
+    if (stats.attempts.length > 200) stats.attempts = stats.attempts.slice(-200);
+  }
+  saveStats(stats);
+}
+
+function computeSubjectSummaries(stats) {
+  const map = {};
+  for (const a of stats.attempts) {
+    const key = a.subject || t('subject_unknown');
+    if (!map[key]) map[key] = { count: 0, bestPct: 0, lastDate: '', lastPct: 0, recent: [] };
+    const s = map[key];
+    s.count++;
+    if (a.pct > s.bestPct) s.bestPct = a.pct;
+    s.lastDate = a.date;
+    s.lastPct = a.pct;
+    s.recent.unshift(a);
+    if (s.recent.length > 5) s.recent.pop();
+  }
+  return map;
+}
+
+function exportStats() {
+  const stats = loadStats();
+  if (!stats.attempts.length) { showStatsMsg(t('stats_empty'), 'warn'); return; }
+  try {
+    const blob = new Blob([JSON.stringify(stats, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const date = new Date().toISOString().slice(0, 10);
+    a.href = url; a.download = `csvquiz-stats-${date}.json`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  } catch (e) {
+    showStatsMsg(t('stats_storage_warn'), 'err');
+  }
+}
+
+function validateStats(obj) {
+  return obj && typeof obj === 'object' && Array.isArray(obj.attempts) &&
+    obj.attempts.every(a => a && typeof a.subject === 'string' && typeof a.date === 'string');
+}
+
+function importStats(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (!validateStats(parsed)) throw new Error('invalid');
+      const existing = loadStats();
+      const existingIds = new Set(existing.attempts.map(a => a.id));
+      for (const a of parsed.attempts) {
+        if (a.id && !existingIds.has(a.id)) {
+          existing.attempts.push(a);
+          existingIds.add(a.id);
+        }
+      }
+      if (existing.attempts.length > 200) existing.attempts = existing.attempts.slice(-200);
+      saveStats(existing);
+      showStatsMsg(t('stats_import_ok'), 'ok');
+      renderStats();
+    } catch (err) {
+      showStatsMsg(t('stats_import_err'), 'err');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showStatsMsg(msg, type) {
+  const el = document.getElementById('statsMsg');
+  if (!el) return;
+  el.textContent = msg;
+  el.className = `stats-msg ${type}`;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 4000);
+}
+
+function renderStats() {
+  const body = document.getElementById('statsBody');
+  if (!body) return;
+  const stats = loadStats();
+  if (!stats.attempts.length) {
+    body.innerHTML = `<p style="font-size:14px;color:var(--color-text-secondary)">${t('stats_empty')}</p>`;
+    return;
+  }
+  const summaries = computeSubjectSummaries(stats);
+  let html = '';
+  for (const [subject, s] of Object.entries(summaries)) {
+    const lastDate = s.lastDate ? new Date(s.lastDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    const recentHtml = s.recent.slice(0, 3).map(a =>
+      `<span>${new Date(a.date).toLocaleDateString('en-US',{month:'short',day:'numeric'})} &middot; ${a.pct}%</span>`
+    ).join('');
+    html += `<div class="stats-subject-row">
+      <div>
+        <div class="stats-subject-name">${subject}</div>
+        <div class="stats-subject-meta">${s.count} ${t('stats_attempts')} &middot; ${t('stats_last')}: ${lastDate}</div>
+        <div class="stats-recent">${recentHtml}</div>
+      </div>
+      <div class="stats-subject-score">
+        <div class="stats-subject-pct">${s.bestPct}%</div>
+        <div class="stats-subject-attempts">${t('stats_best')}</div>
+      </div>
+    </div>`;
+  }
+  body.innerHTML = html;
 }
 
 // Typeset any $...$ / $$...$$ LaTeX inside an element using KaTeX, if loaded.
@@ -244,6 +435,7 @@ let mode = 'standard', survType = 'lives', lives = 5, startingLives = 5, timerSe
 let selectedDiffs = new Set(['beginner', 'easy']);
 let survivalRunning = false;
 let quizSource = 'builtin'; // 'builtin' shows the quiz picker on the config screen; 'custom' hides it
+let currentSubject = '';
 
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
 
@@ -376,6 +568,7 @@ function renderCatalog(groups) {
       box.querySelectorAll('.catalog-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       quizSource = 'builtin';
+      currentSubject = g.name;
       loadQuizFromFiles(g.files);
     });
     box.appendChild(btn);
@@ -661,6 +854,17 @@ function endSession(reason) {
     const p = total > 0 ? Math.round((correct / total) * 100) : 0;
     bd.innerHTML += `<div class="domain-row"><span style="min-width:120px">${domain}</span><div class="domain-bar-wrap"><div class="domain-bar" style="width:${p}%"></div></div><span style="min-width:80px;text-align:right;font-size:13px">${correct}/${total} · ${points}${t('pts_suffix')}</span></div>`;
   });
+  saveAttempt({
+    id: Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+    subject: currentSubject || (quizSource === 'custom' ? t('subject_custom') : t('subject_unknown')),
+    source: quizSource,
+    date: new Date().toISOString(),
+    mode, survType: mode === 'survival' ? survType : null,
+    score: earnedPoints, maxPoints: totalPoints,
+    correct, answered: answered_count, pct,
+    reason,
+    domainStats: JSON.parse(JSON.stringify(domainStats))
+  });
   showScreen('summary');
 }
 
@@ -759,6 +963,7 @@ function handleFile(file) {
     try {
       allQuestions = parseCSV(e.target.result);
       quizSource = 'custom';
+      currentSubject = file.name.replace(/\.csv$/i, '') || t('subject_custom');
       buildConfig();
     } catch (err) {
       showParseError(t('error_prefix') + err.message);
@@ -772,7 +977,7 @@ document.getElementById('dropZone').addEventListener('dragover', e => { e.preven
 document.getElementById('dropZone').addEventListener('dragleave', () => { document.getElementById('dropZone').style.background = '' });
 document.getElementById('dropZone').addEventListener('drop', e => { e.preventDefault(); document.getElementById('dropZone').style.background = ''; if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
 document.getElementById('loadSample').addEventListener('click', () => {
-  try { allQuestions = parseCSV(SAMPLE_CSV); quizSource = 'custom'; buildConfig(); } catch (e) { console.error(e); }
+  try { allQuestions = parseCSV(SAMPLE_CSV); quizSource = 'custom'; currentSubject = t('subject_sample'); buildConfig(); } catch (e) { console.error(e); }
 });
 
 /* ============================================================
@@ -882,6 +1087,35 @@ async function markCurrent(endpoint, value) {
 
 document.getElementById('btnDebug').addEventListener('click', enterDebug);
 document.getElementById('btnDebugExit').addEventListener('click', () => showScreen('upload'));
+
+/* ============================================================
+   Theme toggle
+   ============================================================ */
+document.getElementById('themeToggle').addEventListener('change', e => {
+  const theme = e.target.checked ? 'dark' : 'light';
+  applyTheme(theme);
+  storageSet('csvquiz_theme', theme);
+});
+
+/* ============================================================
+   Stats screen buttons
+   ============================================================ */
+document.getElementById('btnStats').addEventListener('click', () => {
+  renderStats();
+  showScreen('stats');
+});
+document.getElementById('btnStatsBack').addEventListener('click', () => showScreen('upload'));
+document.getElementById('btnStatsExport').addEventListener('click', exportStats);
+document.getElementById('btnStatsImport').addEventListener('click', () => document.getElementById('statsImportInput').click());
+document.getElementById('statsImportInput').addEventListener('change', e => {
+  if (e.target.files[0]) { importStats(e.target.files[0]); e.target.value = ''; }
+});
+document.getElementById('btnStatsClear').addEventListener('click', () => {
+  if (!confirm(t('stats_clear_confirm'))) return;
+  storageRemove(STATS_KEY);
+  renderStats();
+  showStatsMsg(t('stats_empty'), 'warn');
+});
 document.getElementById('btnDbgVerify').addEventListener('click', () => markCurrent('/verify', true));
 document.getElementById('btnDbgVoid').addEventListener('click', () => markCurrent('/void', false));
 document.getElementById('btnDbgSkip').addEventListener('click', () => { debugPos++; renderDebug(); });
@@ -889,6 +1123,7 @@ document.getElementById('btnDbgSkip').addEventListener('click', () => { debugPos
 /* ============================================================
    Init
    ============================================================ */
+initTheme();
 applyStaticText();
 loadLocalization();
 loadCatalog();

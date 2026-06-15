@@ -101,3 +101,24 @@ help_point,Points for a fully-correct answer (default 10)
 help_choices,Answer choices choice0 ... choice9 (at least two)
 help_multi_note,A correct value with more than one digit (like 013) becomes a 'select all that apply' question.
 help_example_heading,Example
+theme_dark,Dark mode
+theme_light,Light
+stats_button,My progress
+stats_title,Your progress
+stats_sub,Scores are saved on this device only.
+stats_empty,No attempts yet. Finish a quiz to see your progress here.
+stats_best,Best
+stats_attempts,Attempts
+stats_last,Last attempt
+stats_recent,Recent
+stats_export,Export data
+stats_import,Import data
+stats_clear,Clear all
+stats_clear_confirm,Delete all saved progress on this device?
+stats_import_ok,Progress imported successfully.
+stats_import_err,"Could not import that file. Make sure it is a valid progress export."
+stats_storage_warn,"Progress cannot be saved in this browser (private mode or storage disabled)."
+stats_back,Back
+subject_custom,Custom quiz
+subject_sample,Sample quiz
+subject_unknown,Quiz
