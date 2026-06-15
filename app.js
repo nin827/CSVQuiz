@@ -135,7 +135,7 @@ const STRINGS_EN = {
   // Preset mode config
   preset_standard: 'Standard',
   preset_custom: 'Custom',
-  std_type_quiz: 'Quiz - 20 questions, 30 min',
+  std_type_quiz: 'Quiz - 20 questions, 20 min',
   std_type_survival: 'Survival - 5 lives, 20 min',
   std_note: 'One subject - One difficulty - No question navigation - Labeled "Standard" in records',
   diff_single_hint: 'Standard mode uses one difficulty.',
@@ -316,15 +316,19 @@ function renderStats() {
       if (a.mode === 'survival') return isCustom ? 'Survival (custom)' : 'Survival';
       return isCustom ? 'Normal (custom)' : 'Normal';
     };
-    const diffTag = a => (a.diffs && a.diffs.length) ? a.diffs.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ') : '';
+    const diffTag = a => (a.diffs && a.diffs.length) ? a.diffs.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ') : null;
     const recentHtml = s.recent.slice(0, 5).map(a => {
       const date = new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       const diff = diffTag(a);
       const mode = modeTag(a);
       const tags = [diff, mode].filter(Boolean).join(' · ');
+      const correct = a.correct != null ? a.correct : '?';
+      const answered = a.answered != null ? a.answered : '?';
+      const score = a.score != null ? a.score : 0;
+      const pct = a.pct != null ? a.pct : 0;
       return `<div class="stats-attempt-row">
-        <div class="stats-attempt-meta">${date}${tags ? ' <span class="stats-attempt-tags">' + tags + '</span>' : ''}</div>
-        <div class="stats-attempt-detail">${a.correct}/${a.answered} correct &middot; ${a.score} pts &middot; ${a.pct}%</div>
+        <div class="stats-attempt-meta">${date}${tags ? ' &middot; <span class="stats-attempt-tags">' + tags + '</span>' : ''}</div>
+        <div class="stats-attempt-detail">${correct}/${answered} correct &middot; ${score} pts &middot; ${pct}%</div>
       </div>`;
     }).join('');
     html += `<div class="stats-subject-row">
@@ -657,7 +661,7 @@ function getFilteredQuestions() {
 
 function startStandard() {
   const count = preset === 'standard' ? 20 : Math.max(1, parseInt(document.getElementById('cfgCount').value) || 10);
-  const mins = preset === 'standard' ? 30 : Math.max(1, parseInt(document.getElementById('cfgTime').value) || 10);
+  const mins = preset === 'standard' ? 20 : Math.max(1, parseInt(document.getElementById('cfgTime').value) || 10);
   const pool = shuffle(getFilteredQuestions());
   if (pool.length === 0) { showWarning(t('no_match_filter')); return; }
   sessionQuestions = pool.slice(0, Math.min(count, pool.length));

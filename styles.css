@@ -252,7 +252,7 @@ section.active{display:block}
 .stats-attempt-row:first-child{border-top:none}
 .stats-attempt-meta{font-size:12px;color:var(--color-text-secondary,#666)}
 .stats-attempt-tags{color:var(--color-accent,#534AB7);font-weight:500}
-.stats-attempt-detail{font-size:13px;color:var(--color-text-primary,#1a1a1a);font-weight:500;margin-top:1px}
+.stats-attempt-detail{font-size:13px;color:var(--color-text-primary,#1a1a1a);font-weight:600;margin-top:2px;letter-spacing:.01em}
 .stats-msg{font-size:13px;padding:.6rem .9rem;border-radius:8px;margin-bottom:.75rem;display:none}
 .stats-msg.ok{background:var(--color-success-bg,#E1F5EE);color:var(--color-success-text,#085041)}
 .stats-msg.err{background:var(--color-danger-bg,#FAECE7);color:var(--color-danger-text,#4A1B0C)}
