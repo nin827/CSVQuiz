@@ -23,10 +23,11 @@ There are no automated tests, linters, or package manager. Verification is manua
 
 The app must work both over HTTP **and** when `index.html` is double-clicked from `file://`, where browsers block `fetch()` of local files. This drives the whole data layer:
 
-- `build_data.py` embeds every file in `data/` into `data.js` as `window.CSVQUIZ_DATA` (a `{filename: contents}` map), loaded via a plain `<script>` tag (allowed from `file://`).
+- `build_data.py` embeds every file in `data/` into `data.js` as `window.CSVQUIZ_DATA` (a `{filename: contents}` map).
 - `loadText(path)` in `app.js` is the single choke point: it tries `fetch()` first (live HTTP), and falls back to `window.CSVQUIZ_DATA` when fetch fails.
+- `data.js` is **not** a `<script>` tag — it is ~800 KB and unused over HTTP. `ensureBundle()` injects it lazily the first time a `fetch()` fails (the `file://` case).
 
-**Consequence:** `data.js` is auto-generated; never edit it by hand. If you add or edit files in `data/`, you'll need to regenerate `data.js` to keep the `file://` / GitHub Pages path correct (that tooling has been removed from this repo — the committed `data.js` reflects the current banks).
+**Consequence:** `data.js` is auto-generated; never edit it by hand. After adding or editing anything in `data/` (including `_localization.csv`), run `python build_data.py` to keep the `file://` path correct.
 
 ## Data model
 
@@ -46,6 +47,9 @@ The app must work both over HTTP **and** when `index.html` is double-clicked fro
 - Single SPA: screens are `<section id="s-*">` elements; `showScreen(name)` toggles the `.active` class. No router, no framework.
 - `quizSource` (`'builtin'` | `'custom'`) controls whether the in-config quiz picker (`#quizPickCard`) shows — a custom upload IS its own quiz, so the picker is hidden.
 - `renderMath(el)` wraps KaTeX's `renderMathInElement` over `$...$`/`$$...$$`; KaTeX is vendored under `vendor/katex/` so math works fully offline. It degrades to raw text if KaTeX isn't loaded.
+- **Nothing is fetched from the network.** Icons are inline `<symbol>`s in the `#icon-sprite` block of `index.html` (`icon(name)` in `app.js` emits `<use>` markup); KaTeX is vendored. Do not reintroduce a CDN link — it breaks `file://` and offline use.
+- `parseRows()` is the one CSV tokenizer (RFC 4180: quoted commas/newlines, `""` escapes) used by question banks, the manifest and the localization table.
+- **Anything from a CSV that reaches `innerHTML` must go through `esc()`.** Several views build markup as strings.
 - The calculator (opt-in via the `calculator` column) uses a safe recursive-descent parser (`calcEval`), **not** `eval()`.
 
 ## Debug / verify mode

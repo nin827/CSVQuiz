@@ -131,3 +131,11 @@ diff_single_hint,Standard mode uses one difficulty.
 notes_label,Notes
 notes_placeholder,Write notes to plan things out...
 notes_help,Notes are cleared when you leave the quiz.
+topics,Topics
+topics_hint,Narrow the pool to the topics you want to practise.
+topic_untagged,Untagged
+questions_available,{n} questions match your filters
+review_show,Review all {n} answers
+review_hide,Hide answers
+kbd_hint,"Tip: press 1-9 or A-J to choose, Enter to submit."
+review_you,your answer

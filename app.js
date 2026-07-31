@@ -142,7 +142,18 @@ const STRINGS_EN = {
   // Notes widget
   notes_label: 'Notes',
   notes_placeholder: 'Write notes to plan things out...',
-  notes_help: 'Notes are cleared when you leave the quiz.'
+  notes_help: 'Notes are cleared when you leave the quiz.',
+  // Filters
+  topics: 'Topics',
+  topics_hint: 'Narrow the pool to the topics you want to practise.',
+  topic_untagged: 'Untagged',
+  questions_available: '{n} questions match your filters',
+  // Answer review
+  review_show: 'Review all {n} answers',
+  review_hide: 'Hide answers',
+  review_you: 'your answer',
+  // Keyboard
+  kbd_hint: 'Tip: press 1-9 or A-J to choose, Enter to submit.'
 };
 
 let STRINGS = Object.assign({}, STRINGS_EN);
@@ -160,6 +171,31 @@ function applyStaticText() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
   document.title = t('app_title');
+}
+
+/* ============================================================
+   HTML escaping
+
+   Question text, explanations, domain names and quiz/file names all come
+   from CSV files the user can supply, and several views build their markup
+   as strings. Everything interpolated into innerHTML goes through esc()
+   so CSV content can never inject markup.
+   ============================================================ */
+const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ESC_MAP[c]);
+}
+
+/* ============================================================
+   Icons
+
+   Icons are inline <symbol>s defined once in index.html (see #icon-sprite)
+   and referenced with <use>. They are part of the page, so they render
+   identically over HTTP, from file:// and with no network at all — unlike
+   the icon webfont this replaces.
+   ============================================================ */
+function icon(name, cls) {
+  return `<svg class="icon${cls ? ' ' + cls : ''}" aria-hidden="true" focusable="false"><use href="#i-${name}"></use></svg>`;
 }
 
 /* ============================================================
@@ -321,20 +357,20 @@ function renderStats() {
       const date = new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       const diff = diffTag(a);
       const mode = modeTag(a);
-      const tags = [diff, mode].filter(Boolean).join(' · ');
+      const tags = esc([diff, mode].filter(Boolean).join(' · '));
       return `<div class="stats-attempt-row">
-        <div class="stats-attempt-meta">${date}${tags ? ' <span class="stats-attempt-tags">' + tags + '</span>' : ''}</div>
-        <div class="stats-attempt-detail">${a.correct}/${a.answered} correct &middot; ${a.score} pts &middot; ${a.pct}%</div>
+        <div class="stats-attempt-meta">${esc(date)}${tags ? ' <span class="stats-attempt-tags">' + tags + '</span>' : ''}</div>
+        <div class="stats-attempt-detail">${esc(a.correct)}/${esc(a.answered)} correct &middot; ${esc(a.score)} pts &middot; ${esc(a.pct)}%</div>
       </div>`;
     }).join('');
     html += `<div class="stats-subject-row">
       <div style="flex:1;min-width:0">
-        <div class="stats-subject-name">${subject}</div>
+        <div class="stats-subject-name">${esc(subject)}</div>
         <div class="stats-subject-meta">${s.count} ${t('stats_attempts')}</div>
         <div class="stats-recent">${recentHtml}</div>
       </div>
       <div class="stats-subject-score">
-        <div class="stats-subject-pct">${s.bestPct}%</div>
+        <div class="stats-subject-pct">${esc(s.bestPct)}%</div>
         <div class="stats-subject-attempts">${t('stats_best')}</div>
       </div>
     </div>`;
@@ -456,6 +492,9 @@ let allQuestions = [], sessionQuestions = [], current = 0, totalPoints = 0, earn
 let answered = false, selected = new Set(), domainStats = {};
 let mode = 'standard', survType = 'lives', lives = 5, startingLives = 5, timerSec = 0, timerInterval = null;
 let selectedDiffs = new Set(['beginner']);
+let selectedTopics = new Set(); // subdomains kept in the pool (Custom preset only)
+let knownTopics = new Set();    // topics already offered, so new ones default to selected
+let topicsEnabled = false;      // true when the topic filter is visible and applies
 let survivalRunning = false;
 let quizSource = 'builtin'; // 'builtin' shows the quiz picker on the config screen; 'custom' hides it
 let currentSubject = '';
@@ -469,16 +508,52 @@ function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.fl
 
 /* ============================================================
    CSV parsing
+
+   parseRows() is the single tokenizer for every CSV the app reads
+   (question banks, the manifest and the localization table). It follows
+   RFC 4180: a quoted field may contain commas and newlines, and a doubled
+   quote inside a quoted field is a literal quote. A quote that appears
+   part-way through an unquoted field is kept as-is rather than treated as
+   a delimiter, which is what hand-edited spreadsheets tend to produce.
    ============================================================ */
+function parseRows(text) {
+  if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip UTF-8 BOM
+  const rows = [];
+  let row = [], field = '', inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; }  // "" -> literal quote
+        else inQ = false;
+      } else if (c === '\r' && text[i + 1] === '\n') {
+        field += '\n'; i++;                              // normalise CRLF inside a field
+      } else field += c;
+      continue;
+    }
+    if (c === '"' && field === '') inQ = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+    else if (c !== '\r') field += c;
+  }
+  row.push(field);
+  rows.push(row);
+  while (rows.length && rows[rows.length - 1].every(f => f.trim() === '')) rows.pop();
+  return rows;
+}
+
+function isBlankRow(cols) { return cols.every(c => c.trim() === ''); }
+
 function parseCSV(text) {
-  const lines = text.trim().split(/\r?\n/);
-  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const table = parseRows(text);
+  if (table.length === 0) throw new Error(t('err_no_questions'));
+  const headers = table[0].map(h => h.trim().toLowerCase());
   const req = ['domain', 'description', 'correct', 'choice0'];
   for (const r of req) if (!headers.includes(r)) throw new Error(t('err_missing_column', { col: r }));
   const rows = [];
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue;
-    const cols = parseLine(lines[i]);
+  for (let i = 1; i < table.length; i++) {
+    const cols = table[i];
+    if (isBlankRow(cols)) continue;
     const obj = {};
     headers.forEach((h, idx) => obj[h] = (cols[idx] || '').trim());
     const choices = [];
@@ -506,16 +581,6 @@ function parseCSV(text) {
   return rows;
 }
 
-function parseLine(line) {
-  const result = []; let cur = ''; let inQ = false;
-  for (let i = 0; i < line.length; i++) {
-    if (line[i] === '"') { inQ = !inQ; }
-    else if (line[i] === ',' && !inQ) { result.push(cur); cur = ''; }
-    else cur += line[i];
-  }
-  result.push(cur); return result;
-}
-
 /* ============================================================
    Data loading (localization + catalog)
 
@@ -524,13 +589,32 @@ function parseLine(line) {
    build_data.py) so premade quizzes also work when index.html is opened
    directly from file://, where browsers block fetch().
    ============================================================ */
+let bundlePromise = null;
+
+// data.js is ~800 KB of embedded CSV. Over HTTP every read is served by
+// fetch() and the bundle is never touched, so it is injected on demand
+// instead of being a <script> tag every page load pays for.
+function ensureBundle() {
+  if (window.CSVQUIZ_DATA) return Promise.resolve(window.CSVQUIZ_DATA);
+  if (!bundlePromise) {
+    bundlePromise = new Promise(resolve => {
+      const s = document.createElement('script');
+      s.src = 'data.js';
+      s.onload = () => resolve(window.CSVQUIZ_DATA || null);
+      s.onerror = () => resolve(null);
+      document.head.appendChild(s);
+    });
+  }
+  return bundlePromise;
+}
+
 async function loadText(path) {
   try {
     const res = await fetch(path);
     if (res.ok) return await res.text();
   } catch (e) { /* fetch blocked (file://) or network error — use the bundle */ }
   const name = path.replace(/^data\//, '');
-  const bundle = window.CSVQUIZ_DATA;
+  const bundle = await ensureBundle();
   if (bundle && bundle[name] != null) return bundle[name];
   return null;
 }
@@ -538,11 +622,11 @@ async function loadText(path) {
 async function loadLocalization() {
   const text = await loadText('data/_localization.csv');
   if (text == null) return; // keep embedded English
-  const lines = text.trim().split(/\r?\n/);
+  const table = parseRows(text);
   const overlay = {};
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue;
-    const cols = parseLine(lines[i]);
+  for (let i = 1; i < table.length; i++) {
+    const cols = table[i];
+    if (isBlankRow(cols)) continue;
     const key = (cols[0] || '').trim();
     if (key) overlay[key] = (cols[1] !== undefined ? cols[1] : ''); // value not trimmed — trailing spaces can be significant
   }
@@ -568,14 +652,15 @@ async function loadCatalog() {
 // Rows sharing a name are merged, so a domain can be split across several files
 // (e.g. math.csv, math_00.csv, math_01.csv all listed as "Math").
 function parseManifest(text) {
-  const lines = text.trim().split(/\r?\n/);
-  const header = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const table = parseRows(text);
+  if (table.length === 0) return [];
+  const header = table[0].map(h => h.trim().toLowerCase());
   const ni = header.indexOf('name'), fi = header.indexOf('file');
   const order = [];
   const byName = new Map();
-  for (let i = 1; i < lines.length; i++) {
-    if (!lines[i].trim()) continue;
-    const cols = parseLine(lines[i]);
+  for (let i = 1; i < table.length; i++) {
+    const cols = table[i];
+    if (isBlankRow(cols)) continue;
     const file = (cols[fi] || '').trim();
     if (!file) continue;
     const name = (cols[ni] || '').trim() || file;
@@ -591,7 +676,10 @@ function renderCatalog(groups) {
   groups.forEach(g => {
     const btn = document.createElement('button');
     btn.className = 'catalog-btn';
-    btn.innerHTML = `<i class="ti ti-cards" aria-hidden="true"></i><span>${g.name}</span>`;
+    btn.innerHTML = icon('cards');
+    const label = document.createElement('span');
+    label.textContent = g.name;
+    btn.appendChild(label);
     btn.addEventListener('click', () => {
       box.querySelectorAll('.catalog-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
@@ -612,11 +700,19 @@ async function loadQuizFromFiles(files) {
       if (text == null) throw new Error('missing ' + f);
       merged = merged.concat(parseCSV(text));
     }
-    allQuestions = merged;
+    setQuestionPool(merged);
     buildConfig();
   } catch (err) {
     showParseError(t('err_load_failed'));
   }
+}
+
+// Swap in a new question pool. Topic selections are per-pool, so they reset
+// here rather than leaking across quizzes that happen to share subdomain names.
+function setQuestionPool(questions) {
+  allQuestions = questions;
+  selectedTopics.clear();
+  knownTopics.clear();
 }
 
 function showParseError(msg) {
@@ -628,10 +724,19 @@ function showParseError(msg) {
 /* ============================================================
    Screens / config
    ============================================================ */
+let activeScreen = 'upload';
+
 function showScreen(name) {
   document.querySelectorAll('section').forEach(el => { el.classList.remove('active') });
-  document.getElementById(`s-${name}`).classList.add('active');
+  const section = document.getElementById(`s-${name}`);
+  section.classList.add('active');
+  activeScreen = name;
   if (name !== 'quiz') closePanel();
+  // Move focus to the new screen's heading so screen readers and keyboard
+  // users land on the new content instead of wherever the old button was.
+  const heading = section.querySelector('h1');
+  if (heading) heading.focus({ preventScroll: true });
+  window.scrollTo(0, 0);
 }
 
 function buildConfig() {
@@ -646,13 +751,100 @@ function buildConfig() {
   document.getElementById('cust-preset-opts').style.display = isStdPreset ? 'none' : 'block';
   document.getElementById('diffSingleHint').style.display = isStdPreset ? 'block' : 'none';
   document.querySelectorAll('#presetTabs .mode-tab').forEach(t => t.classList.toggle('active', t.dataset.preset === preset));
+  refreshFilters();
   showScreen('config');
 }
 
+const DIFF_ORDER = ['beginner', 'easy', 'medium', 'hard', 'expert'];
+
 function getFilteredQuestions() {
   return allQuestions.filter(q =>
-    selectedDiffs.size === 0 || selectedDiffs.has(q.difficulty)
+    (selectedDiffs.size === 0 || selectedDiffs.has(q.difficulty)) &&
+    (!topicsEnabled || selectedTopics.has(q.subdomain || ''))
   );
+}
+
+// How many questions each difficulty offers in the loaded pool.
+function diffCounts() {
+  const m = {};
+  for (const q of allQuestions) m[q.difficulty] = (m[q.difficulty] || 0) + 1;
+  return m;
+}
+
+// Topics (subdomains) available within the currently selected difficulties.
+function topicCounts() {
+  const m = new Map();
+  for (const q of allQuestions) {
+    if (selectedDiffs.size && !selectedDiffs.has(q.difficulty)) continue;
+    const k = q.subdomain || '';
+    m.set(k, (m.get(k) || 0) + 1);
+  }
+  return m;
+}
+
+// Drop difficulties the pool cannot serve and guarantee at least one that can.
+// Without this, loading a bank with no 'beginner' rows (the bundled sample, or
+// any subject that stops at 'medium') dead-ends on "No questions match".
+function ensureValidDifficulty() {
+  const counts = diffCounts();
+  const avail = DIFF_ORDER.filter(d => counts[d] > 0);
+  if (!avail.length) return;
+  [...selectedDiffs].forEach(d => { if (!counts[d]) selectedDiffs.delete(d); });
+  if (preset === 'standard' && selectedDiffs.size > 1) {
+    const keep = DIFF_ORDER.find(d => selectedDiffs.has(d));
+    selectedDiffs.clear(); selectedDiffs.add(keep);
+  }
+  if (selectedDiffs.size === 0) selectedDiffs.add(avail[0]);
+}
+
+// Topic chips. Only offered on the Custom preset — the Standard preset stays a
+// fixed, comparable format (one subject, one difficulty, whole pool).
+function renderTopics() {
+  const card = document.getElementById('topicCard');
+  const box = document.getElementById('topicChips');
+  if (!card || !box) return;
+  const counts = topicCounts();
+  topicsEnabled = preset !== 'standard' && counts.size > 1;
+  card.style.display = topicsEnabled ? '' : 'none';
+  if (!topicsEnabled) { box.innerHTML = ''; return; }
+  // New topics (from widening the difficulty selection) start selected;
+  // topics that disappeared are dropped from the selection.
+  for (const k of counts.keys()) {
+    if (!knownTopics.has(k)) { knownTopics.add(k); selectedTopics.add(k); }
+  }
+  [...knownTopics].forEach(k => { if (!counts.has(k)) { knownTopics.delete(k); selectedTopics.delete(k); } });
+  const entries = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  box.innerHTML = entries.map(([k, n]) => {
+    const on = selectedTopics.has(k);
+    return `<button type="button" class="topic-chip${on ? ' active' : ''}" data-topic="${esc(k)}" aria-pressed="${on}">` +
+      `${esc(k || t('topic_untagged'))}<span class="chip-count">${n}</span></button>`;
+  }).join('');
+  box.querySelectorAll('.topic-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = btn.dataset.topic;
+      if (selectedTopics.has(k)) selectedTopics.delete(k); else selectedTopics.add(k);
+      renderTopics(); updateAvailability();
+    });
+  });
+}
+
+// Live count of what the current filters actually yield, so an empty
+// selection is visible before pressing Start rather than after.
+function updateAvailability() {
+  const n = getFilteredQuestions().length;
+  const el = document.getElementById('cfgAvail');
+  if (el) el.textContent = t('questions_available', { n });
+  ['btnStartQuiz', 'btnStartQuizTop'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) b.disabled = n === 0;
+  });
+}
+
+function refreshFilters() {
+  ensureValidDifficulty();
+  updateDiffBtns();
+  renderTopics();
+  updateAvailability();
 }
 
 function startStandard() {
@@ -729,15 +921,15 @@ function renderHUD() {
   if (mode === 'survival' && survType === 'lives') {
     const full = '♥'.repeat(Math.max(0, lives));
     const empty = '♡'.repeat(Math.max(0, startingLives - lives));
-    html += `<div class="hud-item"><i class="ti ti-heart" aria-hidden="true"></i> <strong class="hearts">${full}${empty}</strong></div>`;
+    html += `<div class="hud-item">${icon('heart')} <strong class="hearts">${full}${empty}</strong></div>`;
   }
   if (timerSec > 0 || mode === 'standard') {
     const warn = timerSec > 0 && timerSec <= 60;
-    html += `<div class="hud-item hud-timer${warn ? ' warning' : ''}"><i class="ti ti-clock" aria-hidden="true"></i> <strong>${timerSec > 0 ? fmtTime(timerSec) : t('no_limit')}</strong></div>`;
+    html += `<div class="hud-item hud-timer${warn ? ' warning' : ''}">${icon('clock')} <strong>${timerSec > 0 ? fmtTime(timerSec) : esc(t('no_limit'))}</strong></div>`;
   }
-  html += `<div class="hud-item"><i class="ti ti-star" aria-hidden="true"></i> <strong>${earnedPoints} ${t('pts_suffix')}</strong></div>`;
+  html += `<div class="hud-item">${icon('star')} <strong>${earnedPoints} ${esc(t('pts_suffix'))}</strong></div>`;
   if (mode === 'survival') {
-    html += `<div class="hud-item"><i class="ti ti-infinity" aria-hidden="true"></i> <strong>${t('survival_label')}</strong></div>`;
+    html += `<div class="hud-item">${icon('infinity')} <strong>${esc(t('survival_label'))}</strong></div>`;
   }
   hud.innerHTML = html;
 }
@@ -767,10 +959,10 @@ function renderQuestion() {
     ? t('question_n', { n: current + 1 })
     : t('question_n_of_total', { n: current + 1, total });
   document.getElementById('qMeta').innerHTML =
-    `<span class="badge domain">${q.domain}</span>` +
-    (q.subdomain ? `<span class="badge sub">${q.subdomain}</span>` : '') +
-    (q.difficulty ? `<span class="badge ${diffClass(q.difficulty)}">${q.difficulty}</span>` : '') +
-    `<span class="badge pts"><i class="ti ti-star" style="font-size:11px" aria-hidden="true"></i>${q.point} ${t('pts_suffix')}</span>`;
+    `<span class="badge domain">${esc(q.domain)}</span>` +
+    (q.subdomain ? `<span class="badge sub">${esc(q.subdomain)}</span>` : '') +
+    (q.difficulty ? `<span class="badge ${diffClass(q.difficulty)}">${esc(q.difficulty)}</span>` : '') +
+    `<span class="badge pts">${icon('star')}${esc(q.point)} ${esc(t('pts_suffix'))}</span>`;
   const qText = document.getElementById('qText');
   qText.textContent = q.description;
   renderMath(qText);
@@ -791,6 +983,7 @@ function renderQuestion() {
   q.choices.forEach((ch, idx) => {
     const btn = document.createElement('button');
     btn.className = 'choice-btn';
+    btn.setAttribute('aria-pressed', 'false');
     const label = document.createElement('span');
     label.className = 'choice-label';
     label.textContent = labels[idx];
@@ -804,7 +997,7 @@ function renderQuestion() {
 
   if (savedState) {
     // Restore answered state — read-only view of an already-answered question
-    const btns = document.querySelectorAll('.choice-btn');
+    const btns = choiceButtons();
     const correctPositions = new Set();
     q.choices.forEach((ch, i) => { if (q.correctSet.has(ch.origIdx)) correctPositions.add(i); });
     btns.forEach((btn, i) => {
@@ -836,11 +1029,18 @@ function renderQuestion() {
   renderHUD();
 }
 
+// Scoped to the quiz screen — the debug screen also renders .choice-btn
+// elements, and they stay in the DOM even when that screen is hidden.
+function choiceButtons() { return document.querySelectorAll('#choices .choice-btn'); }
+
 function toggleChoice(idx, isMulti) {
   if (answered) return;
-  if (!isMulti) { selected.clear(); selected.add(idx); document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected')); }
+  if (!isMulti) { selected.clear(); selected.add(idx); }
   else { if (selected.has(idx)) selected.delete(idx); else selected.add(idx); }
-  document.querySelectorAll('.choice-btn').forEach((b, i) => b.classList.toggle('selected', selected.has(i)));
+  choiceButtons().forEach((b, i) => {
+    b.classList.toggle('selected', selected.has(i));
+    b.setAttribute('aria-pressed', String(selected.has(i)));
+  });
   document.getElementById('btnSubmit').disabled = selected.size === 0;
 }
 
@@ -848,7 +1048,7 @@ function checkAnswer() {
   if (answered || selected.size === 0) return;
   answered = true;
   const q = sessionQuestions[current];
-  const btns = document.querySelectorAll('.choice-btn');
+  const btns = choiceButtons();
   const correctPositions = new Set();
   q.choices.forEach((ch, i) => { if (q.correctSet.has(ch.origIdx)) correctPositions.add(i); });
   let allRight = true;
@@ -920,20 +1120,22 @@ function showFeedback(q, allRight, partial) {
   let heading = allRight ? t('fb_correct') : (partial ? t('fb_partial') : t('fb_incorrect'));
   let body = '';
   if (!allRight && q.explanation) {
-    body = `<br><span style="opacity:.85">${q.explanation}</span>`;
+    body = `<br><span style="opacity:.85">${esc(q.explanation)}</span>`;
   } else if (allRight && q.explanation) {
-    body = `<span style="opacity:.75"> — ${q.explanation}</span>`;
+    body = `<span style="opacity:.75"> — ${esc(q.explanation)}</span>`;
   }
-  const pts = allRight ? `<span style="float:right;font-weight:500">+${q.point} ${t('pts_suffix')}</span>` : '';
+  const pts = allRight ? `<span style="float:right;font-weight:500">+${esc(q.point)} ${esc(t('pts_suffix'))}</span>` : '';
   fb.className = `feedback ${cls}`;
-  fb.innerHTML = `${pts}<strong>${heading}</strong>${body}`;
+  fb.innerHTML = `${pts}<strong>${esc(heading)}</strong>${body}`;
   renderMath(fb);
 }
 
 function endSession(reason) {
   clearInterval(timerInterval); survivalRunning = false;
   const total = sessionQuestions.length;
-  const answered_count = Math.min(current + (answered ? 1 : 0), total);
+  // Count what was actually answered. Deriving this from `current` mis-reports
+  // as soon as question navigation lets you answer out of order.
+  const answered_count = questionStates.reduce((n, s) => n + (s !== null ? 1 : 0), 0);
   const correct = Object.values(domainStats).reduce((a, d) => a + d.correct, 0);
   const pct = answered_count > 0 ? Math.round((correct / answered_count) * 100) : 0;
   let title = t('summary_complete');
@@ -953,8 +1155,9 @@ function endSession(reason) {
   bd.innerHTML = `<div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.5rem">${t('results_by_domain')}</div>`;
   Object.entries(domainStats).forEach(([domain, { correct, total, points, maxPoints }]) => {
     const p = total > 0 ? Math.round((correct / total) * 100) : 0;
-    bd.innerHTML += `<div class="domain-row"><span style="min-width:120px">${domain}</span><div class="domain-bar-wrap"><div class="domain-bar" style="width:${p}%"></div></div><span style="min-width:80px;text-align:right;font-size:13px">${correct}/${total} · ${points}${t('pts_suffix')}</span></div>`;
+    bd.innerHTML += `<div class="domain-row"><span style="min-width:120px">${esc(domain)}</span><div class="domain-bar-wrap"><div class="domain-bar" style="width:${p}%"></div></div><span style="min-width:80px;text-align:right;font-size:13px">${correct}/${total} · ${points}${esc(t('pts_suffix'))}</span></div>`;
   });
+  renderReview();
   saveAttempt({
     id: Date.now() + '-' + Math.random().toString(36).slice(2, 7),
     subject: currentSubject || (quizSource === 'custom' ? t('subject_custom') : t('subject_unknown')),
@@ -968,6 +1171,67 @@ function endSession(reason) {
     domainStats: JSON.parse(JSON.stringify(domainStats))
   });
   showScreen('summary');
+}
+
+/* ============================================================
+   Answer review
+
+   Every answered question, with what was picked, what was right and the
+   explanation — the part of a practice session you actually learn from.
+   Collapsed by default so the score stays the headline.
+   ============================================================ */
+const LETTERS = 'ABCDEFGHIJ';
+
+function renderReview() {
+  const wrap = document.getElementById('reviewCard');
+  const body = document.getElementById('reviewBody');
+  const btn = document.getElementById('btnReview');
+  if (!wrap || !body || !btn) return;
+  const items = [];
+  sessionQuestions.forEach((q, i) => {
+    const st = questionStates[i];
+    if (st) items.push({ q, st, i });
+  });
+  if (!items.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  body.style.display = 'none';
+  btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = `${icon('list')}<span>${esc(t('review_show', { n: items.length }))}</span>`;
+  body.innerHTML = items.map(({ q, st, i }) => {
+    const correctPositions = new Set();
+    q.choices.forEach((ch, ci) => { if (q.correctSet.has(ch.origIdx)) correctPositions.add(ci); });
+    const answerList = q.choices.map((ch, ci) => {
+      const picked = st.selected.has(ci);
+      const right = correctPositions.has(ci);
+      if (!picked && !right) return '';
+      const cls = right ? (picked ? 'ok' : 'missed') : 'bad';
+      const mark = right ? icon('check') : icon('x');
+      const you = picked ? `<span class="review-you">${esc(t('review_you'))}</span>` : '';
+      return `<li class="review-choice ${cls}">${mark}<span><strong>${LETTERS[ci]}.</strong> ${esc(ch.text)}${you}</span></li>`;
+    }).filter(Boolean).join('');
+    const verdict = st.allRight ? 'correct' : (st.partialCredit ? 'partial' : 'wrong');
+    const verdictText = st.allRight ? t('fb_correct') : (st.partialCredit ? t('fb_partial') : t('fb_incorrect'));
+    return `<div class="review-item">
+      <div class="review-head">
+        <span class="review-num">${i + 1}</span>
+        <span class="review-verdict ${verdict}">${esc(verdictText)}</span>
+      </div>
+      <div class="review-q">${esc(q.description)}</div>
+      <ul class="review-choices">${answerList}</ul>
+      ${q.explanation ? `<div class="review-expl">${esc(q.explanation)}</div>` : ''}
+    </div>`;
+  }).join('');
+  renderMath(body);
+}
+
+function toggleReview() {
+  const body = document.getElementById('reviewBody');
+  const btn = document.getElementById('btnReview');
+  const open = body.style.display === 'none';
+  body.style.display = open ? 'block' : 'none';
+  btn.setAttribute('aria-expanded', String(open));
+  const n = body.querySelectorAll('.review-item').length;
+  btn.innerHTML = `${icon('list')}<span>${esc(t(open ? 'review_hide' : 'review_show', { n }))}</span>`;
 }
 
 /* ============================================================
@@ -1000,17 +1264,18 @@ function togglePanel(name) {
    Difficulty button helper
    ============================================================ */
 function updateDiffBtns() {
-  const styles = { beginner: ['#E1F5EE', '#0F6E56', '#085041'], easy: ['#EAF3DE', '#3B6D11', '#27500A'], medium: ['#FAEEDA', '#854F0B', '#633806'], hard: ['#FCEBEB', '#A32D2D', '#791F1F'], expert: ['#EEEDFE', '#534AB7', '#3C3489'] };
+  const counts = diffCounts();
   document.querySelectorAll('#diffBtns button').forEach(btn => {
     const d = btn.dataset.diff;
-    if (selectedDiffs.has(d)) {
-      btn.classList.add('active');
-      const s = styles[d] || styles.medium;
-      btn.style.background = s[0]; btn.style.borderColor = s[1]; btn.style.color = s[2];
-    } else {
-      btn.classList.remove('active');
-      btn.style.background = ''; btn.style.borderColor = ''; btn.style.color = '';
-    }
+    const n = counts[d] || 0;
+    const cnt = btn.querySelector('.diff-count');
+    if (cnt) cnt.textContent = n;
+    // A difficulty the loaded pool has no questions for is not selectable.
+    btn.disabled = n === 0;
+    const on = n > 0 && selectedDiffs.has(d);
+    btn.classList.toggle('active', on);
+    btn.classList.toggle(`diff-on-${d}`, on);
+    btn.setAttribute('aria-pressed', String(on));
   });
 }
 
@@ -1043,8 +1308,8 @@ document.querySelectorAll('#presetTabs .mode-tab').forEach(tab => {
       // Collapse to single difficulty
       const first = [...selectedDiffs][0] || 'beginner';
       selectedDiffs.clear(); selectedDiffs.add(first);
-      updateDiffBtns();
     }
+    refreshFilters();
   });
 });
 
@@ -1073,14 +1338,22 @@ document.querySelectorAll('#diffBtns button').forEach(btn => {
     if (preset === 'standard') {
       // Single-select for Standard preset
       selectedDiffs.clear(); selectedDiffs.add(d);
-      updateDiffBtns();
     } else {
       // Multi-select for Custom preset
       if (selectedDiffs.has(d)) { if (selectedDiffs.size === 1) return; selectedDiffs.delete(d); }
       else { selectedDiffs.add(d); }
-      updateDiffBtns();
     }
+    refreshFilters();
   });
+});
+
+document.getElementById('btnTopicAll').addEventListener('click', () => {
+  topicCounts().forEach((_, k) => selectedTopics.add(k));
+  renderTopics(); updateAvailability();
+});
+document.getElementById('btnTopicClear').addEventListener('click', () => {
+  selectedTopics.clear();
+  renderTopics(); updateAvailability();
 });
 
 document.getElementById('btnSubmit').addEventListener('click', () => {
@@ -1131,6 +1404,7 @@ document.getElementById('closePanelNotes').addEventListener('click', () => close
 document.getElementById('btnStartQuiz').addEventListener('click', doStartQuiz);
 document.getElementById('btnStartQuizTop').addEventListener('click', doStartQuiz);
 document.getElementById('btnBackToUpload').addEventListener('click', () => showScreen('upload'));
+document.getElementById('btnReview').addEventListener('click', toggleReview);
 document.getElementById('btnPlayAgain').addEventListener('click', doStartQuiz);
 document.getElementById('btnReconfigure').addEventListener('click', () => buildConfig());
 document.getElementById('btnNewFile').addEventListener('click', () => { showScreen('upload'); document.getElementById('parseError').style.display = 'none'; });
@@ -1148,13 +1422,57 @@ document.getElementById('btnShowHelp').addEventListener('click', () => showScree
 document.getElementById('btnHelpBack').addEventListener('click', () => showScreen('custom'));
 
 /* ============================================================
+   Keyboard shortcuts (quiz screen)
+
+   1-9/0 or A-J pick a choice, Enter checks / advances, Escape closes an
+   open side panel, and the arrow keys walk the question navigator in
+   Standard mode. Ignored while typing in the calculator or notes.
+   ============================================================ */
+function isTypingTarget(el) {
+  if (!el) return false;
+  const tag = el.tagName;
+  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && activePanel) { closePanel(); return; }
+  if (activeScreen !== 'quiz' || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (isTypingTarget(e.target)) return;
+
+  const btns = choiceButtons();
+  let idx = -1;
+  if (/^[0-9]$/.test(e.key)) idx = e.key === '0' ? 9 : parseInt(e.key, 10) - 1;
+  else if (/^[a-jA-J]$/.test(e.key)) idx = e.key.toUpperCase().charCodeAt(0) - 65;
+
+  if (idx >= 0) {
+    if (idx < btns.length && !btns[idx].disabled) { e.preventDefault(); btns[idx].click(); }
+    return;
+  }
+  if (e.key === 'Enter' || e.key === ' ') {
+    const submit = document.getElementById('btnSubmit');
+    if (!submit.disabled) { e.preventDefault(); submit.click(); }
+    return;
+  }
+  // Arrow keys revisit answered questions (Standard mode only — survival has
+  // no navigator, and un-reached questions stay locked).
+  if (mode === 'standard' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+    const next = current + (e.key === 'ArrowRight' ? 1 : -1);
+    if (next >= 0 && next < sessionQuestions.length && next <= maxReached) {
+      e.preventDefault();
+      current = next;
+      renderQuestion();
+    }
+  }
+});
+
+/* ============================================================
    File handling (upload)
    ============================================================ */
 function handleFile(file) {
   const reader = new FileReader();
   reader.onload = e => {
     try {
-      allQuestions = parseCSV(e.target.result);
+      setQuestionPool(parseCSV(e.target.result));
       quizSource = 'custom';
       currentSubject = file.name.replace(/\.csv$/i, '') || t('subject_custom');
       buildConfig();
@@ -1170,7 +1488,7 @@ document.getElementById('dropZone').addEventListener('dragover', e => { e.preven
 document.getElementById('dropZone').addEventListener('dragleave', () => { document.getElementById('dropZone').style.background = '' });
 document.getElementById('dropZone').addEventListener('drop', e => { e.preventDefault(); document.getElementById('dropZone').style.background = ''; if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
 document.getElementById('loadSample').addEventListener('click', () => {
-  try { allQuestions = parseCSV(SAMPLE_CSV); quizSource = 'custom'; currentSubject = t('subject_sample'); buildConfig(); } catch (e) { console.error(e); }
+  try { setQuestionPool(parseCSV(SAMPLE_CSV)); quizSource = 'custom'; currentSubject = t('subject_sample'); buildConfig(); } catch (e) { console.error(e); }
 });
 
 /* ============================================================
@@ -1228,10 +1546,10 @@ function renderDebug() {
   document.getElementById('btnDbgSkip').style.display = '';
   const q = debugQueue[debugPos % debugQueue.length];
   document.getElementById('dbgMeta').innerHTML =
-    `<span class="badge domain">${q.domain}</span>` +
-    (q.subdomain ? `<span class="badge sub">${q.subdomain}</span>` : '') +
-    `<span class="badge ${diffClass(q.difficulty)}">${q.difficulty}</span>` +
-    `<span class="badge">${q.file}</span>`;
+    `<span class="badge domain">${esc(q.domain)}</span>` +
+    (q.subdomain ? `<span class="badge sub">${esc(q.subdomain)}</span>` : '') +
+    `<span class="badge ${diffClass(q.difficulty)}">${esc(q.difficulty)}</span>` +
+    `<span class="badge">${esc(q.file)}</span>`;
   const qt = document.getElementById('dbgText');
   qt.textContent = q.description;
   renderMath(qt);
@@ -1253,7 +1571,7 @@ function renderDebug() {
   renderMath(box);
   const expl = document.getElementById('dbgExpl');
   expl.style.display = 'block';
-  expl.innerHTML = `<strong>${t('debug_answer')}.</strong> ${q.explanation || ''}`;
+  expl.innerHTML = `<strong>${esc(t('debug_answer'))}.</strong> ${esc(q.explanation || '')}`;
   renderMath(expl);
 }
 
@@ -1318,6 +1636,7 @@ document.getElementById('btnDbgSkip').addEventListener('click', () => { debugPos
    ============================================================ */
 initTheme();
 applyStaticText();
+updateDiffBtns();
 loadLocalization();
 loadCatalog();
 if (isLocalHost()) document.getElementById('btnDebug').style.display = 'block';

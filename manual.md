@@ -32,8 +32,13 @@ Files prefixed `_` are app configuration, not quiz content. All CSVs are plain A
 
 The app must run both over HTTP **and** when `index.html` is opened directly from `file://`, where browsers block `fetch()`. This is handled by two layers:
 
-- `build_data.py` embeds every file in `data/` as a JS string in `data.js` (`window.CSVQUIZ_DATA`), which is included via a `<script>` tag and loads under `file://`.
+- `build_data.py` embeds every file in `data/` as a JS string in `data.js` (`window.CSVQUIZ_DATA`).
 - `loadText(path)` in `app.js` tries `fetch()` first (HTTP), and falls back to `window.CSVQUIZ_DATA` when fetch fails.
+
+`data.js` is roughly 800 KB, and over HTTP every read is satisfied by `fetch()`
+so the bundle is never consulted. It is therefore **not** a `<script>` tag in
+`index.html`: `ensureBundle()` injects it on demand the first time a `fetch()`
+fails, which is exactly the `file://` case. HTTP visitors never download it.
 
 **Consequence:** `data.js` is auto-generated — never edit it by hand. After adding or editing any file in `data/`, regenerate it:
 
@@ -88,6 +93,40 @@ The subject will now appear in the quiz picker.
 - **`verified` tri-state:** blank = unreviewed, `true` = verified, `false` = voided. Managed by debug mode via `dev_server.py`. Leave blank when authoring new questions.
 - **Point conventions used in the built-in banks:** beginner = 5 pts, easy = 10 pts, medium = 15 pts, hard = 20–25 pts, expert = 25–30 pts.
 - **Calculator:** set `calculator=true` on a question to make the scratchpad visible. The calculator is shown on every question by default in the current version; the column is kept for backward compatibility.
+
+## CSV parsing
+
+`parseRows()` in `app.js` is the single tokenizer for every CSV the app reads —
+question banks, `_manifest.csv` and `_localization.csv`. It implements RFC 4180:
+
+- a quoted field may contain commas **and newlines**;
+- `""` inside a quoted field is a literal `"`;
+- a quote part-way through an unquoted field is kept verbatim rather than
+  treated as a delimiter (hand-edited sheets produce these).
+
+Everything that CSV content flows into is escaped with `esc()` before being
+assigned to `innerHTML`, so question text, explanations, domain names and file
+names can never inject markup.
+
+## Icons
+
+Icons are inline `<symbol>` definitions in the `#icon-sprite` block at the top of
+`index.html`, referenced with `<use href="#i-name">`. `icon(name)` in `app.js`
+builds the markup for icons rendered from JS. They were previously an icon
+webfont loaded from a CDN, which rendered as blank boxes offline and on
+`file://`. Adding an icon means adding a `<symbol>` to the sprite — nothing is
+fetched at runtime.
+
+## Filtering
+
+- `diffCounts()` / `topicCounts()` drive the per-difficulty and per-topic counts.
+- `ensureValidDifficulty()` prunes difficulties the loaded pool cannot serve and
+  guarantees at least one that can, so a bank without `beginner` rows (the
+  bundled sample, or any subject that stops at `medium`) cannot dead-end on
+  "No questions match".
+- The topic (subdomain) filter is Custom-preset only — the Standard preset stays
+  a fixed, comparable format so its records mean the same thing across attempts.
+- `updateAvailability()` shows the live match count and disables Start at zero.
 
 ## Debug / verify mode
 

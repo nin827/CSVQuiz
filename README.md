@@ -36,7 +36,11 @@ Double-click `index.html`. Everything runs offline; no server needed.
 - **Standard** — set a question count and optional time limit.
 - **Survival** — go until you run out of lives (wrong answers cost a life) or time runs out.
 
-Filter by difficulty tier on the config screen before starting.
+Filter by difficulty tier on the config screen before starting. Each difficulty
+shows how many questions it holds, and tiers a subject doesn't have are greyed
+out, so you always know what you're about to get. In **Custom** mode you can
+narrow further by topic, and a running count tells you how many questions match
+before you press Start.
 
 ### Features
 
@@ -44,6 +48,13 @@ Filter by difficulty tier on the config screen before starting.
 - **Calculator** — available on every question as a scratch pad (supports `+ - * / ^`, parentheses, `log`, `ln`, `e`, `pi`).
 - **My progress** — tracks your scores across sessions per subject. You can export your history as a JSON file and import it back on any device.
 - **Math rendering** — questions and answers can include LaTeX (e.g. `$\frac{1}{2}$`, `$x^2$`) typeset by KaTeX, which is bundled so it works offline.
+- **Answer review** — after finishing, expand **Review all answers** to see every
+  question with your answer, the correct one, and the explanation.
+- **Keyboard shortcuts** — press `1`-`9` or `A`-`J` to pick a choice, `Enter` to
+  check and to advance, `Esc` to close a side panel, and the arrow keys to
+  revisit earlier questions in Standard mode.
+- **Fully offline** — no fonts, scripts or styles are fetched from the network,
+  so everything renders identically with no connection at all.
 
 ## Upload your own CSV
 

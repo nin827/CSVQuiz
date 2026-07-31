@@ -7,15 +7,38 @@
 <script>try{var _t=localStorage.getItem('csvquiz_theme');if(!_t)_t=window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';if(_t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 </head>
 <body>
-<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">CSV-powered practice quiz application</h2>
+<h2 class="sr-only">CSV-powered practice quiz application</h2>
+
+<!--
+  Icon sprite. These were an icon webfont pulled from a CDN, which left every
+  icon blank offline and on file:// - the two cases this app is built for.
+  Inline <symbol>s render everywhere with no network at all.
+-->
+<svg id="icon-sprite" width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <symbol id="i-books" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="9.5" y="4" width="5" height="16" rx="1"/><path d="m16.6 6.3 3.3.9-3.4 12.6-3.3-.9"/></symbol>
+    <symbol id="i-file-upload" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M19 13V8l-5-5H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M18 22v-7"/><path d="m15.5 17.5 2.5-2.5 2.5 2.5"/></symbol>
+    <symbol id="i-file-spreadsheet" viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M8 11h8M8 15h8M12 11v8"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="8" y="6" width="12" height="15" rx="2"/><path d="M15 3H6a2 2 0 0 0-2 2v11"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.4 4.2 12.6a4.6 4.6 0 0 1 0-6.5 4.6 4.6 0 0 1 6.5 0l1.3 1.3 1.3-1.3a4.6 4.6 0 0 1 6.5 0 4.6 4.6 0 0 1 0 6.5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 1.9"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.7 5.4 6 .9-4.4 4.2 1.1 6-5.4-2.8-5.4 2.8 1.1-6L3.3 9.9l6-.9z"/></symbol>
+    <symbol id="i-infinity" viewBox="0 0 24 24"><path d="M7 8a4 4 0 1 0 0 8c2.2 0 3.4-1.9 5-4s2.8-4 5-4a4 4 0 1 1 0 8c-2.2 0-3.4-1.9-5-4s-2.8-4-5-4z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 1 3.4 10.9V17H8.6v-3.1A6 6 0 0 1 12 3z"/><path d="M9.5 20h5"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><rect x="7.5" y="6.5" width="9" height="3.5" rx="1"/><path d="M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 17.5h.01M12 17.5h.01M16 17.5h.01"/></symbol>
+    <symbol id="i-notes" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  </defs>
+</svg>
 
 <!-- HOME -->
 <section id="s-upload" class="active">
   <div class="home-util">
-    <h1 data-i18n="app_title">Practice quiz</h1>
+    <h1 tabindex="-1" data-i18n="app_title">Practice quiz</h1>
     <div class="home-util-right">
       <button class="btn" id="btnStats" style="font-size:13px;padding:.35rem .9rem" data-i18n="stats_button">My progress</button>
       <div class="theme-toggle-row">
@@ -32,12 +55,12 @@
 
   <div class="home-options">
     <button class="home-btn" id="btnUseBuiltin" disabled>
-      <i class="ti ti-books" aria-hidden="true"></i>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-books"></use></svg>
       <span class="home-title" data-i18n="home_builtin_title">Use premade quiz</span>
       <span class="home-desc" id="builtinDesc" data-i18n="home_builtin_desc">Pick from ready-made question sets</span>
     </button>
     <button class="home-btn" id="btnUseCustom">
-      <i class="ti ti-file-upload" aria-hidden="true"></i>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-upload"></use></svg>
       <span class="home-title" data-i18n="home_custom_title">Load your own CSV</span>
       <span class="home-desc" data-i18n="home_custom_desc">Upload a CSV of your own questions</span>
     </button>
@@ -47,7 +70,7 @@
 
 <!-- STATS / PROGRESS -->
 <section id="s-stats">
-  <h1 data-i18n="stats_title">Your progress</h1>
+  <h1 tabindex="-1" data-i18n="stats_title">Your progress</h1>
   <p class="sub" data-i18n="stats_sub">Scores are saved on this device only.</p>
   <div id="statsMsg" class="stats-msg"></div>
   <div class="card">
@@ -68,7 +91,7 @@
 <!-- DEBUG / VERIFY (local only) -->
 <section id="s-debug">
   <div class="row" style="margin-bottom:.25rem">
-    <h1 data-i18n="debug_title">Verify questions</h1>
+    <h1 tabindex="-1" data-i18n="debug_title">Verify questions</h1>
     <button class="btn" id="btnDebugExit" data-i18n="debug_exit" style="font-size:13px;padding:.35rem .8rem">Exit</button>
   </div>
   <p class="sub" id="debugRemaining"></p>
@@ -91,11 +114,11 @@
 
 <!-- CUSTOM UPLOAD -->
 <section id="s-custom">
-  <h1 data-i18n="home_custom_title">Load your own CSV</h1>
+  <h1 tabindex="-1" data-i18n="home_custom_title">Load your own CSV</h1>
   <p class="sub" data-i18n="upload_sub">Load a CSV to get started. Questions are shuffled every session.</p>
 
   <div class="upload-area" id="dropZone">
-    <i class="ti ti-file-spreadsheet" aria-hidden="true"></i>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-spreadsheet"></use></svg>
     <p data-i18n="drop_hint">Drop your CSV here or click to browse</p>
     <small data-i18n="columns_hint">Columns: domain, subdomain, difficulty, description, explanation, correct, point, choice0 ... choice9</small>
     <input type="file" id="fileInput" accept=".csv">
@@ -112,7 +135,7 @@
 
 <!-- HELP / CSV FORMAT -->
 <section id="s-help">
-  <h1 data-i18n="help_title">How to format your CSV</h1>
+  <h1 tabindex="-1" data-i18n="help_title">How to format your CSV</h1>
   <p class="sub" data-i18n="help_intro">Each row is one question. Only domain, description, correct and choice0 are required.</p>
   <div class="card">
     <table class="help-table">
@@ -144,7 +167,7 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
 
 <!-- CONFIG -->
 <section id="s-config">
-  <h1 data-i18n="config_title">Configure quiz</h1>
+  <h1 tabindex="-1" data-i18n="config_title">Configure quiz</h1>
   <p class="sub" id="cfgSub"></p>
 
   <div class="card" id="quizPickCard">
@@ -219,16 +242,32 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
 
   <div class="card">
     <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin-bottom:.75rem" data-i18n="difficulty">Difficulty</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap" id="diffBtns">
-      <button class="btn active" data-diff="beginner" data-i18n="diff_beginner" style="font-size:13px;padding:.35rem .9rem;background:#E1F5EE;border-color:#0F6E56;color:#085041">Beginner</button>
-      <button class="btn" data-diff="easy" data-i18n="diff_easy" style="font-size:13px;padding:.35rem .9rem">Easy</button>
-      <button class="btn" data-diff="medium" data-i18n="diff_medium" style="font-size:13px;padding:.35rem .9rem">Medium</button>
-      <button class="btn" data-diff="hard" data-i18n="diff_hard" style="font-size:13px;padding:.35rem .9rem">Hard</button>
-      <button class="btn" data-diff="expert" data-i18n="diff_expert" style="font-size:13px;padding:.35rem .9rem">Expert</button>
+    <!-- The count span is a sibling of the translated label so applyStaticText()
+         can rewrite the label without wiping the count. -->
+    <div class="diff-btns" id="diffBtns">
+      <button class="btn diff-btn active" data-diff="beginner" aria-pressed="true"><span data-i18n="diff_beginner">Beginner</span><span class="diff-count"></span></button>
+      <button class="btn diff-btn" data-diff="easy" aria-pressed="false"><span data-i18n="diff_easy">Easy</span><span class="diff-count"></span></button>
+      <button class="btn diff-btn" data-diff="medium" aria-pressed="false"><span data-i18n="diff_medium">Medium</span><span class="diff-count"></span></button>
+      <button class="btn diff-btn" data-diff="hard" aria-pressed="false"><span data-i18n="diff_hard">Hard</span><span class="diff-count"></span></button>
+      <button class="btn diff-btn" data-diff="expert" aria-pressed="false"><span data-i18n="diff_expert">Expert</span><span class="diff-count"></span></button>
     </div>
     <div id="diffSingleHint" style="display:block;font-size:12px;color:var(--color-text-secondary);margin-top:.5rem" data-i18n="diff_single_hint">Standard mode uses one difficulty.</div>
   </div>
 
+  <!-- Topic (subdomain) filter — Custom preset only -->
+  <div class="card" id="topicCard" style="display:none">
+    <div class="row" style="margin-bottom:.75rem">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-secondary)" data-i18n="topics">Topics</div>
+      <div style="display:flex;gap:6px">
+        <button class="btn chip-action" id="btnTopicAll" data-i18n="select_all">Select all</button>
+        <button class="btn chip-action" id="btnTopicClear" data-i18n="clear">Clear</button>
+      </div>
+    </div>
+    <div class="topic-chips" id="topicChips"></div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-top:.6rem" data-i18n="topics_hint">Narrow the pool to the topics you want to practise.</div>
+  </div>
+
+  <div id="cfgAvail" class="cfg-avail" aria-live="polite"></div>
   <div id="cfgWarning" style="font-size:13px;color:#993C1D;margin-bottom:.75rem;display:none"></div>
   <div class="row">
     <button class="btn" id="btnBackToUpload" data-i18n="load_different">← Load different file</button>
@@ -249,24 +288,24 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
     </div>
     <div class="question" id="qText"></div>
     <div class="multi-hint" id="multiHint" data-i18n="multi_hint" style="display:none">Select all that apply</div>
-    <button class="hint-toggle" id="btnHint" style="display:none"><i class="ti ti-bulb" aria-hidden="true"></i> <span data-i18n="show_hint">Show hint</span></button>
+    <button class="hint-toggle" id="btnHint" style="display:none"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bulb"></use></svg> <span data-i18n="show_hint">Show hint</span></button>
     <div class="hint-box" id="hintBox" style="display:none"></div>
     <div class="choices" id="choices"></div>
-    <div class="feedback" id="feedback"></div>
+    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
     <div class="row">
-      <div></div>
+      <div class="kbd-hint" data-i18n="kbd_hint">Tip: press 1-9 or A-J to choose, Enter to submit.</div>
       <button class="btn primary" id="btnSubmit" data-i18n="check_answer" disabled>Check answer</button>
     </div>
   </div>
   <!-- Side panel tab buttons (fixed to right edge) -->
   <div class="side-tabs" id="sideTabs">
-    <button class="side-tab-btn" id="tabBtnCalc" title="Calculator" aria-label="Toggle calculator"><i class="ti ti-calculator" aria-hidden="true"></i></button>
-    <button class="side-tab-btn" id="tabBtnNotes" title="Notes" aria-label="Toggle notes"><i class="ti ti-notes" aria-hidden="true"></i></button>
+    <button class="side-tab-btn" id="tabBtnCalc" title="Calculator" aria-label="Toggle calculator"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calculator"></use></svg></button>
+    <button class="side-tab-btn" id="tabBtnNotes" title="Notes" aria-label="Toggle notes"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-notes"></use></svg></button>
   </div>
   <!-- Calculator side panel -->
   <div class="side-panel" id="panelCalc">
     <div class="side-panel-head">
-      <span><i class="ti ti-calculator" aria-hidden="true"></i> <span data-i18n="calc_label">Calculator</span></span>
+      <span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calculator"></use></svg> <span data-i18n="calc_label">Calculator</span></span>
       <button class="side-panel-close" id="closePanelCalc" aria-label="Close">&#x2715;</button>
     </div>
     <input class="calc-input" id="calcInput" type="text" autocomplete="off" spellcheck="false" data-i18n-ph="calc_placeholder" placeholder="e.g. (2 + 3) * 4^2">
@@ -276,7 +315,7 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
   <!-- Notes side panel -->
   <div class="side-panel" id="panelNotes">
     <div class="side-panel-head">
-      <span><i class="ti ti-notes" aria-hidden="true"></i> <span data-i18n="notes_label">Notes</span></span>
+      <span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-notes"></use></svg> <span data-i18n="notes_label">Notes</span></span>
       <button class="side-panel-close" id="closePanelNotes" aria-label="Close">&#x2715;</button>
     </div>
     <textarea id="notesInput" class="notes-input" data-i18n-ph="notes_placeholder" placeholder="Write notes to plan things out..."></textarea>
@@ -286,12 +325,18 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
 
 <!-- SUMMARY -->
 <section id="s-summary">
-  <h1 id="summaryTitle">Quiz complete</h1>
+  <h1 tabindex="-1" id="summaryTitle">Quiz complete</h1>
   <p class="sub" id="summaryDate"></p>
   <div class="card">
     <div class="summary-score" id="finalScore"></div>
     <div class="summary-label" id="finalLabel"></div>
     <div id="domainBreakdown"></div>
+  </div>
+
+  <!-- Per-question review of the session just finished -->
+  <div class="card" id="reviewCard" style="display:none">
+    <button class="review-toggle" id="btnReview" aria-expanded="false" aria-controls="reviewBody"></button>
+    <div id="reviewBody" style="display:none"></div>
   </div>
   <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
     <button class="btn primary" id="btnPlayAgain" data-i18n="play_again">Play again (reshuffled)</button>
@@ -302,7 +347,6 @@ math,algebra,medium,Solve $2x=10$.,Divide by 2.,Undo the multiplication.,1,15,3,
 
 <script src="vendor/katex/katex.min.js"></script>
 <script src="vendor/katex/contrib/auto-render.min.js"></script>
-<script src="data.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
