@@ -1,3 +1,7 @@
+*Built with [Claude](https://claude.ai) (Anthropic), some questions personally reviewed by myself, but it is not meant to be serious project/endeavor to stress out to begin with.*
+
+---
+
 # CSVQuiz
 
 A lightweight, no-install practice quiz app that runs entirely in your browser — no account, no backend, no tracking. Open the file and start quizzing.
@@ -67,7 +71,3 @@ A `correct` value with more than one digit (e.g. `013`) makes it a "select all t
 - Never put a bare fraction (`1/2`) in a cell on its own — write `1 / 2` or `$\frac{1}{2}$` instead (spreadsheets silently convert bare fractions to dates).
 
 For details on adding quizzes to the catalog, splitting banks across files, hosting, and development setup, see [manual.md](manual.md).
-
----
-
-*Built with [Claude](https://claude.ai) (Anthropic), with question content reviewed and verified by users.*
