@@ -20,6 +20,8 @@ A lightweight, no-install practice quiz app that runs entirely in your browser �
 | Finance | Beginner, Easy, Medium |
 | Accounting | Beginner, Easy, Medium |
 | Management | Beginner, Easy, Medium |
+| Python Basics | Beginner, Easy, Medium |
+| Spreadsheets | Beginner, Easy, Medium |
 
 Each subject has 50 questions per difficulty tier. Questions are shuffled every session.
 
@@ -80,5 +82,6 @@ A `correct` value with more than one digit (e.g. `013`) makes it a "select all t
 - Wrap math in `$...$` or `$$...$$` and it will be typeset automatically.
 - Keep content plain ASCII — avoid curly quotes, em-dashes, or ellipsis characters.
 - Never put a bare fraction (`1/2`) in a cell on its own — write `1 / 2` or `$\frac{1}{2}$` instead (spreadsheets silently convert bare fractions to dates).
+- Write a literal dollar sign as `\$` — currency like `\$1000`, or a spreadsheet reference like `\$A\$1`. An unescaped pair of `$` is read as maths and swallowed.
 
 For details on adding quizzes to the catalog, splitting banks across files, hosting, and development setup, see [manual.md](manual.md).

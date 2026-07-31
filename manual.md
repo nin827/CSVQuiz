@@ -89,6 +89,7 @@ The subject will now appear in the quiz picker.
 
 - **Plain ASCII only.** Curly quotes (`""`), em-dashes (`—`), and ellipsis (`…`) become mojibake in Windows-1252 editors. Use `"`, `-`, and `...` instead.
 - **No bare fractions.** A cell whose only value is `1/2` is silently turned into a date by Excel/Sheets. Write `1 / 2` or `$\frac{1}{2}$` (KaTeX) instead.
+- **Escape literal dollar signs as `\$`.** `$...$` is a KaTeX delimiter, so a row reading `costs $80 and $90` renders as mangled maths. Write `\$80` and `\$90`; `renderMath()` turns the surviving `\$` back into `$` after typesetting. The `math` and `statistics` banks use bare `$` deliberately for LaTeX and are exempt — `check_data.py` enforces exactly this split.
 - **`correct` is a digit index** (not the answer text). `0` = first choice, `2` = third choice. Multiple digits (e.g. `013`) make it a "select all that apply" question.
 - **`verified` tri-state:** blank = unreviewed, `true` = verified, `false` = voided. Managed by debug mode via `dev_server.py`. Leave blank when authoring new questions.
 - **Point conventions used in the built-in banks:** beginner = 5 pts, easy = 10 pts, medium = 15 pts, hard = 20–25 pts, expert = 25–30 pts.
@@ -127,6 +128,25 @@ fetched at runtime.
 - The topic (subdomain) filter is Custom-preset only — the Standard preset stays
   a fixed, comparable format so its records mean the same thing across attempts.
 - `updateAvailability()` shows the live match count and disables Start at zero.
+
+## Validating the banks
+
+```bash
+python check_data.py     # exit status 1 if anything is wrong
+```
+
+Run this after editing anything in `data/`. It catches the failures that look
+fine in a spreadsheet but break at runtime:
+
+- a `correct` index pointing at a choice that is empty or absent (this found a
+  real row whose columns had slipped, leaving a question nobody could answer);
+- a row with the wrong number of fields;
+- fewer than two choices, or duplicate choice text;
+- duplicate question text within a bank;
+- non-ASCII characters, bare fractions, and unescaped `$`;
+- an unknown difficulty, a non-numeric `point`, a stray `verified` value;
+- manifest rows pointing at missing files, and bank files the manifest never
+  lists (which would make them unreachable in the app).
 
 ## Debug / verify mode
 

@@ -9,6 +9,12 @@ CSVQuiz is a dependency-free, client-side quiz SPA driven by CSV files. There is
 ## Commands
 
 ```bash
+# Validate every bank after editing data/ (exit 1 on any problem)
+python check_data.py
+
+# Regenerate the offline bundle after editing data/
+python build_data.py
+
 # Run for development (reads data/ live; edits show up on reload)
 python -m http.server 8000          # then open http://localhost:8000
 
@@ -39,6 +45,7 @@ The app must work both over HTTP **and** when `index.html` is double-clicked fro
 ## CSV conventions that will bite you
 
 - **Keep all CSV content pure ASCII.** Fancy punctuation (`…`, `—`, curly quotes) becomes mojibake (`â€¦`) in Windows-1252 editors. Use `...`, `-`, straight quotes.
+- **Write a literal `$` as `\$`.** `$...$` is a KaTeX delimiter, so unescaped currency (`costs $80 and $90`) renders as mangled math. `renderMath()` restores `\$` to `$` after typesetting. Only `math` and `statistics` use bare `$` for real LaTeX; `check_data.py` enforces that split.
 - **Never write a bare fraction as a whole cell value** (e.g. `1/2`) — Excel/Sheets silently converts it to a date. Either wrap math in `$...$` LaTeX (`$\frac{1}{2}$`, typeset by KaTeX) or add spaces (`1 / 2`).
 - `correct` is digit indices, e.g. `0` or `013`; more than one digit makes it a "select all" multi-answer question.
 

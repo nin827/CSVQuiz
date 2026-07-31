@@ -380,17 +380,43 @@ function renderStats() {
 
 // Typeset any $...$ / $$...$$ LaTeX inside an element using KaTeX, if loaded.
 // Falls back to the raw text (unchanged) when KaTeX is unavailable.
+//
+// A CSV may also need a literal dollar sign — currency, or a spreadsheet
+// reference like $A$1 — which would otherwise pair up and be swallowed as
+// math. Writing it as \$ makes KaTeX skip it; unescape() then turns the
+// surviving \$ back into $ once typesetting is done. This runs whether or
+// not KaTeX loaded, so \$ behaves the same either way.
+function unescapeDollars(el) {
+  // KaTeX's scanner splits the text around each delimiter it skips, which can
+  // leave the "\" and the "$" of an escaped pair in two adjacent text nodes.
+  // Merging them back first means the pair is always seen whole.
+  el.normalize();
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+    // Leave KaTeX's own output alone.
+    acceptNode: n => n.parentElement && n.parentElement.closest('.katex')
+      ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  for (const n of nodes) {
+    if (n.nodeValue.includes('\\$')) n.nodeValue = n.nodeValue.replace(/\\\$/g, '$');
+  }
+}
+
 function renderMath(el) {
-  if (!el || typeof window.renderMathInElement !== 'function') return;
-  try {
-    window.renderMathInElement(el, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false }
-      ],
-      throwOnError: false
-    });
-  } catch (e) { /* leave raw text on failure */ }
+  if (!el) return;
+  if (typeof window.renderMathInElement === 'function') {
+    try {
+      window.renderMathInElement(el, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false }
+        ],
+        throwOnError: false
+      });
+    } catch (e) { /* leave raw text on failure */ }
+  }
+  unescapeDollars(el);
 }
 
 /* ============================================================
