@@ -710,15 +710,23 @@ function renderCatalog(groups) {
       box.querySelectorAll('.catalog-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       quizSource = 'builtin';
-      currentSubject = g.name;
-      loadQuizFromFiles(g.files);
+      loadQuizFromFiles(g.files, g.name);
     });
     box.appendChild(btn);
   });
 }
 
 // Fetch every file for a quiz and merge their questions into one pool.
-async function loadQuizFromFiles(files) {
+//
+// Loading is async, so the subject name is only adopted once its questions are
+// actually in hand — otherwise a quiz started during the load would be filed
+// under the new subject while still holding the previous one's questions. The
+// token makes a superseded selection (two quick clicks) drop its result rather
+// than overwrite the newer one.
+let quizLoadToken = 0;
+
+async function loadQuizFromFiles(files, name) {
+  const token = ++quizLoadToken;
   try {
     let merged = [];
     for (const f of files) {
@@ -726,11 +734,21 @@ async function loadQuizFromFiles(files) {
       if (text == null) throw new Error('missing ' + f);
       merged = merged.concat(parseCSV(text));
     }
+    if (token !== quizLoadToken) return;
     setQuestionPool(merged);
+    if (name) currentSubject = name;
     buildConfig();
   } catch (err) {
-    showParseError(t('err_load_failed'));
+    if (token !== quizLoadToken) return;
+    showLoadError(t('err_load_failed'));
   }
+}
+
+// The upload screen's error slot is not visible from the config screen, so
+// send the message wherever the user actually is.
+function showLoadError(msg) {
+  if (activeScreen === 'config') showWarning(msg);
+  else showParseError(msg);
 }
 
 // Swap in a new question pool. Topic selections are per-pool, so they reset

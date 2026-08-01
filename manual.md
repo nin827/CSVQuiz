@@ -22,9 +22,17 @@ data/
   math_03.csv         # medium
   math_04.csv         # hard
   math_05.csv         # expert
-  statistics_01.csv   # … same five tiers for Statistics
-  …                   # Economics, Marketing, Finance, Accounting, Management (tiers 01–03)
+  statistics_01.csv   # … tiers 01–03 for every other subject
+  …                   # Data*, Economics, Marketing, Finance, Accounting,
+                      # Management, Python, Spreadsheets, ML, Cybersecurity
 ```
+
+Every subject ships tiers `01`–`03` (beginner, easy, medium). **Math alone keeps
+`04` and `05`** (hard, expert), deliberately, as a worked reference for what those
+levels look like if you want to write them for another subject. Nothing special is
+needed to support this: `diffCounts()` reports zero for the missing tiers, the
+difficulty buttons disable themselves, and `ensureValidDifficulty()` moves the
+selection to a tier that exists when you switch subjects.
 
 Files prefixed `_` are app configuration, not quiz content. All CSVs are plain ASCII.
 
@@ -93,6 +101,7 @@ The subject will now appear in the quiz picker.
 - **`correct` is a digit index** (not the answer text). `0` = first choice, `2` = third choice. Multiple digits (e.g. `013`) make it a "select all that apply" question.
 - **`verified` tri-state:** blank = unreviewed, `true` = verified, `false` = voided. Managed by debug mode via `dev_server.py`. Leave blank when authoring new questions.
 - **Point conventions used in the built-in banks:** beginner = 5 pts, easy = 10 pts, medium = 15 pts, hard = 20–25 pts, expert = 25–30 pts.
+- **Bank sizes:** 50 questions per tier for the subject-matter banks, 100 per tier for the older Math / Statistics / Data* banks. Nothing enforces a size; it is only a convention.
 - **Calculator:** set `calculator=true` on a question to make the scratchpad visible. The calculator is shown on every question by default in the current version; the column is kept for backward compatibility.
 
 ## CSV parsing

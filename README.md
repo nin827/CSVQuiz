@@ -8,22 +8,28 @@ A lightweight, no-install practice quiz app that runs entirely in your browser â
 
 ## Included quizzes
 
-| Subject | Difficulty tiers available |
-|---------|---------------------------|
-| Math | Beginner, Easy, Medium, Hard, Expert |
-| Statistics | Beginner, Easy, Medium, Hard, Expert |
-| Data Literacy | Beginner, Easy, Medium, Hard, Expert |
-| Data Systems | Beginner, Easy, Medium, Hard, Expert |
-| Data Querying | Beginner, Easy, Medium, Hard, Expert |
-| Economics | Beginner, Easy, Medium |
-| Marketing | Beginner, Easy, Medium |
-| Finance | Beginner, Easy, Medium |
-| Accounting | Beginner, Easy, Medium |
-| Management | Beginner, Easy, Medium |
-| Python Basics | Beginner, Easy, Medium |
-| Spreadsheets | Beginner, Easy, Medium |
+| Subject | Difficulty tiers | Questions |
+|---------|------------------|-----------|
+| Math | Beginner, Easy, Medium, Hard, Expert | 500 |
+| Statistics | Beginner, Easy, Medium | 300 |
+| Data Literacy | Beginner, Easy, Medium | 300 |
+| Data Systems | Beginner, Easy, Medium | 300 |
+| Data Querying | Beginner, Easy, Medium | 300 |
+| Economics | Beginner, Easy, Medium | 150 |
+| Marketing | Beginner, Easy, Medium | 150 |
+| Finance | Beginner, Easy, Medium | 150 |
+| Accounting | Beginner, Easy, Medium | 150 |
+| Management | Beginner, Easy, Medium | 150 |
+| Python Basics | Beginner, Easy, Medium | 150 |
+| Spreadsheets | Beginner, Easy, Medium | 150 |
+| Machine Learning | Beginner, Easy, Medium | 150 |
+| Cybersecurity | Beginner, Easy, Medium | 150 |
 
-Each subject has 50 questions per difficulty tier. Questions are shuffled every session.
+**3050 questions in total.** Questions are shuffled every session.
+
+Most subjects run from Beginner to Medium. **Math** additionally keeps its Hard
+and Expert tiers, as a reference for what those levels look like â€” so if you pick
+Hard on any other subject you will see it greyed out with a count of zero.
 
 ## How to use
 
